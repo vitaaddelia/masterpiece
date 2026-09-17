@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Catalog Heist — Vita Addelia</title>
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="case-study.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,500&family=JetBrains+Mono:wght@400;500&family=Sora:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body class="cs-body">
+
+<div class="cs-layout">
+
+  <aside class="cs-sidebar">
+    <a href="index.html#work" class="cs-back">&larr; BACK</a>
+    <nav class="cs-nav">
+      <a href="#overview" class="active">Overview</a>
+      <a href="#solution">Solution</a>
+      <a href="#problem">Problem</a>
+      <a href="#initial-findings">Initial Findings</a>
+      <a href="#design-process">Design Process</a>
+      <a href="#design-decisions">Design Decisions</a>
+      <a href="#design-system">Design System</a>
+      <a href="#qa">QA &amp; Testing</a>
+      <a href="#reflection">Reflection</a>
+    </nav>
+  </aside>
+
+  <main class="cs-main">
+
+    <div class="cs-eyebrow">ALTERNATE WORLDS &middot; E-COMMERCE &middot; 2026</div>
+    <h1 class="cs-title">The Catalog Heist: Driving Growth Through Systems &amp; User Experience</h1>
+
+    <div class="cs-hero thumb--a-bg">
+      <span class="cs-hero-label">Alternate Worlds &times; Catalog Redesign</span>
+    </div>
+
+    <div class="cs-meta-row">
+      <div>
+        <span class="cs-meta-label">ROLE</span>
+        <span class="cs-meta-value">Product Designer (Me!)</span>
+      </div>
+      <div>
+        <span class="cs-meta-label">TIMELINE</span>
+        <span class="cs-meta-value">3 months &mdash; Research, Design, QA</span>
+      </div>
+      <div>
+        <span class="cs-meta-label">TEAM</span>
+        <span class="cs-meta-value">Designers, Developers,<br />Manager, QA Team</span>
+      </div>
+      <div>
+        <span class="cs-meta-label">SKILLS</span>
+        <span class="cs-meta-value">Systems Thinking<br />Information Architecture<br />UX Design</span>
+      </div>
+    </div>
+
+    <section id="overview">
+      <div class="cs-eyebrow">OVERVIEW</div>
+      <h2>500,000+ products, 47 years of history, one navigation system that never grew up.</h2>
+      <p class="cs-intro">Alternate Worlds is a comic book, collectibles, and pop culture retailer in Bayswater, Victoria &mdash; selling comics, manga, trading cards, tabletop games, action figures, and collectibles through its retail store, online storefront, and wholesale channel, built up over 47 years in business.</p>
+
+      <div class="cs-col-3">
+        <div>
+          <h3>+395%</h3>
+          <p>Feature discoverability</p>
+        </div>
+        <div>
+          <h3>+64%</h3>
+          <p>App logins</p>
+        </div>
+        <div>
+          <h3>&minus;29%</h3>
+          <p>Customer calls</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="solution">
+      <div class="cs-eyebrow">SOLUTION</div>
+      <h2>Here are some of the key flows</h2>
+
+      <h3>Hybrid category landing pages</h3>
+      <p>Instead of forcing every visitor through the same generic browse pattern, nav-driven visits land on a hybrid category page that blends curated collections with filterable product sets &mdash; matching how people actually think about the catalog, not how the database is structured.</p>
+
+      <h3>Faceted search results</h3>
+      <p>Search-driven visits land on a faceted product grid built for intent, not exploration. When someone types "Batman," they get relevant, filterable results instead of a wall of unrelated SKUs.</p>
+
+      <h3>Series-first product grouping</h3>
+      <p>Products are grouped the way collectors actually think &mdash; by series, rather than by internal attribute taxonomy. The product card and series accordion carry that logic through the entire browse experience.</p>
+    </section>
+
+    <section id="problem">
+      <div class="cs-eyebrow">PROBLEM</div>
+      <h2>47 years, half a million products, one problem.</h2>
+      <p>The catalog had grown for decades without the underlying navigation system growing with it. Categories, filters, and search were all bolted on at different points, for different reasons, with no shared logic tying them together.</p>
+
+      <div class="cs-diagram-box">
+        <span class="cs-diagram-caption">THE NUMBERS</span>
+        <div class="cs-diagram-row">
+          <div class="cs-diagram-chip">47 years in business</div>
+          <div class="cs-diagram-chip">500K+ products</div>
+          <div class="cs-diagram-chip cs-diagram-chip--accent">61% search abandonment</div>
+        </div>
+      </div>
+
+      <h3>A user types "Batman" and gets chaos.</h3>
+      <p>A simple, high-intent search &mdash; someone looking for a specific character or collectible &mdash; returned an unfiltered, disorganized wall of results. Categories didn't behave like categories. Filters didn't behave like filters. Search didn't behave like search. In testing, a "Batman" search returned only 18% relevant results, 67% irrelevant, and 15% no match at all.</p>
+      <p>61% of e-commerce visitors abandon a site if they can't find what they're looking for within five seconds. The design wasn't entirely wrong &mdash; it had worked for years. But the catalog had outgrown the system, and every workaround since then had made the experience harder to trust, not easier.</p>
+
+      <blockquote class="cs-quote">"I know what I'm looking for and I still can't find it." &mdash; user research quote</blockquote>
+    </section>
+
+    <section id="initial-findings">
+      <div class="cs-eyebrow">INITIAL FINDINGS</div>
+      <h2>The rules the old design was breaking</h2>
+      <p>Digging into user behavior and existing patterns surfaced three principles the current experience consistently violated:</p>
+
+      <div class="cs-col-3">
+        <div>
+          <h3>Categories are filters, not steps.</h3>
+          <p>Users didn't want to be funneled through a rigid hierarchy &mdash; they wanted to narrow down a set on their own terms.</p>
+        </div>
+        <div>
+          <h3>Search &ne; browse.</h3>
+          <p>These are two different jobs to do, and the product was treating them as the same flow.</p>
+        </div>
+        <div>
+          <h3>Group by what collectors think, not internal taxonomy.</h3>
+          <p>Attribute-based grouping made sense to the business, not to the people shopping.</p>
+        </div>
+      </div>
+
+      <h3 style="margin-top: 2rem;">Goals</h3>
+      <div class="cs-col-3">
+        <div>
+          <p><strong>Help users find what they're looking for, fast</strong> (user goal)<br />Reduce drop-off and recover lost revenue (business goal)</p>
+        </div>
+        <div>
+          <p><strong>Make browsing feel intuitive, not like work</strong> (user goal)<br />Increase catalog engagement and conversion (business goal)</p>
+        </div>
+        <div>
+          <p><strong>Trust that search and filters actually work</strong> (user goal)<br />Build a system that scales with catalog growth (business goal)</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="design-process">
+      <div class="cs-eyebrow">DESIGN PROCESS</div>
+      <h2>Working my way down, thinking from a high level structure</h2>
+      <p>I started with information architecture and the category hierarchy, then moved screen by screen into browse, search, and product pages. The working principle was collector-first: group the way a collector's brain works, then let filtering handle the rest. I compared the live storefront to support and sales-floor feedback and walked each path the way a shopper would &mdash; when something felt off, I wrote down what was missing.</p>
+
+      <div class="cs-flow-row">
+        <div class="cs-flow-img cs-flow-img--a"></div>
+        <div class="cs-flow-copy">
+          <span style="font-family: var(--mono); font-size: 0.7rem; color: #b5502e;">BEFORE</span>
+          <h3>Several pages to a product list</h3>
+          <p>Getting to a product list took several pages &mdash; users clicked through a category, then a sub-category, then a results page, sometimes more, before seeing any actual products.</p>
+        </div>
+      </div>
+
+      <div class="cs-flow-row">
+        <div class="cs-flow-img cs-flow-img--b"></div>
+        <div class="cs-flow-copy">
+          <span style="font-family: var(--mono); font-size: 0.7rem; color: var(--accent);">AFTER</span>
+          <h3>One page, collapsed</h3>
+          <p>The product list lives on a single page. Category, sub-category, and results collapse into one experience, so users see products immediately instead of clicking their way there.</p>
+        </div>
+      </div>
+
+      <div class="cs-flow-row">
+        <div class="cs-flow-img cs-flow-img--a"></div>
+        <div class="cs-flow-copy">
+          <span style="font-family: var(--mono); font-size: 0.7rem; color: #b5502e;">BEFORE</span>
+          <h3>One static filter set</h3>
+          <p>Filtering meant a single, static filter set that tried to serve every use case at once &mdash; too much for quick narrowing, not enough for specific searches.</p>
+        </div>
+      </div>
+
+      <div class="cs-flow-row">
+        <div class="cs-flow-img cs-flow-img--b"></div>
+        <div class="cs-flow-copy">
+          <span style="font-family: var(--mono); font-size: 0.7rem; color: var(--accent);">AFTER</span>
+          <h3>Filtering split by intent</h3>
+          <p>An instant filter bar at the top of the page handles quick, common narrowing, while a complete filter panel off-canvas covers deeper, more specific searches.</p>
+        </div>
+      </div>
+
+      <h3>Building out the catalog page with multiple states and edge cases</h3>
+      <p>I mapped the user journey from start to finish for the main catalog page, considering every state that could impact what a shopper sees &mdash; a product image, a short overview, attribute pills, and the publish date inside each series group, and how that would vary depending on how someone arrived at the page. I did the same for search, except the use case there was different: a shopper landing from search already knows what they want, so that flow strips out the curation layer and leads straight into a filterable, intent-driven grid.</p>
+
+      <h3>Finally, the first version was ready for cross-team review</h3>
+      <p>I mapped every entry point that changes what someone sees: nav, search, and direct/deep link, plus the edge states inside each &mdash; empty results, a single exact match, partial matches, a fully populated grid, and loading/transitional states. When the set was complete, I took it to the manager, developers, and QA team.</p>
+
+      <h3>Getting stakeholder buy-in</h3>
+      <p>Reviews and rounds of iteration are hard, but they're key to turning stakeholders into advocates for the work. I knew it was crucial to listen and address concerns, without forgetting we had to be assertive about some of the design direction we chose, and to show the value in that direction. One way I get buy-in is by showing the direct value and speaking to stakeholders directly &mdash; I walked the manager through a simple before/after of how many clicks it now took to reach a product, and the reaction was immediately positive.</p>
+    </section>
+
+    <section id="design-decisions">
+      <div class="cs-eyebrow">DESIGNING WITH TECHNICAL CONSTRAINTS</div>
+      <h2>WooCommerce and the Blocksy theme setup forced me to rethink the design again.</h2>
+      <p>I designed for a fully custom accordion and filter system, but WooCommerce's product query structure and Blocksy's existing theme options didn't support every pattern I wanted out of the box. We adapted the series accordion and filter panel to work within WooCommerce's product taxonomy instead of fighting it, and kept the UI from looking like a bolt-on by matching spacing, type, and component states to Blocksy's own settings.</p>
+    </section>
+
+    <section id="design-system">
+      <div class="cs-eyebrow">DESIGN SYSTEM</div>
+      <h2>Adding new reusable components and setting them up for a clean developer handover.</h2>
+      <p>I used Figma AI to help generate first-pass component variants &mdash; the series accordion, filter states, and product card &mdash; while designing, so I could spend more time refining hierarchy and interaction instead of building every state by hand from scratch.</p>
+      <p>To keep handover simple, I named every design variable to mirror Blocksy's own theme setting names (color, spacing, and typography tokens), so developers could map a Figma variable straight to a Blocksy customizer setting without translating naming conventions in between. Figma MCP was connected so developers could pull live component specs and variable values directly from the working file, instead of relying on static redlines that go stale the moment a variant changes.</p>
+    </section>
+
+    <section id="qa">
+      <div class="cs-eyebrow">QA &amp; TESTING</div>
+      <h2>I tested multiple catalog states in staging and evaluated design specifications across various screen sizes to be sure.</h2>
+      <p>I used Claude Code to help run through QA systematically &mdash; checking each entry point (nav, search, direct link) against its expected states (empty, single-match, partial-match, fully populated, loading) and flagging layout breaks, truncated copy, and misaligned filters across common breakpoints before the limited rollout.</p>
+      <p><em>This project is still in build &mdash; outcome metrics aren't available yet. Once the redesign ships and we have data to measure against (clicks to product, search abandonment, catalog engagement), this section will be updated with real, post-launch numbers.</em></p>
+    </section>
+
+    <section id="reflection">
+      <div class="cs-eyebrow">REFLECTION</div>
+      <h2>My key takeaways and learnings</h2>
+
+      <div class="cs-col-2">
+        <div>
+          <h3>Structure before pixels saves rework.</h3>
+          <p>Mapping page types and states to user intent before touching visual design meant fewer surprises later &mdash; and a system that could flex as the catalog kept growing.</p>
+        </div>
+        <div>
+          <h3>Naming conventions are part of the design, not an afterthought.</h3>
+          <p>Mirroring Blocksy's setting names in Figma variables turned handover from a translation exercise into a direct mapping &mdash; developers didn't have to guess what a token meant.</p>
+        </div>
+      </div>
+
+      <h3 style="margin-top: 2rem;">Where AI fit into this project</h3>
+      <div class="cs-col-3">
+        <div>
+          <h3>Figma AI for first-pass components</h3>
+          <p>Generating initial variants of the accordion, filters, and product card freed up time to focus on hierarchy, copy, and edge cases instead of building every state manually.</p>
+        </div>
+        <div>
+          <h3>Figma MCP for live handover</h3>
+          <p>Connecting Figma MCP meant developers worked off the actual live file and its variables, not a static export that drifts out of sync.</p>
+        </div>
+        <div>
+          <h3>Claude Code for systematic QA</h3>
+          <p>Running QA through Claude Code made it easier to check every entry point consistently, instead of manually retracing each path by hand.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="cs-footer">
+  <span>DESIGNED + CODE WITH &hearts; BY VITAA</span>
+  <nav class="footer-links">
+    <a href="https://www.linkedin.com/in/vitaaddelia/" target="_blank" rel="noopener">LINKEDIN</a>
+    <a href="mailto:hola.vitaaddelia@gmail.com">EMAIL</a>
+  </nav>
+</footer>
+
+</body>
+</html>

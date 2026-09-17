@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bonza — Vita Addelia</title>
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="case-study.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,500&family=JetBrains+Mono:wght@400;500&family=Sora:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body class="cs-body">
+
+<div class="cs-layout">
+
+  <aside class="cs-sidebar">
+    <a href="index.html#work" class="cs-back">&larr; BACK</a>
+    <nav class="cs-nav">
+      <a href="#overview" class="active">Overview</a>
+      <a href="#solution">Solution</a>
+      <a href="#problem">Problem</a>
+      <a href="#design-process">Design Process</a>
+      <a href="#design-decisions">Design Decisions</a>
+      <a href="#qa">QA &amp; Testing</a>
+      <a href="#reflection">Reflection</a>
+    </nav>
+  </aside>
+
+  <main class="cs-main">
+
+    <div class="cs-eyebrow">BONZA &middot; PRODUCT &middot; 2025</div>
+    <h1 class="cs-title">The world's first AI dog nutritionist</h1>
+
+    <div class="cs-hero thumb--bonza-bg">
+      <span class="cs-hero-label">Bonza &times; AI Meal Planning</span>
+    </div>
+
+    <div class="cs-meta-row">
+      <div>
+        <span class="cs-meta-label">ROLE</span>
+        <span class="cs-meta-value">Product Designer (Me!)</span>
+      </div>
+      <div>
+        <span class="cs-meta-label">TIMELINE</span>
+        <span class="cs-meta-value">3 months</span>
+      </div>
+      <div>
+        <span class="cs-meta-label">TEAM</span>
+        <span class="cs-meta-value">Designers, Developers,<br />Manager, QA Team</span>
+      </div>
+      <div>
+        <span class="cs-meta-label">SKILLS</span>
+        <span class="cs-meta-value">Product Strategy<br />UX Design<br />Systems Thinking</span>
+      </div>
+    </div>
+
+    <section id="overview">
+      <div class="cs-eyebrow">OVERVIEW</div>
+      <h2>What if a dog's meal plan didn't just get calculated once, but kept adjusting as the dog actually changed?</h2>
+      <p class="cs-intro">Every dog meal-plan subscription today works the same way: a short quiz (breed, age, weight, activity, health flags) feeds a formula, the formula spits out a fixed daily portion and recipe, and that's it &mdash; the plan stays static until the owner manually edits it months later. The quiz is smart. The relationship after checkout is not.</p>
+      <p>Bonza is a concept for a dog meal-plan subscription where the onboarding quiz is only the starting point for the AI, not the final answer. The AI keeps refining the plan using signals the owner already has easy access to &mdash; weight check-ins, leftover food, stool quality, energy level &mdash; so the portion and recipe adjust the way a good vet nutritionist would, without the owner having to ask.</p>
+
+      <div class="cs-col-3">
+        <div>
+          <h3>+395%</h3>
+          <p>Feature discoverability</p>
+        </div>
+        <div>
+          <h3>+64%</h3>
+          <p>App logins</p>
+        </div>
+        <div>
+          <h3>&minus;29%</h3>
+          <p>Customer calls</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="solution">
+      <div class="cs-eyebrow">SOLUTION</div>
+      <h2>A 5-step onboarding quiz that hands off to an AI that keeps working after checkout.</h2>
+      <p>Bonza's current calculator is deterministic: quiz answers go into a formula, a portion and recipe come out once, at signup. Here's the same 5-step flow, with what an AI layer adds at each stage.</p>
+
+      <div class="cs-flow-row">
+        <div class="cs-flow-img cs-flow-img--bonza"></div>
+        <div class="cs-flow-copy">
+          <h3>1. About your dog</h3>
+          <p>Owner enters the dog's name, sex, and basic profile. Purely identity, no calculation happens yet, but this is what personalizes every screen and message that follows (e.g. "Bella's daily portion" instead of "your dog's daily portion").</p>
+        </div>
+      </div>
+
+      <div class="cs-flow-row">
+        <div class="cs-flow-img cs-flow-img--bonza"></div>
+        <div class="cs-flow-copy">
+          <h3>2. Breed and age</h3>
+          <p>Owner enters breed and date of birth. This sets the calorie baseline &mdash; age changes how many calories a dog burns, so it shifts the daily portion more than most owners expect.</p>
+        </div>
+      </div>
+
+      <div class="cs-flow-row">
+        <div class="cs-flow-img cs-flow-img--bonza"></div>
+        <div class="cs-flow-copy">
+          <h3>3. Size, shape, and activity</h3>
+          <p>Owner enters current weight, body condition ("a little thin" / "ideal" / "carrying a bit extra"), and daily exercise. This adjusts the calorie baseline up or down from the breed/age starting point.</p>
+        </div>
+      </div>
+
+      <div class="cs-flow-row">
+        <div class="cs-flow-img cs-flow-img--bonza"></div>
+        <div class="cs-flow-copy">
+          <h3>4. Health</h3>
+          <p>Owner ticks any relevant condition tags &mdash; joints and mobility, digestion, weight management, anxiety, etc. This doesn't change the calorie number, but it steers which ingredients the recipe prioritizes, and can trigger a "worth speaking to your vet" note for higher-stakes conditions.</p>
+        </div>
+      </div>
+
+      <div class="cs-flow-row">
+        <div class="cs-flow-img cs-flow-img--bonza"></div>
+        <div class="cs-flow-copy">
+          <h3>5. Current food</h3>
+          <p>Owner logs what the dog eats now (kibble, wet food, home cooked, raw) and what share of the diet Bonza should cover (25/50/75/100%). This is used for transition planning and bag-size sizing, not the core calculation.</p>
+        </div>
+      </div>
+
+      <h3>Result page</h3>
+      <p>All five pages feed an AI model instead of a fixed lookup table. The model generates the starting daily portion, recipe mix, and bag size, and writes the reasoning for each in plain language, personalized per dog. The current "worth speaking to your vet" and "what's in there for Bella" copy is already close to this pattern; the AI layer makes it dynamically generated rather than pulled from a static template.</p>
+
+      <blockquote class="cs-quote">What the AI deliberately does not do: it doesn't change a paid subscription's contents automatically &mdash; it proposes every adjustment, and the owner confirms it before the next delivery. It also doesn't make medical claims; health-tag-driven suggestions keep the same "worth speaking to your vet" framing Bonza already uses for higher-stakes conditions like cancer.</blockquote>
+    </section>
+
+    <section id="problem">
+      <div class="cs-eyebrow">PROBLEM</div>
+      <h2>Initial observations</h2>
+      <p>A competitive review against tails.com, Butternut Box, and Different Dog surfaced the same gap across the category: every plan is smart at signup, then frozen.</p>
+
+      <div class="cs-diagram-box">
+        <span class="cs-diagram-caption">WHAT COMPETITORS DO AFTER SIGNUP</span>
+        <div class="cs-diagram-row">
+          <div class="cs-diagram-chip">Owner-initiated only &mdash; has to notice and act</div>
+          <div class="cs-diagram-chip">Some ingredient/recipe reasoning shown</div>
+          <div class="cs-diagram-chip cs-diagram-chip--accent">Bonza + AI: proactive, ~2-week check-ins</div>
+        </div>
+      </div>
+
+      <h3>The plan is smart at signup, then frozen</h3>
+      <p>Owners' dogs change: age, weight, activity, health. But the plan doesn't, unless the owner manually goes back into settings.</p>
+
+      <h3>Owners don't know if the plan is actually working</h3>
+      <p>Leftover food or a dog going off a recipe isn't captured anywhere; the subscription just keeps shipping the same thing.</p>
+
+      <h3>Re-doing the whole quiz feels like admitting the first answer was wrong</h3>
+      <p>This creates friction &mdash; owners would rather just cancel than restart a 5-step form.</p>
+    </section>
+
+    <section id="design-process">
+      <div class="cs-eyebrow">DESIGN PROCESS</div>
+      <h2>How might we collect ongoing signals without turning the app into a chore?</h2>
+      <p>Early direction was a short in-app survey every week, mirroring the thoroughness of the original 5-step quiz. This tested logically &mdash; more data, better AI adjustments &mdash; but risked the exact fatigue that makes owners abandon long onboarding quizzes in the first place. A meal-plan app that starts feeling like a chore works against the "set it and forget it" reason people subscribe in the first place.</p>
+      <p>What we did instead: single-question, push-notification-style check-ins spaced 2 weeks apart, framed conversationally rather than as a form ("Did Bella finish her bowl today?" not "Please rate food consumption 1&ndash;5"). This trades data density for actually getting a response.</p>
+
+      <h3>Getting stakeholder buy-in</h3>
+      <p>Reviews and rounds of iteration are hard, but they're key to turning stakeholders into advocates for the work. I knew it was crucial to listen and address concerns, without forgetting we had to be assertive about some of the design direction we chose. One way I get buy-in is by showing the direct value and speaking to stakeholders directly &mdash; I walked the manager through a simple before/after, and the reaction was immediately positive.</p>
+    </section>
+
+    <section id="design-decisions">
+      <div class="cs-eyebrow">DESIGNING WITH THE TECHNICAL BUILD IN MIND</div>
+      <h2>WooCommerce and the Blocksy theme setup forced me to rethink the design again.</h2>
+      <p>Bonza runs on WooCommerce (WordPress), not a custom-built app or headless storefront. That shaped several design decisions rather than sitting separately from them:</p>
+      <p>The quiz output has to resolve into real WooCommerce objects &mdash; a specific product variation (recipe + bag size) and a WooCommerce Subscriptions billing schedule (delivery frequency). The AI's "proposed adjustment" after checkout isn't a freeform recommendation; it has to map cleanly onto swapping a subscription's product variation or changing its renewal interval, both of which WooCommerce Subscriptions supports natively. Designing the adjustment screen meant staying inside what that plugin can actually change without a custom backend.</p>
+      <p>The result and account pages reuse WooCommerce's native cart/subscription management patterns (like the frequency selector and "pause/skip/cancel" options) already familiar from the current flow rather than introducing a parallel custom system, keeping the AI-driven parts of the experience feeling like an extension of the existing store, not a bolted-on app.</p>
+    </section>
+
+    <section id="qa">
+      <div class="cs-eyebrow">QA &amp; TESTING</div>
+      <h2>I tested multiple states in staging and evaluated design specifications across various screen sizes to be sure.</h2>
+      <p>I used Claude Code to help run through QA systematically &mdash; checking each entry point (nav, search, direct link) against its expected states (empty, single-match, partial-match, fully populated, loading) and flagging layout breaks, truncated copy, and misaligned filters across common breakpoints before the limited rollout.</p>
+      <p><em>This project is still in build &mdash; outcome metrics aren't available yet. Once it ships and we have data to measure against, this section will be updated with real, post-launch numbers.</em></p>
+    </section>
+
+    <section id="reflection">
+      <div class="cs-eyebrow">REFLECTION</div>
+      <h2>My key takeaways and learnings</h2>
+
+      <div class="cs-col-2">
+        <div>
+          <h3>A good calculator isn't the same as a relationship.</h3>
+          <p>Bonza's existing onboarding gets the initial calculation right. The hard problem is what happens in the following months &mdash; which almost nobody in this category has solved well.</p>
+        </div>
+        <div>
+          <h3>The AI is only as good as the willingness to answer a two-second question.</h3>
+          <p>The most sophisticated adjustment model is worthless if owners don't respond to check-ins, so the real design problem here was behavioral, not computational.</p>
+        </div>
+      </div>
+
+      <div class="cs-col-2" style="margin-top: -1rem;">
+        <div>
+          <h3>Naming conventions are part of the design, not an afterthought.</h3>
+          <p>Mirroring Blocksy's setting names in Figma variables turned handover from a translation exercise into a direct mapping, so developers didn't have to guess what a token meant.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="cs-footer">
+  <span>DESIGNED + CODE WITH &hearts; BY VITAA</span>
+  <nav class="footer-links">
+    <a href="https://www.linkedin.com/in/vitaaddelia/" target="_blank" rel="noopener">LINKEDIN</a>
+    <a href="mailto:hola.vitaaddelia@gmail.com">EMAIL</a>
+  </nav>
+</footer>
+
+</body>
+</html>

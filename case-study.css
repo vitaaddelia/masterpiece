@@ -87,6 +87,18 @@
   background: linear-gradient(135deg, #4f8d75, #234b3a 70%);
 }
 
+.thumb--a-bg {
+  background: linear-gradient(135deg, #7a9fc9, #2d4a6b 70%);
+}
+
+.thumb--bonza-bg {
+  background: linear-gradient(135deg, #4a9463, #1f3d2b 70%);
+}
+
+.thumb--notes-bg {
+  background: linear-gradient(135deg, #4f8d75, #14261c 70%);
+}
+
 .cs-meta-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -237,6 +249,7 @@
 .cs-flow-img--a { background: linear-gradient(180deg, #4f8d75, #234b3a); }
 .cs-flow-img--b { background: linear-gradient(180deg, #eee, #ccc); }
 .cs-flow-img--c { background: linear-gradient(180deg, #f6e7d8, #e3c69f); }
+.cs-flow-img--bonza { background: linear-gradient(180deg, #4a9463, #1f3d2b); }
 
 .cs-flow-copy p { margin: 0; }
 
@@ -268,6 +281,7 @@
 @media (max-width: 800px) {
   .cs-layout {
     grid-template-columns: 1fr;
+    padding: 2rem 1.25rem 3.5rem;
   }
   .cs-sidebar {
     position: static;
@@ -275,10 +289,15 @@
   .cs-nav {
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 0.75rem 1.25rem;
+  }
+  .cs-title {
+    max-width: none;
   }
   .cs-meta-row {
     grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 1rem;
+    padding-bottom: 2rem;
   }
   .cs-col-3 {
     grid-template-columns: 1fr;
@@ -290,10 +309,14 @@
     grid-template-columns: 1fr;
   }
   .cs-flow-img {
-    max-width: 160px;
+    max-width: 140px;
+  }
+  .cs-collage-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
   .cs-footer {
     flex-direction: column;
     gap: 1rem;
+    padding: 1.5rem 1.25rem;
   }
 }
