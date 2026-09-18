@@ -16,14 +16,29 @@
     <span class="name">VITA ADDELIA</span>
     <span class="role">PRODUCT DESIGNER</span>
   </div>
-  <nav>
+  <nav class="desktop-nav">
     <a href="#work" class="active">WORK</a>
     <a href="#experience">EXPERIENCE</a>
-    <a href="#about">ABOUT</a>
-    <a href="#resume">RESUME</a>
+    <a href="https://drive.google.com/file/d/1Z1WExbYRlDtL6YdGYjrXzk2tt7k5s6JA/view?usp=sharing" target="_blank" rel="noopener">RESUME</a>
   </nav>
-  <a href="#" class="handle">✦ VITAADDELIA</a>
+  <a href="#" class="handle desktop-nav">✦ VITAADDELIA</a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Open menu">&#9776;</button>
 </header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-head">
+    <div class="identity">
+      <span class="name">VITA ADDELIA</span>
+      <span class="role">PRODUCT DESIGNER</span>
+    </div>
+    <button class="menu-close" id="menuClose" aria-label="Close menu">&times;</button>
+  </div>
+  <nav class="mobile-nav">
+    <a href="#work" class="active">WORK</a>
+    <a href="#experience">EXPERIENCE</a>
+    <a href="https://drive.google.com/file/d/1Z1WExbYRlDtL6YdGYjrXzk2tt7k5s6JA/view?usp=sharing" target="_blank" rel="noopener">RESUME</a>
+  </nav>
+</div>
 
 <section class="hero" id="experience">
   <h1>I'm Vita, a product<br />designer who <em>ships</em>.</h1>
@@ -61,7 +76,7 @@
 
   <article class="card card--tall">
     <a class="thumb thumb--a case-study" href="case-study-catalog-heist.html">
-      <span class="cta">◎ VIEW CASE STUDY</span>
+      <span class="cta">&#128065; READ CASE STUDY</span>
       <span class="thumb-label">The Catalog Heist</span>
     </a>
     <div class="meta">
@@ -72,7 +87,7 @@
 
   <article class="card card--tall">
     <a class="thumb thumb--f case-study" href="case-study-bonza.html">
-      <span class="cta">◎ VIEW CASE STUDY</span>
+      <span class="cta">&#128065; READ CASE STUDY</span>
       <span class="thumb-label">Bonza</span>
     </a>
     <div class="meta">
@@ -81,9 +96,10 @@
     </div>
   </article>
 
+  <!-- NOTES ERP case study hidden for now — re-add when ready:
   <article class="card card--tall">
     <a class="thumb thumb--b case-study" href="case-study-notes-payslip.html">
-      <span class="cta">◎ VIEW CASE STUDY</span>
+      <span class="cta">&#128065; READ CASE STUDY</span>
       <span class="thumb-label">Doctors Can't Read Their Payslip</span>
     </a>
     <div class="meta">
@@ -91,6 +107,7 @@
       <span class="meta-tags">NOTES HEALTHCARE ERP &middot; 2024</span>
     </div>
   </article>
+  -->
 
 </main>
 
@@ -102,6 +119,30 @@
   </nav>
 </footer>
 
+<button class="vlm-launcher" id="vlmLauncher" aria-label="Ask VitaLLM">
+  <span class="vlm-sparkle">&#10022;</span>
+</button>
+
+<div class="vlm-panel" id="vlmPanel">
+  <div class="vlm-header">
+    <span class="vlm-title">VITALLM <span class="vlm-info" title="Answers a few common questions about Vita, based on pre-written responses.">&#9432;</span></span>
+    <div class="vlm-header-actions">
+      <button id="vlmReset" aria-label="Restart conversation">&#8635;</button>
+      <button id="vlmClose" aria-label="Close">&times;</button>
+    </div>
+  </div>
+
+  <div class="vlm-body" id="vlmBody">
+    <!-- messages injected by chat-widget.js -->
+  </div>
+
+  <form class="vlm-input-row" id="vlmForm">
+    <input type="text" id="vlmInput" placeholder="Ask about Vita..." autocomplete="off" />
+    <button type="submit" aria-label="Send">&#8593;</button>
+  </form>
+</div>
+
 <script src="script.js"></script>
+<script src="chat-widget.js"></script>
 </body>
 </html>
