@@ -409,7 +409,7 @@ footer {
   .site-header {
     padding: 1.25rem 1.5rem;
   }
-  .desktop-nav { display: none; }
+  .site-header .desktop-nav { display: none; }
   .menu-toggle { display: block; }
   .grid { padding: 0 1.5rem 2rem; }
   .meta {
