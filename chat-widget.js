@@ -16,19 +16,29 @@
 
 const FAQS = [
   {
+    question: "What's your experience?",
+    keywords: ["experience", "background", "career", "history", "worked", "companies", "employer", "resume", "cv"],
+    answer: "I'm currently a Product Designer at BlazeCommerce (e-commerce, since May 2024), and also work with DSCommerce on growth-focused design in the DACH market.\n\nBefore that, I was a Senior Product Designer at NOTES Healthcare ERP (2022–2024), designing multi-role workflows for hospitals and clinics, and earlier did UX design at Kampus Indonesia and Diceritain."
+  },
+  {
+    question: "What have you worked on?",
+    keywords: ["worked on", "projects", "case studies", "portfolio", "built", "shipped"],
+    answer: "A few recent ones: The Catalog Heist (redesigning search & navigation for a 500K+ product e-commerce catalog), Bonza (an AI-driven dog meal-plan concept), and a salary redesign for doctors inside NOTES Healthcare ERP. You can see all three in the Work section above!"
+  },
+  {
     question: "What are you looking for in opportunities?",
     keywords: ["opportunit", "looking for", "job", "role", "hire", "hiring", "work with"],
-    answer: "I'm looking for product design roles where I can own a problem end-to-end — from research through developer handoff — ideally on a small team where design has real influence on strategy, not just pixels.\n\n[Edit this in chat-widget.js — this is a placeholder, personalize it!]"
+    answer: "I'm looking for product design roles where I can own a problem end-to-end — from research through developer handoff — ideally on a small team where design has real influence on strategy, not just pixels."
   },
   {
     question: "What do you do for fun?",
     keywords: ["fun", "hobby", "hobbies", "free time", "outside of work", "do for fun"],
-    answer: "[This is a placeholder — edit chat-widget.js and tell people what you actually do for fun! e.g. hobbies, weekend activities, interests outside design.]"
+    answer: "Ooh, good one — I haven't taught VitaLLM that story yet! Email Vita directly at hola.vitaaddelia@gmail.com and she'll happily tell you herself 😊"
   },
   {
     question: "What inspires you?",
     keywords: ["inspire", "inspiration", "motivat"],
-    answer: "[This is a placeholder — edit chat-widget.js with what genuinely inspires your design work or your career.]"
+    answer: "That one's a bit too personal for a scripted bot to guess at! Drop Vita a line at hola.vitaaddelia@gmail.com — she'd love to actually answer that one herself."
   },
   {
     question: "What's your design process like?",
@@ -43,12 +53,22 @@ const FAQS = [
   {
     question: "Are you open to freelance or contract work?",
     keywords: ["freelance", "contract", "available", "availability"],
-    answer: "[This is a placeholder — edit chat-widget.js to say whether you're currently open to freelance/contract work, and how people should reach out.]"
+    answer: "Depends on the project! The fastest way to find out is just to ask — email Vita at hola.vitaaddelia@gmail.com with a bit about what you have in mind 😊"
+  },
+  {
+    question: "Where are you based?",
+    keywords: ["based", "located", "location", "live", "from", "where are you"],
+    answer: "I'll let Vita share that one herself — email her at hola.vitaaddelia@gmail.com and she'll fill you in!"
+  },
+  {
+    question: "How can I get in touch?",
+    keywords: ["contact", "reach", "email", "get in touch", "linkedin", "talk"],
+    answer: "Best ways to reach me: hola.vitaaddelia@gmail.com or LinkedIn — both linked in the footer of this site!"
   }
 ];
 
 const GREETING = "Hey there, I'm VitaLLM.";
-const FALLBACK = "That's a good question — I don't have a scripted answer for that one yet. Feel free to reach out directly at hola.vitaaddelia@gmail.com and Vita will answer personally!";
+const FALLBACK = "Hmm, I don't have a scripted answer for that one yet! Email Vita directly at hola.vitaaddelia@gmail.com — she'd love to answer that herself 😊";
 
 /* ==================================================================== */
 
