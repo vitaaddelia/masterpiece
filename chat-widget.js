@@ -151,6 +151,11 @@ launcher.addEventListener('click', openPanel);
 closeBtn.addEventListener('click', closePanel);
 resetBtn.addEventListener('click', startConversation);
 
+const headerLink = document.getElementById('vlmHeaderLink');
+if (headerLink) {
+  headerLink.addEventListener('click', openPanel);
+}
+
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const text = input.value.trim();

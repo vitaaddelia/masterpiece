@@ -242,20 +242,16 @@
 .cs-img-block--b { background: linear-gradient(160deg, #f5f0e6, #e3d8bf); }
 
 .cs-flow-row {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 2rem;
-  align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.75rem;
 }
 
 .cs-flow-img {
   border-radius: 10px;
-  max-width: 220px;
   overflow: hidden;
   background: #eef0ee;
   display: flex;
   align-items: center;
+  margin-bottom: 1.25rem;
 }
 
 .cs-flow-img img {
@@ -265,12 +261,12 @@
   display: block;
 }
 
+.cs-flow-copy p { margin: 0; }
+
 .cs-flow-img--a { background: linear-gradient(180deg, #4f8d75, #234b3a); }
 .cs-flow-img--b { background: linear-gradient(180deg, #eee, #ccc); }
 .cs-flow-img--c { background: linear-gradient(180deg, #f6e7d8, #e3c69f); }
 .cs-flow-img--bonza { background: linear-gradient(180deg, #4a9463, #1f3d2b); }
-
-.cs-flow-copy p { margin: 0; }
 
 /* ---- Quote ---- */
 .cs-quote {
@@ -328,12 +324,6 @@
   }
   .cs-col-2 {
     grid-template-columns: 1fr;
-  }
-  .cs-flow-row {
-    grid-template-columns: 1fr;
-  }
-  .cs-flow-img {
-    max-width: 140px;
   }
   .cs-img-pair {
     grid-template-columns: 1fr;
