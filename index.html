@@ -2,125 +2,183 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Your Name — Product Designer + Engineer</title>
-<link rel="stylesheet" href="style.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vita Addelia — Product Designer for e-commerce &amp; healthcare</title>
+<meta name="description" content="Vita Addelia is a product designer for e-commerce and healthcare platforms. Case studies on catalog search and navigation, AI meal planning, healthcare payslips and automated QA." />
+<meta name="theme-color" content="#3B1E33" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Vita Addelia — Product Designer for e-commerce &amp; healthcare" />
+<meta property="og:description" content="Vita Addelia is a product designer for e-commerce and healthcare platforms. Case studies on catalog search and navigation, AI meal planning, healthcare payslips and automated QA." />
+<meta name="twitter:card" content="summary" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%233B1E33'/%3E%3Cpath fill='%23FFE386' d='M50 14c2.5 24 21 42.5 36 36-15 1.5-33.5 12-36 36-2.5-24-21-34.5-36-36 15-1.5 33.5-12 36-36z'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,500&family=JetBrains+Mono:wght@400;500&family=Sora:wght@400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Khand:wght@500;600;700&family=Patrick+Hand&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+
+<script>
+(function(){var r=document.documentElement;r.classList.add('js');
+try{if(true&&!sessionStorage.getItem('vita-loaded')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add('loading');}}catch(e){}})();
+</script>
 </head>
 <body>
-
-<header class="site-header">
-  <div class="identity">
-    <span class="name">VITA ADDELIA</span>
-    <span class="role">PRODUCT DESIGNER</span>
-  </div>
-  <div class="header-right">
-    <nav class="desktop-nav">
-      <a href="#work" class="active">WORK</a>
-      <a href="#experience">EXPERIENCE</a>
-      <a href="https://drive.google.com/file/d/1Z1WExbYRlDtL6YdGYjrXzk2tt7k5s6JA/view?usp=sharing" target="_blank" rel="noopener">RESUME</a>
-    </nav>
-    <button class="vlm-header-link" id="vlmHeaderLink" aria-label="Ask VitaLLM">&#10022; VITALLM</button>
-    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">&#9776;</button>
+<a class="skip" href="#main-content">Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-sparkle" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0c.6 6.7 5.3 11.4 12 12-6.7.6-11.4 5.3-12 12-.6-6.7-5.3-11.4-12-12 6.7-.6 11.4-5.3 12-12z"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></g></symbol>
+<symbol id="i-copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></g></symbol>
+</defs></svg>
+<div id="loader" aria-hidden="true">
+  <div class="lp l b"></div><div class="lp r b"></div><div class="lp l k"></div><div class="lp r k"></div>
+  <div class="lmark">Vita</div>
+  <div class="lcount"><span class="odo"><span class="col"></span><span class="col"></span><span class="col"></span></span><span class="pc">%</span></div>
+</div>
+<header class="nav paddx" id="nav">
+  <a class="logo" href="#top" aria-label="Vita Addelia, home"><svg class="" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg><span>Vita Addelia</span></a>
+  <div class="navr">
+    <button class="bk vlm-header-link" id="vlmHeaderLink" type="button" aria-label="Ask VitaLLM"><svg class="" width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg><span class="bk-label">VitaLLM</span></button>
+    <button class="mbtn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu"><span class="g"><span>Menu</span><span>Close</span></span></button>
   </div>
 </header>
-
-<div class="mobile-menu" id="mobileMenu">
-  <div class="mobile-menu-head">
-    <div class="identity">
-      <span class="name">VITA ADDELIA</span>
-      <span class="role">PRODUCT DESIGNER</span>
-    </div>
-    <button class="menu-close" id="menuClose" aria-label="Close menu">&times;</button>
-  </div>
-  <nav class="mobile-nav">
-    <a href="#work" class="active">WORK</a>
-    <a href="#experience">EXPERIENCE</a>
-    <a href="https://drive.google.com/file/d/1Z1WExbYRlDtL6YdGYjrXzk2tt7k5s6JA/view?usp=sharing" target="_blank" rel="noopener">RESUME</a>
+<div class="menu" id="menu" aria-label="Site menu" aria-hidden="true">
+  <div class="glow"></div>
+  <nav aria-label="Main">
+    <a href="#work" style="--i:0"><span class="in"><span class="base">Work</span><span class="fill" aria-hidden="true">Work</span></span></a>
+    <a href="#experience" style="--i:1"><span class="in"><span class="base">Experience</span><span class="fill" aria-hidden="true">Experience</span></span></a>
+    <a href="https://drive.google.com/file/d/1Z1WExbYRlDtL6YdGYjrXzk2tt7k5s6JA/view?usp=sharing" style="--i:2" target="_blank" rel="noopener"><span class="in"><span class="base">Resume</span><span class="fill" aria-hidden="true">Resume</span></span></a>
+    <a href="#contact" style="--i:3"><span class="in"><span class="base">Contact</span><span class="fill" aria-hidden="true">Contact</span></span></a>
   </nav>
+  <div class="hello">
+    <span class="hand">Say hello</span>
+    <div class="row"><strong>hola.vitaaddelia@gmail.com</strong>
+      <button class="copy" type="button" data-copy="hola.vitaaddelia@gmail.com" aria-label="Copy email address"><svg class="" aria-hidden="true" focusable="false"><use href="#i-copy"/></svg><span class="tip" role="status">Copied!</span></button>
+    </div>
+  </div>
 </div>
+<main id="top">
+<div id="main-content"></div>
 
-<section class="hero" id="experience">
-  <h1>I'm Vita, a product<br />designer who <em>ships</em>.</h1>
-
-  <ul class="timeline">
-    <li>
-      <span class="timeline-year">2024&ndash;Present</span>
-      <span class="timeline-co">BlazeCommerce</span>
-      <span class="timeline-role">Product Designer (E-commerce)</span>
-    </li>
-    <li>
-      <span class="timeline-year">2025&ndash;26</span>
-      <span class="timeline-co">DSCommerce</span>
-      <span class="timeline-role">Product Designer (Growth &amp; Commerce)</span>
-    </li>
-    <li>
-      <span class="timeline-year">2022&ndash;24</span>
-      <span class="timeline-co">NOTES Healthcare ERP</span>
-      <span class="timeline-role">Senior Product Designer</span>
-    </li>
-    <li>
-      <span class="timeline-year">2022</span>
-      <span class="timeline-co">Kampus Indonesia</span>
-      <span class="timeline-role">UX Designer</span>
-    </li>
-    <li>
-      <span class="timeline-year">2021</span>
-      <span class="timeline-co">Diceritain</span>
-      <span class="timeline-role">Lead UX Designer</span>
-    </li>
-  </ul>
+<section id="hero" aria-labelledby="hero-title">
+  <span class="hero-deco" aria-hidden="true"><svg class="doodle" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg></span>
+  <h1 class="d1" id="hero-title" data-split>I'm Vita, a product<br />designer for e-commerce<br />&amp; healthcare <span class="hl">systems</span>.</h1>
+  <div class="hero-bottom">
+    <div class="hero-list" data-rise>
+      <span class="sp" aria-hidden="true"><svg class="doodle" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg></span>
+      <ul>
+        <li>Now: Product Designer at BlazeCommerce</li>
+        <li>Before: DSCommerce, NOTES Healthcare ERP</li>
+        <li>Focus: search, conversion, complex workflows</li>
+      </ul>
+    </div>
+    <div class="hero-cta" data-rise style="--d:120ms">
+      <p>Case studies on catalog search, AI meal planning, doctors' payslips and automated QA.</p>
+      <div class="row">
+        <a class="rbtn" href="#work"><span class="lbl">See the work</span></a>
+        <a class="rbtn ghost" href="https://drive.google.com/file/d/1Z1WExbYRlDtL6YdGYjrXzk2tt7k5s6JA/view?usp=sharing" target="_blank" rel="noopener"><span class="lbl">Resume</span></a>
+      </div>
+    </div>
+  </div>
 </section>
 
-<main class="grid" id="work">
-
-  <article class="card card--tall">
-    <a class="thumb thumb--a case-study" href="case-study-catalog-heist.html">
-      <img class="thumb-img" src="Images/Alternate worlds Hero.gif" alt="The Catalog Heist" />
-      <span class="cta"><svg class="cta-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8Z"/><circle cx="12" cy="12" r="3"/></svg> READ CASE STUDY</span>
-    </a>
-    <div class="meta">
-      <span class="meta-title">The Catalog Heist</span>
-      <span class="meta-tags">ALTERNATE WORLDS &middot; 2026</span>
+<section id="impact" aria-labelledby="impact-title">
+  <div class="imp-pin">
+    <div class="imp-head" data-rise>
+      <div><h2 class="d2" id="impact-title">Numbers that moved.</h2><svg class="doodle wave" viewBox="0 0 300 40" aria-hidden="true"><path d="M2 20C30-4 55 44 85 20s55-24 85 0 55 24 85 0 35-14 43 0" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg></div>
+      <div><p>A few results from the e-commerce and healthcare products I've designed.</p><small>From my resume, each tied to the role it came from.</small></div>
     </div>
-  </article>
-
-  <article class="card card--tall">
-    <a class="thumb thumb--f case-study" href="case-study-bonza.html">
-      <img class="thumb-img" src="Images/Bonza-HERO.gif" alt="Bonza" />
-      <span class="cta"><svg class="cta-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8Z"/><circle cx="12" cy="12" r="3"/></svg> READ CASE STUDY</span>
-    </a>
-    <div class="meta">
-      <span class="meta-title">The World's First AI Dog Nutritionist</span>
-      <span class="meta-tags">BONZA &middot; 2025</span>
+    <div class="circs">
+      <div class="circ c1" data-count="116" data-prefix="+" data-suffix="%" data-dec="0" ><span class="n">+116%</span><p>conversion lift on DACH landing pages (DSCommerce)</p></div>
+      <div class="circ c2 alt" data-count="2.3" data-prefix="" data-suffix="&times;" data-dec="1" ><span class="n">2.3&times;</span><p>return on ad spend from better product discovery (DSCommerce)</p></div>
+      <div class="circ c3" data-count="40" data-prefix="+" data-suffix="%" data-dec="0" ><span class="n">+40%</span><p>organic traffic from clearer navigation and SEO-minded UX (BlazeCommerce)</p></div>
+      <div class="circ c4 alt" data-count="1125" data-prefix="+" data-suffix="%" data-dec="0" data-comma=1 ><span class="n">+1125%</span><p>active user growth I contributed to (NOTES Healthcare ERP)</p></div>
     </div>
-  </article>
+  </div>
+</section>
 
-  <!-- NOTES ERP case study hidden for now — re-add when ready:
-  <article class="card card--tall">
-    <a class="thumb thumb--b case-study" href="case-study-notes-payslip.html">
-      <span class="cta"><svg class="cta-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8Z"/><circle cx="12" cy="12" r="3"/></svg> READ CASE STUDY</span>
-      <span class="thumb-label">Doctors Can't Read Their Payslip</span>
-    </a>
-    <div class="meta">
-      <span class="meta-title">Redesigning Salary for Notes ERP</span>
-      <span class="meta-tags">NOTES HEALTHCARE ERP &middot; 2024</span>
+<section id="sequence" aria-labelledby="seq-title">
+  <div class="seq-pin">
+    <div id="three" aria-hidden="true"></div>
+    <div class="seq-head">
+      <p class="eyebrow">scroll to open it</p>
+      <h2 class="d2" id="seq-title" data-split>Open the laptop.</h2>
+      <p>Each project lives on its screen. Keep scrolling to switch between them.</p>
     </div>
-  </article>
-  -->
+    <div class="seq-foot">
+      <div class="meter seq-meter-wrap"><div class="row"><span>Lid angle</span><span id="angle">0&deg;</span></div><div class="bar"><i id="angleBar"></i></div></div>
+      <div class="seq-now seq-meter-wrap"><span class="tag" id="seqTag">&nbsp;</span><h3 class="d3" id="seqTitle">&nbsp;</h3><a class="rbtn" id="seqLink" href="case-study-catalog-heist.html"><span class="lbl">Read case study</span></a></div>
+    </div>
+    <div class="seq-fallback"><a class="fb-card" href="case-study-catalog-heist.html" data-title="The Catalog Heist" data-tag="ALTERNATE WORLDS · 2026" data-img="Images/Alternate worlds Hero.gif" data-bg="" data-fg=""><img src="Images/Alternate worlds Hero.gif" alt="" loading="lazy" /><span>The Catalog Heist</span></a><a class="fb-card" href="case-study-bonza.html" data-title="Bonza: the AI dog nutritionist" data-tag="BONZA · 2025" data-img="Images/Bonza-HERO.gif" data-bg="" data-fg=""><img src="Images/Bonza-HERO.gif" alt="" loading="lazy" /><span>Bonza: the AI dog nutritionist</span></a><a class="fb-card" href="case-study-notes-payslip.html" data-title="Doctors can&#x27;t read their payslip" data-tag="NOTES HEALTHCARE ERP" data-img="" data-bg="#9B3A6E" data-fg="#FBF7F2"><span class="fb-ph" style="background:#9B3A6E;color:#FBF7F2">Doctors can&#x27;t read their payslip</span><span>Doctors can&#x27;t read their payslip</span></a><a class="fb-card" href="case-study-qa-automation.html" data-title="I build designs. I make sure they work." data-tag="UI/UX + AI + QA AUTOMATION" data-img="" data-bg="#5A1D44" data-fg="#FFE386"><span class="fb-ph" style="background:#5A1D44;color:#FFE386">I build designs. I make sure they work.</span><span>I build designs. I make sure they work.</span></a></div>
+  </div>
+</section>
 
+<section id="break" data-rise><p class="d2">Keep scrolling.</p></section>
+<div class="scallop"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+<section id="intro" class="dark-band" data-tone="dark" aria-labelledby="intro-title">
+  <span class="idoo a" aria-hidden="true"><svg class="doodle" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg></span>
+  <span class="idoo b" aria-hidden="true"><svg class="doodle" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg></span>
+  <span class="idoo c" aria-hidden="true"><svg class="doodle" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg></span>
+  <h2 class="d1" id="intro-title">I make <span class="rot" aria-hidden="true"><span class="g"><span>catalogs</span><span>payslips</span><span>quizzes</span><span>checkouts</span><span>workflows</span></span></span><span class="sr-only">catalogs, payslips, quizzes, checkouts and workflows</span> easier to use.</h2>
+</section>
+
+<section id="work" class="dark-band" data-tone="dark" aria-labelledby="work-title">
+  <div class="work-head"><h2 class="d2" id="work-title" data-split>Selected work</h2><p data-rise>Four case studies. Hover a project to see where it goes.</p></div>
+  <div class="proj-grid"><article class="proj">
+      <a class="proj-media has-pill" href="case-study-catalog-heist.html" aria-label="Read case study: The Catalog Heist"><img src="Images/Alternate worlds Hero.gif" alt="The Catalog Heist: redesigned category and search experience for the Alternate Worlds comics storefront" loading="lazy" decoding="async" /><span class="pill"><svg class="" aria-hidden="true" focusable="false"><use href="#i-eye"/></svg>Read case study</span></a>
+      <div class="proj-meta"><span class="tag">ALTERNATE WORLDS &middot; 2026</span><h3 class="d3">The Catalog Heist</h3><p>Category, sub-category and results collapsed into one page. Launch metrics pending.</p>
+        <a class="rbtn light ghost" href="case-study-catalog-heist.html"><span class="lbl">Read case study</span></a></div>
+    </article><article class="proj">
+      <a class="proj-media has-pill" href="case-study-bonza.html" aria-label="Read case study: The world&#x27;s first AI dog nutritionist"><img src="Images/Bonza-HERO.gif" alt="Bonza: AI dog meal-plan quiz interface" loading="lazy" decoding="async" /><span class="pill"><svg class="" aria-hidden="true" focusable="false"><use href="#i-eye"/></svg>Read case study</span></a>
+      <div class="proj-meta"><span class="tag">BONZA &middot; 2025</span><h3 class="d3">The world's first AI dog nutritionist</h3><p>Concept: a meal plan that keeps adjusting after checkout, with the owner confirming every change.</p>
+        <a class="rbtn light ghost" href="case-study-bonza.html"><span class="lbl">Read case study</span></a></div>
+    </article><article class="proj">
+      <a class="proj-media has-pill" href="case-study-notes-payslip.html" aria-label="Read case study: Doctors can&#x27;t read their payslip"><img src="https://framerusercontent.com/images/F6ASjga9sSfkAYvylShj61uVXQA.png?scale-down-to=1024&width=4096&height=4096" alt="The redesigned salary dashboard inside Notes ERP" loading="lazy" decoding="async" /><span class="pill"><svg class="" aria-hidden="true" focusable="false"><use href="#i-eye"/></svg>Read case study</span></a>
+      <div class="proj-meta"><span class="tag">NOTES HEALTHCARE ERP &middot; 2022&ndash;24</span><h3 class="d3">Doctors can't read their payslip</h3><p>A 70% usage jump after redesigning how doctors read, trace and dispute their pay.</p>
+        <a class="rbtn light ghost" href="case-study-notes-payslip.html"><span class="lbl">Read case study</span></a></div>
+    </article><article class="proj">
+      <a class="proj-media has-pill" href="case-study-qa-automation.html" aria-label="Read case study: I build designs. I make sure they work."><span class="tcard" style="background:#5A1D44;color:#FFE386"><span class="big">QA</span><span class="small">413 tests &middot; 200+ pages</span></span><span class="pill"><svg class="" aria-hidden="true" focusable="false"><use href="#i-eye"/></svg>Read case study</span></a>
+      <div class="proj-meta"><span class="tag">UI/UX + AI + QA AUTOMATION</span><h3 class="d3">I build designs. I make sure they work.</h3><p>413 automated tests covering 200+ pages, run with a single API call.</p>
+        <a class="rbtn light ghost" href="case-study-qa-automation.html"><span class="lbl">Read case study</span></a></div>
+    </article></div>
+</section>
+
+<div class="scallop to-cream"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+<section id="experience" aria-labelledby="exp-title">
+  <div class="exp-head paddx"><h2 class="d2" id="exp-title" data-split>Where I've worked</h2>
+    <div class="exp-ctrl"><span class="hint" aria-hidden="true">Drag me &rarr;</span>
+      <button class="cbtn prev" type="button" aria-label="Previous"><span class="f"></span><svg class="" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></button>
+      <button class="cbtn next" type="button" aria-label="Next"><span class="f"></span><svg class="" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></button></div></div>
+  <div class="exp-wrap"><div class="exp-track"><article class="xcard"><span class="yr">2024 &ndash; Now</span><h3>BlazeCommerce</h3><span class="role">Product Designer (E-commerce)</span><p>19+ e-commerce sites across Shopify, WooCommerce, WordPress and Framer. +40% organic traffic, +25% conversion.</p></article><article class="xcard"><span class="yr">2025 &ndash; 2026</span><h3>DSCommerce</h3><span class="role">Product Designer (Growth &amp; Commerce)</span><p>29+ landing pages for the DACH market. +116% conversion and 2.3&times; ROAS through UX and A/B testing.</p></article><article class="xcard"><span class="yr">2022 &ndash; 2024</span><h3>NOTES Healthcare ERP</h3><span class="role">Senior Product Designer</span><p>Multi-role workflows for hospitals and clinics. Contributed to +1,125% active user growth.</p></article><article class="xcard"><span class="yr">2022</span><h3>Kampus Indonesia</h3><span class="role">UX Designer</span><p>Responsive learning experiences for an online education platform, shaped by usability tests and interviews.</p></article><article class="xcard"><span class="yr">2021</span><h3>Diceritain</h3><span class="role">Lead UX Designer</span><p>A mental-health peer-support app: its first design system, plus research that supported 27,000+ session hours.</p></article></div></div>
+</section>
+
+<div class="scallop to-plum"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+<section id="contact" data-tone="dark" aria-labelledby="contact-title">
+  <span class="cdoo a" aria-hidden="true"><svg class="doodle" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg></span>
+  <span class="cdoo b" aria-hidden="true"><svg class="doodle" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg></span>
+  <h2 class="d1" id="contact-title" data-split>Say hello.</h2>
+  <p data-rise>Email me or find me on LinkedIn. I'd love to hear what you're working on.</p>
+  <div class="contact-row" data-rise>
+    <a class="rbtn light" href="mailto:hola.vitaaddelia@gmail.com"><span class="lbl">Email me</span></a>
+    <a class="rbtn ghost light" href="https://www.linkedin.com/in/vitaaddelia/" target="_blank" rel="noopener"><span class="lbl">LinkedIn</span></a>
+    <a class="rbtn ghost light" href="https://drive.google.com/file/d/1Z1WExbYRlDtL6YdGYjrXzk2tt7k5s6JA/view?usp=sharing" target="_blank" rel="noopener"><span class="lbl">Resume</span></a>
+  </div>
+</section>
 </main>
-
-<footer>
-  <span>DESIGNED + CODE WITH ♡ BY VITAA</span>
-  <nav class="footer-links">
-    <a href="https://www.linkedin.com/in/vitaaddelia/" target="_blank" rel="noopener">LINKEDIN</a>
-    <a href="mailto:hola.vitaaddelia@gmail.com">EMAIL</a>
-  </nav>
+<footer class="site-footer" data-tone="dark">
+  <div class="foot-top">
+    <nav class="foot-links" aria-label="Footer">
+      <a href="#work">Work</a><a href="#experience">Experience</a><a href="https://drive.google.com/file/d/1Z1WExbYRlDtL6YdGYjrXzk2tt7k5s6JA/view?usp=sharing" target="_blank" rel="noopener">Resume</a><a href="#contact">Contact</a>
+    </nav>
+    <div class="foot-social"><a href="https://www.linkedin.com/in/vitaaddelia/" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:hola.vitaaddelia@gmail.com">Email</a></div>
+  </div>
+  <div class="foot-word" aria-hidden="true">Vita Addelia</div>
+  <div class="foot-bottom"><span>DESIGNED + CODE WITH &hearts; BY VITAA</span>
+    <a class="cbtn up" href="#top" aria-label="Back to top"><span class="f"></span><svg class="" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></div>
 </footer>
-
 <button class="vlm-launcher" id="vlmLauncher" aria-label="Ask VitaLLM">
   <span class="vlm-sparkle">&#10022;</span>
 </button>
@@ -143,8 +201,9 @@
     <button type="submit" aria-label="Send">&#8593;</button>
   </form>
 </div>
-
-<script src="script.js"></script>
-<script src="chat-widget.js"></script>
+<script defer src="vendor/lenis.min.js"></script>
+<script defer src="site.js"></script>
+<script defer src="home.js"></script>
+<script defer src="chat-widget.js"></script>
 </body>
 </html>

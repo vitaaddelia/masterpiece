@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>I Build Designs. I Also Make Sure They Work. | Vita Addelia</title>
+<meta name="description" content="How I built an automated QA system with Ghost Inspector and Claude AI: 413 tests covering 200+ pages, run with a single API call. A case study by Vita Addelia." />
+<meta name="theme-color" content="#3B1E33" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="I Build Designs. I Also Make Sure They Work. | Vita Addelia" />
+<meta property="og:description" content="How I built an automated QA system with Ghost Inspector and Claude AI: 413 tests covering 200+ pages, run with a single API call. A case study by Vita Addelia." />
+<meta name="twitter:card" content="summary" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%233B1E33'/%3E%3Cpath fill='%23FFE386' d='M50 14c2.5 24 21 42.5 36 36-15 1.5-33.5 12-36 36-2.5-24-21-34.5-36-36 15-1.5 33.5-12 36-36z'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Khand:wght@500;600;700&family=Patrick+Hand&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="case-study.css" />
+<script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+<a class="skip" href="#main-content">Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-sparkle" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0c.6 6.7 5.3 11.4 12 12-6.7.6-11.4 5.3-12 12-.6-6.7-5.3-11.4-12-12 6.7-.6 11.4-5.3 12-12z"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></g></symbol>
+<symbol id="i-copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></g></symbol>
+</defs></svg>
+
+<header class="nav paddx" id="nav">
+  <a class="logo" href="index.html#top" aria-label="Vita Addelia, home"><svg class="" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg><span>Vita Addelia</span></a>
+  <div class="navr">
+    <button class="bk vlm-header-link" id="vlmHeaderLink" type="button" aria-label="Ask VitaLLM"><svg class="" width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg><span class="bk-label">VitaLLM</span></button>
+    <button class="mbtn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu"><span class="g"><span>Menu</span><span>Close</span></span></button>
+  </div>
+</header>
+<div class="menu" id="menu" aria-label="Site menu" aria-hidden="true">
+  <div class="glow"></div>
+  <nav aria-label="Main">
+    <a href="index.html#work" style="--i:0"><span class="in"><span class="base">Work</span><span class="fill" aria-hidden="true">Work</span></span></a>
+    <a href="index.html#experience" style="--i:1"><span class="in"><span class="base">Experience</span><span class="fill" aria-hidden="true">Experience</span></span></a>
+    <a href="https://drive.google.com/file/d/1Z1WExbYRlDtL6YdGYjrXzk2tt7k5s6JA/view?usp=sharing" style="--i:2" target="_blank" rel="noopener"><span class="in"><span class="base">Resume</span><span class="fill" aria-hidden="true">Resume</span></span></a>
+    <a href="index.html#contact" style="--i:3"><span class="in"><span class="base">Contact</span><span class="fill" aria-hidden="true">Contact</span></span></a>
+  </nav>
+  <div class="hello">
+    <span class="hand">Say hello</span>
+    <div class="row"><strong>hola.vitaaddelia@gmail.com</strong>
+      <button class="copy" type="button" data-copy="hola.vitaaddelia@gmail.com" aria-label="Copy email address"><svg class="" aria-hidden="true" focusable="false"><use href="#i-copy"/></svg><span class="tip" role="status">Copied!</span></button>
+    </div>
+  </div>
+</div>
+<main id="top">
+<div id="main-content" class="cs-layout">
+  <aside class="cs-sidebar">
+    <a href="index.html#work" class="cs-back"><svg class="" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg> Back to work</a>
+    <nav class="cs-nav" aria-label="On this page">
+      <a href="#overview" class="active">Overview</a>
+      <a href="#problem">The problem</a>
+      <a href="#approach">My approach</a>
+      <a href="#ai">Where AI came in</a>
+      <a href="#interactions">Testing interactions</a>
+      <a href="#result">The result</a>
+      <a href="#impact">Impact</a>
+      <a href="#takeaway">What this shows</a>
+    </nav>
+  </aside>
+  <article class="cs-main">
+    <div class="cs-eyebrow">UI/UX DESIGNER USING AI AUTOMATION</div>
+    <h1 class="cs-title">I build designs. I also make sure they actually work.</h1>
+    <div class="cs-bigword" aria-hidden="true">QA</div>
+    <div class="cs-meta-row">
+      <div><span class="cs-meta-label">Role</span><span class="cs-meta-value">UI/UX Designer</span></div>
+      <div><span class="cs-meta-label">Tools</span><span class="cs-meta-value">Ghost Inspector + Claude AI</span></div>
+      <div><span class="cs-meta-label">Tests built</span><span class="cs-meta-value">413</span></div>
+      <div><span class="cs-meta-label">Pages covered</span><span class="cs-meta-value">200+</span></div>
+    </div>
+    <div class="cs-summary">
+      <div><span class="cs-meta-label">Outcome</span><p>413 automated tests across 200+ pages, run with a single API call after each deployment.</p></div>
+      <div><span class="cs-meta-label">Constraint</span><p>Manually verifying 200 pages on desktop and mobile after every deployment took hours and was inconsistent by nature.</p></div>
+      <div><span class="cs-meta-label">Key decision</span><p>Prioritize coverage by user and business impact, and test interactive states, not just page loads.</p></div>
+      <div><span class="cs-meta-label">Trade-off</span><p>Sampled coverage for 100+ documentation sub-pages instead of testing every URL.</p></div>
+    </div>
+
+    <section id="overview">
+      <div class="cs-eyebrow">OVERVIEW</div>
+      <h2>Most designers hand off and hope for the best.</h2>
+      <p class="cs-intro">I built a fully automated QA system using <strong>Ghost Inspector</strong> and <strong>Claude AI</strong> that verifies every page, every pop-up, and every interaction was delivered exactly as I designed it, with only a minimal final check needed from me at the end. The site had over 200 pages covering everything from product listings and checkout flows to video guides, support documentation, and software user guides.</p>
+    </section>
+
+    <section id="problem">
+      <div class="cs-eyebrow">01 &mdash; THE PROBLEM</div>
+      <h2>Designs ship. Things break quietly.</h2>
+      <p>After a development handoff, things break in ways that are easy to miss. These kinds of issues are not caught in a standard dev review because developers test functionality, not design intent.</p>
+      <blockquote class="cs-quote">But manually verifying 200 pages across desktop and mobile after every single deployment is hours of work. It is also inconsistent by nature.</blockquote>
+      <p>What I needed was a way to turn my design knowledge into automated tests. Tests that run after every deployment.</p>
+      <figure class="cs-figure"><img src="https://framerusercontent.com/images/F9wtGXWAa6yBfUNEYBJCp9vIY.png?scale-down-to=1024&width=1512&height=1679" srcset="https://framerusercontent.com/images/F9wtGXWAa6yBfUNEYBJCp9vIY.png?scale-down-to=512&width=1512&height=1679 512w, https://framerusercontent.com/images/F9wtGXWAa6yBfUNEYBJCp9vIY.png?scale-down-to=1024&width=1512&height=1679 1024w" sizes="(min-width: 900px) 800px, 100vw" width="1512" height="1679" alt="A comparison of manual QA coverage against automated QA coverage" loading="lazy" decoding="async" /><figcaption>Manual QA is partial by nature. Automated QA is complete by design.</figcaption></figure>
+    </section>
+
+    <section id="approach">
+      <div class="cs-eyebrow">02 &mdash; MY APPROACH</div>
+      <h2>Think like a designer. Test like a machine.</h2>
+      <p>The first question was not how to build the tests. It was what to test. A 200+ page site cannot be covered at equal depth everywhere. I prioritized coverage based on how much a broken experience on any given page would hurt a real user and the business behind it.</p>
+      <div class="cs-col-2">
+        <div><h3>Interactive components first</h3><p>Mini cart open state, off-canvas mobile menu, navigation drawer, wishlist page.</p></div>
+        <div><h3>Commerce and conversion pages</h3><p>Product pages, checkout, cart, free trial pages. A broken experience here has a direct revenue impact.</p></div>
+        <div><h3>Marketing and support content</h3><p>Testimonials, downloads, software guides, support library. Important for user trust and organic search performance.</p></div>
+        <div><h3>Deep documentation as sampled coverage</h3><p>The site has 100+ video and guide sub-pages. Rather than testing every individual URL, I tested section landing pages plus a representative sample from each category.</p></div>
+      </div>
+      <p>Every test follows a pattern that mirrors exactly how I would manually review a page.</p>
+      <div class="cs-code"><span class="cap">Base test pattern for every page</span><pre><code><span class="c">// Open the page</span>
+{ &quot;command&quot;: &quot;open&quot;, &quot;value&quot;: &quot;/page-path/&quot; }
+
+<span class="c">// Screenshot as visual proof it rendered correctly</span>
+{ &quot;command&quot;: &quot;screenshot&quot; }
+
+<span class="c">// Confirm a reliable core element is present</span>
+{ &quot;command&quot;: &quot;assertElementPresent&quot;, &quot;target&quot;: &quot;main&quot; }</code></pre></div>
+    </section>
+
+    <section id="ai">
+      <div class="cs-eyebrow">03 &mdash; WHERE AI CAME IN</div>
+      <h2>Claude wrote the tests. I directed the thinking.</h2>
+      <p>Writing 50+ Ghost Inspector tests by hand in JSON is technically possible. But the time cost makes it the kind of task that never actually gets done. That is exactly where Claude AI became a genuine force multiplier. I described what I needed in plain language, and Claude generated the complete test JSON, suggested the right CSS selectors for the Blocksy WordPress theme, and flagged which assertions should be hard failures versus optional.</p>
+      <blockquote class="cs-quote">Claude handled the translation from design intent to working test code. I stayed focused on knowing what to test and why it mattered.</blockquote>
+      <ul class="cs-list"><li>Identified the correct CSS selectors for Blocksy theme components without requiring manual DOM inspection for every element</li><li>Generated complete Ghost Inspector JSON payloads with correct step format, sequence numbers, and optional flags, ready to deploy via the API immediately</li><li>Structured the prioritization logic across 200+ pages so coverage was meaningful rather than just large in number</li><li>Built the sampled documentation approach that kept the suite manageable without losing meaningful coverage of deep content sections</li><li>Provided the exact API calls needed to create new tests, update existing ones, and trigger full suite execution</li></ul>
+      <figure class="cs-figure"><img src="https://framerusercontent.com/images/CFjHbPmgbyofZ2o9YQ7YaNgt78I.png?scale-down-to=1024&width=2400&height=1100" srcset="https://framerusercontent.com/images/CFjHbPmgbyofZ2o9YQ7YaNgt78I.png?scale-down-to=512&width=2400&height=1100 512w, https://framerusercontent.com/images/CFjHbPmgbyofZ2o9YQ7YaNgt78I.png?scale-down-to=1024&width=2400&height=1100 1024w, https://framerusercontent.com/images/CFjHbPmgbyofZ2o9YQ7YaNgt78I.png?scale-down-to=2048&width=2400&height=1100 2048w" sizes="(min-width: 900px) 800px, 100vw" width="2400" height="1100" alt="A conversation with Claude where test requirements go in and Ghost Inspector JSON comes out" loading="lazy" decoding="async" /><figcaption>The Claude AI conversation was the bridge between design knowledge and working test code. Context in, deployable tests out.</figcaption></figure>
+    </section>
+
+    <section id="interactions">
+      <div class="cs-eyebrow">04 &mdash; TESTING INTERACTIONS</div>
+      <h2>Not just pages. The states inside them.</h2>
+      <p>The most important shift in this project was testing actual UI interactions. What this system checks is whether clicking the cart icon opens the cart, whether the mobile menu drawer animates in fully, and whether the close button on that drawer responds. These are the things that reflect design intent, and they are the things that most QA processes skip entirely.</p>
+      <h3>Mini cart open state</h3>
+      <p>The original test suite had mini cart tests, but they only confirmed the cart widget existed somewhere in the DOM. They never triggered the open state. I rewrote them to simulate exactly what a real user does: land on a page, click the cart icon, wait for the dropdown to appear, and capture a screenshot of the live open state.</p>
+      <div class="cs-code"><span class="cap">Mini cart interaction test: desktop at 1280x800</span><pre><code><span class="c">// Land on the homepage</span>
+{ &quot;command&quot;: &quot;open&quot;, &quot;value&quot;: &quot;/&quot; }
+
+<span class="c">// Click the header cart icon</span>
+{ &quot;command&quot;: &quot;click&quot;, &quot;target&quot;: &quot;.ct-header-cart&quot; }
+
+<span class="c">// Wait for the dropdown to fully appear</span>
+{ &quot;command&quot;: &quot;waitForElementPresent&quot;, &quot;target&quot;: &quot;.woocommerce-mini-cart&quot; }
+
+<span class="c">// Screenshot the open state: this is the design being verified</span>
+{ &quot;command&quot;: &quot;screenshot&quot; }
+
+<span class="c">// Assert cart content is present as a soft check</span>
+{ &quot;command&quot;: &quot;assertElementPresent&quot;, &quot;target&quot;: &quot;.woocommerce-mini-cart&quot;, &quot;optional&quot;: true }</code></pre></div>
+      <figure class="cs-figure"><img src="https://framerusercontent.com/images/jlXDqYfLIlKWmmXHmlym9IdSh0.png?scale-down-to=1024&width=1192&height=1143" srcset="https://framerusercontent.com/images/jlXDqYfLIlKWmmXHmlym9IdSh0.png?scale-down-to=512&width=1192&height=1143 512w, https://framerusercontent.com/images/jlXDqYfLIlKWmmXHmlym9IdSh0.png?scale-down-to=1024&width=1192&height=1143 1024w" sizes="(min-width: 900px) 800px, 100vw" width="1192" height="1143" alt="The mini cart in its open state, captured by the automated test" loading="lazy" decoding="async" /><figcaption>The test captures the full open state of the mini cart. This is the state I designed. This is what the test verifies every time.</figcaption></figure>
+      <h3>Mobile off-canvas navigation</h3>
+      <p>At a 375x812 viewport, the navigation collapses into an off-canvas drawer triggered by a hamburger icon. This is one of the most visually distinctive components on mobile. The test clicks the toggle, waits for the drawer to animate in completely, and screenshots the full open state. Desktop and mobile are treated as completely separate test contexts because their failure modes have almost no overlap.</p>
+    </section>
+
+    <section id="result">
+      <div class="cs-eyebrow">05 &mdash; THE RESULT</div>
+      <h2>A full site under automated watch.</h2>
+      <div class="cs-stats">
+        <div class="cs-stat"><span class="n">413</span><p>Tests after the build-out</p></div>
+        <div class="cs-stat"><span class="n">2&times;</span><p>Desktop and mobile pairs for every key interaction</p></div>
+        <div class="cs-stat"><span class="n">200+</span><p>Pages with verified coverage</p></div>
+      </div>
+      <p>Every major page category now has a defined test strategy. Interactive commercial pages get both desktop and mobile variants. Marketing and educational pages get standard desktop tests. Deep documentation sections get sampled coverage that stays representative without being exhaustive.</p>
+      <p>Running the entire suite is a single API call. Ghost Inspector spins up headless Chrome instances, visits every page, triggers every interactive component, and returns pass and fail results with screenshots at each step. When something fails, I know exactly which step broke and what the browser saw at that exact moment. The manual review I do afterward is minimal: a quick scan of flagged items rather than a full site walkthrough from scratch.</p>
+      <div class="cs-code"><span class="cap">Execute the full suite via API</span><pre><code>curl -s &quot;https://api.ghostinspector.com/v1/suites/[SUITE_ID]/execute/
+  ?apiKey=[API_KEY]&amp;immediate=1&quot;</code></pre></div>
+    </section>
+
+    <section id="impact">
+      <div class="cs-eyebrow">06 &mdash; IMPACT</div>
+      <h2>Design intent. Actually protected.</h2>
+      <h3>From reactive to proactive.</h3>
+      <p>Before this system, catching a broken interaction meant someone had to stumble across it: a designer, a client, or a real user. After this, the system catches it automatically right after deployment, before anyone else sees it.</p>
+      <div class="cs-stats">
+        <div class="cs-stat"><span class="n">~3</span><p>Hours of full manual QA review per deployment</p></div>
+        <div class="cs-stat"><span class="n">413</span><p>Automated tests running across the full site</p></div>
+        <div class="cs-stat"><span class="n">100%</span><p>Of interactive components verified in their designed open states</p></div>
+      </div>
+      <ul class="cs-list"><li>Every interactive UI state, including open cart, open menu, open drawers, and wishlist, is verified after every single deployment</li><li>Visual regressions are surfaced automatically before any client or end user encounters them</li><li>Desktop and mobile parity is verified programmatically rather than assumed or spot-checked</li><li>Design intent is codified in running tests, not just documented in a Figma file that nobody checks against</li><li>The development team receives specific failure context (the exact step, selector, and viewport) instead of vague reports that something looks wrong</li></ul>
+    </section>
+
+    <section id="takeaway">
+      <div class="cs-eyebrow">07 &mdash; WHAT THIS SHOWS</div>
+      <h2>A designer who owns the full delivery.</h2>
+      <p>Most designers consider the job done when the design file is handed over. I consider it done when the experience is working correctly in the browser, at every viewport, on every page, after every deployment. That is a fundamentally different standard, and this project is evidence that I hold myself to it.</p>
+      <p>Building this system required thinking like a designer, a QA tester, and a systems thinker at the same time. Understanding the design deeply enough to know what "correct" looks like. Understanding the site structure well enough to prioritize coverage where it matters most. And using AI tools well enough to turn weeks of potential manual work into something that runs in five minutes.</p>
+      <div class="cs-col-2">
+        <div><h3>Interactive states over page loads</h3><p>Pages load. The things that break are the interactive states: open carts, expanded menus, triggered drawers. Always start the test suite there.</p></div>
+        <div><h3>AI as execution, designer as direction</h3><p>Claude generated the tests. I decided what to test, why it mattered, and what good coverage looked like. The combination is what made this scalable.</p></div>
+        <div><h3>Mobile is a separate product</h3><p>Desktop and mobile have completely different failure modes. They need separate test contexts, not a shared one.</p></div>
+        <div><h3>Soft assertions reduce noise</h3><p>Marking dynamic content as optional keeps the suite trustworthy. A test that false-fails constantly is worse than no test at all.</p></div>
+      </div>
+      <blockquote class="cs-quote">Automated QA is not a developer tool that designers happen to use. It is a design tool. It is how you make sure what you designed is what actually got built.</blockquote>
+    </section>
+  </article>
+</div>
+<section class="next-case" data-tone="dark" aria-labelledby="next-title">
+  <p class="eyebrow">Next case study</p>
+  <h2 class="d2" id="next-title">The Catalog Heist</h2>
+  <p>Redesigning search and navigation for a 500,000-product catalog.</p>
+  <a class="rbtn light" href="case-study-catalog-heist.html"><span class="lbl">Read case study</span></a>
+</section>
+</main>
+<footer class="site-footer" data-tone="dark">
+  <div class="foot-top">
+    <nav class="foot-links" aria-label="Footer">
+      <a href="index.html#work">Work</a><a href="index.html#experience">Experience</a><a href="https://drive.google.com/file/d/1Z1WExbYRlDtL6YdGYjrXzk2tt7k5s6JA/view?usp=sharing" target="_blank" rel="noopener">Resume</a><a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="foot-social"><a href="https://www.linkedin.com/in/vitaaddelia/" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:hola.vitaaddelia@gmail.com">Email</a></div>
+  </div>
+  <div class="foot-word" aria-hidden="true">Vita Addelia</div>
+  <div class="foot-bottom"><span>DESIGNED + CODE WITH &hearts; BY VITAA</span>
+    <a class="cbtn up" href="#top" aria-label="Back to top"><span class="f"></span><svg class="" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></div>
+</footer>
+<button class="vlm-launcher" id="vlmLauncher" aria-label="Ask VitaLLM">
+  <span class="vlm-sparkle">&#10022;</span>
+</button>
+
+<div class="vlm-panel" id="vlmPanel">
+  <div class="vlm-header">
+    <span class="vlm-title">VITALLM <span class="vlm-info" title="Answers a few common questions about Vita, based on pre-written responses.">&#9432;</span></span>
+    <div class="vlm-header-actions">
+      <button id="vlmReset" aria-label="Restart conversation">&#8635;</button>
+      <button id="vlmClose" aria-label="Close">&times;</button>
+    </div>
+  </div>
+
+  <div class="vlm-body" id="vlmBody">
+    <!-- messages injected by chat-widget.js -->
+  </div>
+
+  <form class="vlm-input-row" id="vlmForm">
+    <input type="text" id="vlmInput" placeholder="Ask about Vita..." autocomplete="off" />
+    <button type="submit" aria-label="Send">&#8593;</button>
+  </form>
+</div>
+<script defer src="vendor/lenis.min.js"></script>
+<script defer src="site.js"></script>
+<script defer src="chat-widget.js"></script>
+<script defer src="case-study-scroll.js"></script>
+</body>
+</html>

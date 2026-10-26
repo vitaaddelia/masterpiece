@@ -1,0 +1,9 @@
+Third-party libraries bundled in this folder (both MIT licensed):
+
+three.min.js  - three.js r149   - Copyright 2010-2023 Three.js Authors - https://github.com/mrdoob/three.js
+lenis.min.js  - Lenis 1.1.13    - Copyright Darkroom Engineering      - https://github.com/darkroomengineering/lenis
+
+MIT License: permission is granted, free of charge, to any person obtaining a copy of this
+software and associated files, to deal in the software without restriction, subject to the
+copyright notice above being included in all copies. THE SOFTWARE IS PROVIDED "AS IS",
+WITHOUT WARRANTY OF ANY KIND.

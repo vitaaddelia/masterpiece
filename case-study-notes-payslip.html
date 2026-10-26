@@ -2,55 +2,81 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Doctors Can't Read Their Payslip — Vita Addelia</title>
-<link rel="stylesheet" href="style.css" />
-<link rel="stylesheet" href="case-study.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Doctors Can&#x27;t Read Their Payslip | Vita Addelia</title>
+<meta name="description" content="Redesigning the salary experience inside a healthcare ERP so doctors can see and trace their pay. A case study by Vita Addelia." />
+<meta name="theme-color" content="#3B1E33" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Doctors Can&#x27;t Read Their Payslip | Vita Addelia" />
+<meta property="og:description" content="Redesigning the salary experience inside a healthcare ERP so doctors can see and trace their pay. A case study by Vita Addelia." />
+<meta name="twitter:card" content="summary" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%233B1E33'/%3E%3Cpath fill='%23FFE386' d='M50 14c2.5 24 21 42.5 36 36-15 1.5-33.5 12-36 36-2.5-24-21-34.5-36-36 15-1.5 33.5-12 36-36z'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,500&family=JetBrains+Mono:wght@400;500&family=Sora:wght@400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Khand:wght@500;600;700&family=Patrick+Hand&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="case-study.css" />
+<script>document.documentElement.classList.add("js");</script>
 </head>
-<body class="cs-body">
+<body>
+<a class="skip" href="#main-content">Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-sparkle" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0c.6 6.7 5.3 11.4 12 12-6.7.6-11.4 5.3-12 12-.6-6.7-5.3-11.4-12-12 6.7-.6 11.4-5.3 12-12z"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></g></symbol>
+<symbol id="i-copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></g></symbol>
+</defs></svg>
 
-<div class="cs-layout">
-
+<header class="nav paddx" id="nav">
+  <a class="logo" href="index.html#top" aria-label="Vita Addelia, home"><svg class="" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg><span>Vita Addelia</span></a>
+  <div class="navr">
+    <button class="bk vlm-header-link" id="vlmHeaderLink" type="button" aria-label="Ask VitaLLM"><svg class="" width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg><span class="bk-label">VitaLLM</span></button>
+    <button class="mbtn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu"><span class="g"><span>Menu</span><span>Close</span></span></button>
+  </div>
+</header>
+<div class="menu" id="menu" aria-label="Site menu" aria-hidden="true">
+  <div class="glow"></div>
+  <nav aria-label="Main">
+    <a href="index.html#work" style="--i:0"><span class="in"><span class="base">Work</span><span class="fill" aria-hidden="true">Work</span></span></a>
+    <a href="index.html#experience" style="--i:1"><span class="in"><span class="base">Experience</span><span class="fill" aria-hidden="true">Experience</span></span></a>
+    <a href="https://drive.google.com/file/d/1Z1WExbYRlDtL6YdGYjrXzk2tt7k5s6JA/view?usp=sharing" style="--i:2" target="_blank" rel="noopener"><span class="in"><span class="base">Resume</span><span class="fill" aria-hidden="true">Resume</span></span></a>
+    <a href="index.html#contact" style="--i:3"><span class="in"><span class="base">Contact</span><span class="fill" aria-hidden="true">Contact</span></span></a>
+  </nav>
+  <div class="hello">
+    <span class="hand">Say hello</span>
+    <div class="row"><strong>hola.vitaaddelia@gmail.com</strong>
+      <button class="copy" type="button" data-copy="hola.vitaaddelia@gmail.com" aria-label="Copy email address"><svg class="" aria-hidden="true" focusable="false"><use href="#i-copy"/></svg><span class="tip" role="status">Copied!</span></button>
+    </div>
+  </div>
+</div>
+<main id="top">
+<div id="main-content" class="cs-layout">
   <aside class="cs-sidebar">
-    <a href="index.html#work" class="cs-back">&larr; BACK</a>
-    <nav class="cs-nav">
+    <a href="index.html#work" class="cs-back"><svg class="" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg> Back to work</a>
+    <nav class="cs-nav" aria-label="On this page">
       <a href="#overview" class="active">Overview</a>
-      <a href="#problem">The Problem</a>
-      <a href="#principles">North Stars</a>
-      <a href="#moves">The Moves</a>
-      <a href="#voices">From the Doctors</a>
+      <a href="#problem">The problem</a>
+      <a href="#principles">North stars</a>
+      <a href="#moves">The four moves</a>
+      <a href="#voices">From the doctors</a>
     </nav>
   </aside>
-
-  <main class="cs-main">
-
-    <div class="cs-eyebrow">PRODUCT DESIGNER &middot; HEALTHCARE ERP</div>
+  <article class="cs-main">
+    <div class="cs-eyebrow">PRODUCT DESIGNER · HEALTHCARE ERP</div>
     <h1 class="cs-title">Doctors save lives. But can't read their payslip.</h1>
-
-    <div class="cs-hero thumb--notes-bg">
-      <span class="cs-hero-label">Notes ERP &times; Salary Redesign</span>
-    </div>
-
+    <div class="cs-hero"><img src="https://framerusercontent.com/images/F6ASjga9sSfkAYvylShj61uVXQA.png?scale-down-to=1024&width=4096&height=4096" srcset="https://framerusercontent.com/images/F6ASjga9sSfkAYvylShj61uVXQA.png?scale-down-to=512&width=4096&height=4096 512w, https://framerusercontent.com/images/F6ASjga9sSfkAYvylShj61uVXQA.png?scale-down-to=1024&width=4096&height=4096 1024w, https://framerusercontent.com/images/F6ASjga9sSfkAYvylShj61uVXQA.png?scale-down-to=2048&width=4096&height=4096 2048w" sizes="(min-width: 900px) 800px, 100vw" width="4096" height="4096" alt="The redesigned salary dashboard inside Notes ERP, shown on a laptop" /></div>
     <div class="cs-meta-row">
-      <div>
-        <span class="cs-meta-label">MY ROLE</span>
-        <span class="cs-meta-value">UX &middot; UI &middot; Writing</span>
-      </div>
-      <div>
-        <span class="cs-meta-label">TOOLS USED</span>
-        <span class="cs-meta-value">Figma</span>
-      </div>
-      <div>
-        <span class="cs-meta-label">RESULT</span>
-        <span class="cs-meta-value">+70% feature usage</span>
-      </div>
-      <div>
-        <span class="cs-meta-label">SKILLS</span>
-        <span class="cs-meta-value">UX Design<br />Data Visualization</span>
-      </div>
+      <div><span class="cs-meta-label">Role</span><span class="cs-meta-value">UX · UI · Writing</span></div>
+      <div><span class="cs-meta-label">Tools</span><span class="cs-meta-value">Figma</span></div>
+      <div><span class="cs-meta-label">Product</span><span class="cs-meta-value">Notes healthcare ERP</span></div>
+      <div><span class="cs-meta-label">Result</span><span class="cs-meta-value">+70% usage</span></div>
+    </div>
+    <div class="cs-summary">
+      <div><span class="cs-meta-label">Outcome</span><p>A 70% usage jump. Drop-off in multi-step flows went from 47% to 11% after adding step summaries.</p></div>
+      <div><span class="cs-meta-label">Constraint</span><p>A doctor has about 10 minutes between patients, and pay data lived in three different systems.</p></div>
+      <div><span class="cs-meta-label">Key decision</span><p>Every number has a receipt: one tap from the dashboard to patient-level detail.</p></div>
+      <div><span class="cs-meta-label">Trade-off</span><p>Net pay and key deductions first, with the full breakdown one tap away. No data dumps.</p></div>
     </div>
 
     <section id="overview">
@@ -60,124 +86,107 @@
     </section>
 
     <section id="problem">
-      <div class="cs-eyebrow">THE PROBLEM</div>
+      <div class="cs-eyebrow">01 &mdash; THE TEA</div>
       <h2>Bro. Doctors don't know their own salary.</h2>
       <p>Salary day hits and it's just... a number. No context, no breakdown, no receipts. Deductions show up unlabeled, taxes are invisible math, and figuring it out means emailing HR and waiting 3 days. These are people who diagnose diseases in minutes. They deserved better than a mystery payslip.</p>
-
+      <figure class="cs-figure"><img src="https://framerusercontent.com/images/j0AGMvQIjZXLeI9TIeTWKNpZBw.png?scale-down-to=1024&width=1624&height=782" srcset="https://framerusercontent.com/images/j0AGMvQIjZXLeI9TIeTWKNpZBw.png?scale-down-to=512&width=1624&height=782 512w, https://framerusercontent.com/images/j0AGMvQIjZXLeI9TIeTWKNpZBw.png?scale-down-to=1024&width=1624&height=782 1024w" sizes="(min-width: 900px) 800px, 100vw" width="1624" height="782" alt="The old finance data: a spreadsheet of service units and item groups with no labels or explanation" loading="lazy" decoding="async" /><figcaption>The old way: rows of service codes, with no story attached to any of them.</figcaption></figure>
       <div class="cs-col-2">
-        <div>
-          <h3>Zero Receipts</h3>
-          <p>Doctors had no way to trace why their payout didn't match expectations. Every deduction was just... there. No label, no reason, no trail.</p>
-        </div>
-        <div>
-          <h3>The HR DM spiral</h3>
-          <p>One salary question = email HR, wait 3 days, escalate, wait more. All that time that could've gone toward saving lives.</p>
-        </div>
-      </div>
-      <div class="cs-col-2" style="margin-top: -1rem;">
-        <div>
-          <h3>Everything is everywhere</h3>
-          <p>Income over here. Consultation fees over there. Tax records in a completely different system. The vibe was chaos.</p>
-        </div>
-        <div>
-          <h3>Nobody opened it</h3>
-          <p>The old finance module had the energy of a forgotten tab. Unintuitive, outdated, ignored. Calling HR was genuinely faster.</p>
-        </div>
+        <div><h3>Zero receipts</h3><p>Doctors had no way to trace why their payout didn't match expectations. Every deduction was just... there. No label, no reason, no trail.</p></div>
+        <div><h3>The HR DM spiral</h3><p>One salary question = email HR, wait 3 days, escalate, wait more. All time that could've gone toward saving lives.</p></div>
+        <div><h3>Everything is everywhere</h3><p>Income over here. Consultation fees over there. Tax records in a completely different system. The vibe was chaos.</p></div>
+        <div><h3>Nobody opened it</h3><p>The old finance module had the energy of a forgotten tab. Unintuitive, outdated, ignored. Calling HR was genuinely faster.</p></div>
       </div>
     </section>
 
     <section id="principles">
-      <div class="cs-eyebrow">THE NORTH STARS</div>
+      <div class="cs-eyebrow">02 &mdash; THE NORTH STARS</div>
       <h2>Three rules. No exceptions.</h2>
       <p>Before touching Figma, we locked in the rules. Because designing without principles is just vibes, and vibes don't ship products that work.</p>
-
-      <div class="cs-diagram-box">
-        <span class="cs-diagram-caption">PRINCIPLES</span>
-        <div class="cs-diagram-row">
-          <div class="cs-diagram-chip cs-diagram-chip--accent">Show the highlight reel first</div>
-          <div class="cs-diagram-chip">Every number has a receipt</div>
-          <div class="cs-diagram-chip">No dead ends</div>
-        </div>
+      <div class="cs-col-3">
+        <div><h3>Show the highlight reel first</h3><p>A doctor has 10 mins between patients. They need net pay, key deductions, anything weird, and nothing else. No data dumps.</p></div>
+        <div><h3>Every number has a receipt</h3><p>If something looks off, they can tap it and get the full story. What it is, why it's there, how it was calculated. Full transparency.</p></div>
+        <div><h3>No dead ends</h3><p>Comparing months, disputing deductions, drilling into data: none of it should feel like a maze. Every path forward has a clear way back.</p></div>
       </div>
-
-      <h3>Show the highlight reel first</h3>
-      <p>A doctor has 10 minutes between patients. They need net pay, key deductions, anything weird, and nothing else. No data dumps.</p>
-
-      <h3>Every number has a receipt</h3>
-      <p>If something looks off, they can tap it and get the full story: what it is, why it's there, how it was calculated. Full transparency.</p>
-
-      <h3>No dead ends</h3>
-      <p>Comparing months, disputing deductions, drilling into data &mdash; none of it should feel like a maze. Every path forward has a clear way back.</p>
     </section>
 
     <section id="moves">
-      <div class="cs-eyebrow">THE MOVES</div>
+      <div class="cs-eyebrow">03 &mdash; THE MOVES</div>
       <h2>The 4 calls that actually mattered.</h2>
 
-      <h3>Move 01 &middot; Dashboard &mdash; "Your eye already knows where to look."</h3>
+      <h3>Move 01 &middot; Dashboard: "Your eye already knows where to look."</h3>
       <p>Profile and income land on the left, because that's where your eye goes first (F-pattern, Z-pattern, basic human stuff). The answer to "how much did I earn this month" hits in under 2 seconds. No scrolling. No hunting.</p>
       <blockquote class="cs-quote">Anchoring key info to reading patterns cut time-to-comprehension by ~40% in testing.</blockquote>
+      <figure class="cs-figure"><img src="https://framerusercontent.com/images/MdBaz53qOd2lTVyYT1oTE9qXo.png?scale-down-to=1024&width=1920&height=1440" srcset="https://framerusercontent.com/images/MdBaz53qOd2lTVyYT1oTE9qXo.png?scale-down-to=512&width=1920&height=1440 512w, https://framerusercontent.com/images/MdBaz53qOd2lTVyYT1oTE9qXo.png?scale-down-to=1024&width=1920&height=1440 1024w" sizes="(min-width: 900px) 800px, 100vw" width="1920" height="1440" alt="The salary dashboard with profile and income on the left" loading="lazy" decoding="async" /><figcaption>The dashboard answers the first question before anything else.</figcaption></figure>
 
-      <h3>Move 02 &middot; Dynamic Chart &mdash; "Wait, why is this less than expected?" answered.</h3>
-      <p>The number one question in every interview: "Am I actually getting what I was promised?" We built a donut chart that shows expected vs. actual, with a hover state that surfaces each variable &mdash; tax, BPJS, fees, allowances &mdash; without turning the screen into a spreadsheet.</p>
+      <h3>Move 02 &middot; Dynamic chart: "Wait, why is this less than expected?" answered.</h3>
+      <p>The number one question in every interview: "Am I actually getting what I was promised?" We built a donut chart that shows expected vs. actual, with a hover state that surfaces each variable (tax, BPJS, fees, allowances) without turning the screen into a spreadsheet.</p>
       <blockquote class="cs-quote">That hover interaction made doctors 3&times; more likely to actually explore their deductions. Curiosity beats compliance every time.</blockquote>
+      <figure class="cs-figure"><img src="https://framerusercontent.com/images/3rkakjbINdlqz67mVCUhqFTgk1E.png?scale-down-to=1024&width=1410&height=972" srcset="https://framerusercontent.com/images/3rkakjbINdlqz67mVCUhqFTgk1E.png?scale-down-to=512&width=1410&height=972 512w, https://framerusercontent.com/images/3rkakjbINdlqz67mVCUhqFTgk1E.png?scale-down-to=1024&width=1410&height=972 1024w" sizes="(min-width: 900px) 800px, 100vw" width="1410" height="972" alt="Donut chart comparing expected and actual income, with a hover state and a month picker" loading="lazy" decoding="async" /><figcaption>Expected vs. actual, with each deduction on hover.</figcaption></figure>
+      <figure class="cs-figure"><img src="https://framerusercontent.com/images/jFnORlaJPgC2Cz1oFcwYtrijs8E.png?scale-down-to=1024&width=1410&height=522" srcset="https://framerusercontent.com/images/jFnORlaJPgC2Cz1oFcwYtrijs8E.png?scale-down-to=512&width=1410&height=522 512w, https://framerusercontent.com/images/jFnORlaJPgC2Cz1oFcwYtrijs8E.png?scale-down-to=1024&width=1410&height=522 1024w" sizes="(min-width: 900px) 800px, 100vw" width="1410" height="522" alt="Monthly bar chart with hover and selection states" loading="lazy" decoding="async" /><figcaption>The same hover idea across a full year.</figcaption></figure>
+      <figure class="cs-figure"><img src="https://framerusercontent.com/images/WlaBvjD1HaXewlR86aEBMsiFeME.png?scale-down-to=1024&width=1410&height=972" srcset="https://framerusercontent.com/images/WlaBvjD1HaXewlR86aEBMsiFeME.png?scale-down-to=512&width=1410&height=972 512w, https://framerusercontent.com/images/WlaBvjD1HaXewlR86aEBMsiFeME.png?scale-down-to=1024&width=1410&height=972 1024w" sizes="(min-width: 900px) 800px, 100vw" width="1410" height="972" alt="Income broken down by service group with hover details" loading="lazy" decoding="async" /><figcaption>One tap deeper: income by service group.</figcaption></figure>
 
-      <h3>Move 03 &middot; Detail View &mdash; "Show me which patient, not just the total."</h3>
+      <h3>Move 03 &middot; Detail view: "Show me which patient, not just the total."</h3>
       <p>Doctors kept asking: "which consultation is contributing what?" We built a detail page one tap from the dashboard that breaks income down by patient, consultation type, and service code. Toggle between macro view and patient-level in seconds.</p>
-      <blockquote class="cs-quote">This single feature killed the most common HR query cold &mdash; now doctors can just see it themselves.</blockquote>
+      <blockquote class="cs-quote">This single feature killed the most common HR query cold. Now doctors can just see it themselves.</blockquote>
+      <figure class="cs-figure"><img src="https://framerusercontent.com/images/DjSlEAcwnip9wNJaB1Mu9AK8kU.png?scale-down-to=1024&width=1410&height=982" srcset="https://framerusercontent.com/images/DjSlEAcwnip9wNJaB1Mu9AK8kU.png?scale-down-to=512&width=1410&height=982 512w, https://framerusercontent.com/images/DjSlEAcwnip9wNJaB1Mu9AK8kU.png?scale-down-to=1024&width=1410&height=982 1024w" sizes="(min-width: 900px) 800px, 100vw" width="1410" height="982" alt="Patient-level income table with status labels" loading="lazy" decoding="async" /><figcaption>Patient-level detail: who, when, how much, and what status.</figcaption></figure>
 
-      <h3>Move 04 &middot; Keep on Flow &mdash; "You always know where you are. And how to go back."</h3>
+      <h3>Move 04 &middot; Keep on flow: "You always know where you are. And how to go back."</h3>
       <p>Disputing a deduction is already stressful. Getting lost mid-flow makes it worse. So every multi-step journey has a step tracker, a running summary of what you've done, and the freedom to go back at any point without losing your progress.</p>
       <blockquote class="cs-quote">Drop-off in multi-step flows went from 47% to 11% after adding those step summaries. Turns out context is everything.</blockquote>
+      <figure class="cs-figure"><img src="https://framerusercontent.com/images/wor2zvS7TbFm5TraMtLh15wpU.png?scale-down-to=1024&width=1430&height=1134" srcset="https://framerusercontent.com/images/wor2zvS7TbFm5TraMtLh15wpU.png?scale-down-to=512&width=1430&height=1134 512w, https://framerusercontent.com/images/wor2zvS7TbFm5TraMtLh15wpU.png?scale-down-to=1024&width=1430&height=1134 1024w" sizes="(min-width: 900px) 800px, 100vw" width="1430" height="1134" alt="A multi-step flow with a step tracker on the left and a summary of previous actions" loading="lazy" decoding="async" /><figcaption>A step tracker and running summary keep context at every stage.</figcaption></figure>
+      <figure class="cs-figure"><img src="https://framerusercontent.com/images/E2t1JR76z0NgCldHJD1pmbzgSg.png?scale-down-to=1024&width=1570&height=1152" srcset="https://framerusercontent.com/images/E2t1JR76z0NgCldHJD1pmbzgSg.png?scale-down-to=512&width=1570&height=1152 512w, https://framerusercontent.com/images/E2t1JR76z0NgCldHJD1pmbzgSg.png?scale-down-to=1024&width=1570&height=1152 1024w" sizes="(min-width: 900px) 800px, 100vw" width="1570" height="1152" alt="The full item-level breakdown screen with expandable service groups" loading="lazy" decoding="async" /><figcaption>The full breakdown, with a clear way back at any point.</figcaption></figure>
     </section>
 
     <section id="voices">
-      <div class="cs-eyebrow">STRAIGHT FROM THE DOCTORS</div>
+      <div class="cs-eyebrow">04 &mdash; STRAIGHT FROM THE DOCTORS</div>
       <h2>No paraphrasing. Their exact words.</h2>
-
-      <div class="cs-col-2">
-        <div>
-          <p style="font-style: italic;">"I have no idea why my salary this month is different from last month. I just accept it."</p>
-          <p style="font-size: 0.8rem; color: var(--muted); font-style: normal;">P1 &middot; General Practitioner</p>
-        </div>
-        <div>
-          <p style="font-style: italic;">"If I want to dispute something, I have to call HR, wait 3 days, and sometimes the answer still isn't clear."</p>
-          <p style="font-size: 0.8rem; color: var(--muted); font-style: normal;">P2 &middot; Specialist, Internal Med.</p>
-        </div>
-      </div>
-      <div class="cs-col-2" style="margin-top: -1rem;">
-        <div>
-          <p style="font-style: italic;">"I want to see my income per patient. How else do I know if I'm being fairly compensated?"</p>
-          <p style="font-size: 0.8rem; color: var(--muted); font-style: normal;">P3 &middot; Surgeon</p>
-        </div>
-        <div>
-          <p style="font-style: italic;">"The current system shows me numbers but no context. A number without a story is useless."</p>
-          <p style="font-size: 0.8rem; color: var(--muted); font-style: normal;">P4 &middot; Emergency Physician</p>
-        </div>
-      </div>
-      <div class="cs-col-2" style="margin-top: -1rem;">
-        <div>
-          <p style="font-style: italic;">"I just want to open one screen and see: is everything okay this month? Yes or no."</p>
-          <p style="font-size: 0.8rem; color: var(--muted); font-style: normal;">P5 &middot; Pediatrician</p>
-        </div>
-        <div>
-          <p style="font-style: italic;">"Taxes, BPJS, admin fees &mdash; they're all just lumped together. Show me each one separately."</p>
-          <p style="font-size: 0.8rem; color: var(--muted); font-style: normal;">P6 &middot; Cardiologist</p>
-        </div>
-      </div>
+      <div class="cs-col-2"><div><p style="font-family:var(--display);font-size:clamp(22px,2vw,30px);line-height:1.1;color:var(--ink);margin-bottom:.6rem">&quot;I have no idea why my salary this month is different from last month. I just accept it.&quot;</p><p style="font-family:var(--hand);color:var(--berry);margin:0">P1 · General practitioner</p></div><div><p style="font-family:var(--display);font-size:clamp(22px,2vw,30px);line-height:1.1;color:var(--ink);margin-bottom:.6rem">&quot;If I want to dispute something, I have to call HR, wait 3 days, and sometimes the answer still isn&#x27;t clear.&quot;</p><p style="font-family:var(--hand);color:var(--berry);margin:0">P2 · Specialist, internal medicine</p></div><div><p style="font-family:var(--display);font-size:clamp(22px,2vw,30px);line-height:1.1;color:var(--ink);margin-bottom:.6rem">&quot;I want to see my income per patient. How else do I know if I&#x27;m being fairly compensated?&quot;</p><p style="font-family:var(--hand);color:var(--berry);margin:0">P3 · Surgeon</p></div><div><p style="font-family:var(--display);font-size:clamp(22px,2vw,30px);line-height:1.1;color:var(--ink);margin-bottom:.6rem">&quot;The current system shows me numbers but no context. A number without a story is useless.&quot;</p><p style="font-family:var(--hand);color:var(--berry);margin:0">P4 · Emergency physician</p></div><div><p style="font-family:var(--display);font-size:clamp(22px,2vw,30px);line-height:1.1;color:var(--ink);margin-bottom:.6rem">&quot;I just want to open one screen and see: is everything okay this month? Yes or no.&quot;</p><p style="font-family:var(--hand);color:var(--berry);margin:0">P5 · Pediatrician</p></div><div><p style="font-family:var(--display);font-size:clamp(22px,2vw,30px);line-height:1.1;color:var(--ink);margin-bottom:.6rem">&quot;Taxes, BPJS, admin fees — they&#x27;re all just lumped together. Show me each one separately.&quot;</p><p style="font-family:var(--hand);color:var(--berry);margin:0">P6 · Cardiologist</p></div></div>
     </section>
-
-  </main>
+  </article>
 </div>
-
-<footer class="cs-footer">
-  <span>DESIGNED + CODE WITH &hearts; BY VITAA</span>
-  <nav class="footer-links">
-    <a href="https://www.linkedin.com/in/vitaaddelia/" target="_blank" rel="noopener">LINKEDIN</a>
-    <a href="mailto:hola.vitaaddelia@gmail.com">EMAIL</a>
-  </nav>
+<section class="next-case" data-tone="dark" aria-labelledby="next-title">
+  <p class="eyebrow">Next case study</p>
+  <h2 class="d2" id="next-title">I build designs. I make sure they work.</h2>
+  <p>413 automated tests across 200+ pages, run with one API call.</p>
+  <a class="rbtn light" href="case-study-qa-automation.html"><span class="lbl">Read case study</span></a>
+</section>
+</main>
+<footer class="site-footer" data-tone="dark">
+  <div class="foot-top">
+    <nav class="foot-links" aria-label="Footer">
+      <a href="index.html#work">Work</a><a href="index.html#experience">Experience</a><a href="https://drive.google.com/file/d/1Z1WExbYRlDtL6YdGYjrXzk2tt7k5s6JA/view?usp=sharing" target="_blank" rel="noopener">Resume</a><a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="foot-social"><a href="https://www.linkedin.com/in/vitaaddelia/" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:hola.vitaaddelia@gmail.com">Email</a></div>
+  </div>
+  <div class="foot-word" aria-hidden="true">Vita Addelia</div>
+  <div class="foot-bottom"><span>DESIGNED + CODE WITH &hearts; BY VITAA</span>
+    <a class="cbtn up" href="#top" aria-label="Back to top"><span class="f"></span><svg class="" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></div>
 </footer>
+<button class="vlm-launcher" id="vlmLauncher" aria-label="Ask VitaLLM">
+  <span class="vlm-sparkle">&#10022;</span>
+</button>
 
-<script src="case-study-scroll.js"></script>
+<div class="vlm-panel" id="vlmPanel">
+  <div class="vlm-header">
+    <span class="vlm-title">VITALLM <span class="vlm-info" title="Answers a few common questions about Vita, based on pre-written responses.">&#9432;</span></span>
+    <div class="vlm-header-actions">
+      <button id="vlmReset" aria-label="Restart conversation">&#8635;</button>
+      <button id="vlmClose" aria-label="Close">&times;</button>
+    </div>
+  </div>
+
+  <div class="vlm-body" id="vlmBody">
+    <!-- messages injected by chat-widget.js -->
+  </div>
+
+  <form class="vlm-input-row" id="vlmForm">
+    <input type="text" id="vlmInput" placeholder="Ask about Vita..." autocomplete="off" />
+    <button type="submit" aria-label="Send">&#8593;</button>
+  </form>
+</div>
+<script defer src="vendor/lenis.min.js"></script>
+<script defer src="site.js"></script>
+<script defer src="chat-widget.js"></script>
+<script defer src="case-study-scroll.js"></script>
 </body>
 </html>

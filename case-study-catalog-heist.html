@@ -2,21 +2,59 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>The Catalog Heist — Vita Addelia</title>
-<link rel="stylesheet" href="style.css" />
-<link rel="stylesheet" href="case-study.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Catalog Heist: redesigning a 500,000-product catalog | Vita Addelia</title>
+<meta name="description" content="How I redesigned search, filtering and navigation for a 500,000+ product comics and collectibles catalog on WooCommerce. A case study by Vita Addelia." />
+<meta name="theme-color" content="#3B1E33" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="The Catalog Heist: redesigning a 500,000-product catalog | Vita Addelia" />
+<meta property="og:description" content="How I redesigned search, filtering and navigation for a 500,000+ product comics and collectibles catalog on WooCommerce. A case study by Vita Addelia." />
+<meta name="twitter:card" content="summary" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%233B1E33'/%3E%3Cpath fill='%23FFE386' d='M50 14c2.5 24 21 42.5 36 36-15 1.5-33.5 12-36 36-2.5-24-21-34.5-36-36 15-1.5 33.5-12 36-36z'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,500&family=JetBrains+Mono:wght@400;500&family=Sora:wght@400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Khand:wght@500;600;700&family=Patrick+Hand&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="case-study.css" />
+<script>document.documentElement.classList.add("js");</script>
 </head>
-<body class="cs-body">
+<body>
+<a class="skip" href="#main-content">Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-sparkle" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0c.6 6.7 5.3 11.4 12 12-6.7.6-11.4 5.3-12 12-.6-6.7-5.3-11.4-12-12 6.7-.6 11.4-5.3 12-12z"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></g></symbol>
+<symbol id="i-copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></g></symbol>
+</defs></svg>
 
-<div class="cs-layout">
-
+<header class="nav paddx" id="nav">
+  <a class="logo" href="index.html#top" aria-label="Vita Addelia, home"><svg class="" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg><span>Vita Addelia</span></a>
+  <div class="navr">
+    <button class="bk vlm-header-link" id="vlmHeaderLink" type="button" aria-label="Ask VitaLLM"><svg class="" width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg><span class="bk-label">VitaLLM</span></button>
+    <button class="mbtn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu"><span class="g"><span>Menu</span><span>Close</span></span></button>
+  </div>
+</header>
+<div class="menu" id="menu" aria-label="Site menu" aria-hidden="true">
+  <div class="glow"></div>
+  <nav aria-label="Main">
+    <a href="index.html#work" style="--i:0"><span class="in"><span class="base">Work</span><span class="fill" aria-hidden="true">Work</span></span></a>
+    <a href="index.html#experience" style="--i:1"><span class="in"><span class="base">Experience</span><span class="fill" aria-hidden="true">Experience</span></span></a>
+    <a href="https://drive.google.com/file/d/1Z1WExbYRlDtL6YdGYjrXzk2tt7k5s6JA/view?usp=sharing" style="--i:2" target="_blank" rel="noopener"><span class="in"><span class="base">Resume</span><span class="fill" aria-hidden="true">Resume</span></span></a>
+    <a href="index.html#contact" style="--i:3"><span class="in"><span class="base">Contact</span><span class="fill" aria-hidden="true">Contact</span></span></a>
+  </nav>
+  <div class="hello">
+    <span class="hand">Say hello</span>
+    <div class="row"><strong>hola.vitaaddelia@gmail.com</strong>
+      <button class="copy" type="button" data-copy="hola.vitaaddelia@gmail.com" aria-label="Copy email address"><svg class="" aria-hidden="true" focusable="false"><use href="#i-copy"/></svg><span class="tip" role="status">Copied!</span></button>
+    </div>
+  </div>
+</div>
+<main id="top">
+<div id="main-content" class="cs-layout">
   <aside class="cs-sidebar">
-    <a href="index.html#work" class="cs-back">&larr; BACK</a>
-    <nav class="cs-nav">
+    <a href="index.html#work" class="cs-back"><svg class="" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg> Back to work</a>
+    <nav class="cs-nav" aria-label="On this page">
       <a href="#overview" class="active">Overview</a>
       <a href="#solution">Solution</a>
       <a href="#problem">Problem</a>
@@ -28,9 +66,7 @@
       <a href="#reflection">Reflection</a>
     </nav>
   </aside>
-
-  <main class="cs-main">
-
+  <article class="cs-main">
     <div class="cs-eyebrow">ALTERNATE WORLDS &middot; E-COMMERCE &middot; 2026</div>
     <h1 class="cs-title">The Catalog Heist: Driving Growth Through Systems &amp; User Experience</h1>
 
@@ -57,25 +93,18 @@
       </div>
     </div>
 
+    <div class="cs-summary">
+      <div><span class="cs-meta-label">OUTCOME</span><p>Category, sub-category and results collapsed into a single page. Post-launch metrics are pending.</p></div>
+      <div><span class="cs-meta-label">CONSTRAINT</span><p>WooCommerce's product query structure and the Blocksy theme didn't support every custom pattern.</p></div>
+      <div><span class="cs-meta-label">KEY DECISION</span><p>Treat categories as filters, split filtering by intent (instant bar plus full panel), and group products by series.</p></div>
+      <div><span class="cs-meta-label">TRADE-OFF</span><p>Adapted the accordion and filter panel to WooCommerce's taxonomy instead of building a fully custom system.</p></div>
+    </div>
+
     <section id="overview">
       <div class="cs-eyebrow">OVERVIEW</div>
       <h2>500,000+ products, 47 years of history, one navigation system that never grew up.</h2>
       <p class="cs-intro">Alternate Worlds is a comic book, collectibles, and pop culture retailer in Bayswater, Victoria &mdash; selling comics, manga, trading cards, tabletop games, action figures, and collectibles through its retail store, online storefront, and wholesale channel, built up over 47 years in business.</p>
 
-      <div class="cs-col-3">
-        <div>
-          <h3>+395%</h3>
-          <p>Feature discoverability</p>
-        </div>
-        <div>
-          <h3>+64%</h3>
-          <p>App logins</p>
-        </div>
-        <div>
-          <h3>&minus;29%</h3>
-          <p>Customer calls</p>
-        </div>
-      </div>
     </section>
 
     <section id="solution">
@@ -83,7 +112,7 @@
       <h2>Here are some of the key flows</h2>
 
       <div class="cs-flow-row">
-        <div class="cs-flow-img"><img src="Images/Alternate Worlds Full design.png" alt="Hybrid category landing page" /></div>
+        <div class="cs-flow-img"><img loading="lazy" src="Images/Alternate Worlds Full design.png" alt="Hybrid category landing page" /></div>
         <div class="cs-flow-copy">
           <h3>Hybrid category landing pages</h3>
           <p>Instead of forcing every visitor through the same generic browse pattern, nav-driven visits land on a hybrid category page that blends curated collections with filterable product sets &mdash; matching how people actually think about the catalog, not how the database is structured.</p>
@@ -91,7 +120,7 @@
       </div>
 
       <div class="cs-flow-row">
-        <div class="cs-flow-img"><img src="Images/Alternate Worlds search.gif" alt="Faceted search results" /></div>
+        <div class="cs-flow-img"><img loading="lazy" src="Images/Alternate Worlds search.gif" alt="Faceted search results" /></div>
         <div class="cs-flow-copy">
           <h3>Faceted search results</h3>
           <p>Search-driven visits land on a faceted product grid built for intent, not exploration. When someone types "Batman," they get relevant, filterable results instead of a wall of unrelated SKUs.</p>
@@ -99,7 +128,7 @@
       </div>
 
       <div class="cs-flow-row">
-        <div class="cs-flow-img"><img src="Images/Alternate Worlds ACCORDION.gif" alt="Series-first product grouping" /></div>
+        <div class="cs-flow-img"><img loading="lazy" src="Images/Alternate Worlds ACCORDION.gif" alt="Series-first product grouping" /></div>
         <div class="cs-flow-copy">
           <h3>Series-first product grouping</h3>
           <p>Products are grouped the way collectors actually think &mdash; by series, rather than by internal attribute taxonomy. The product card and series accordion carry that logic through the entire browse experience.</p>
@@ -168,36 +197,35 @@
       <p>I started with information architecture and the category hierarchy, then moved screen by screen into browse, search, and product pages. The working principle was collector-first: group the way a collector's brain works, then let filtering handle the rest. I compared the live storefront to support and sales-floor feedback and walked each path the way a shopper would &mdash; when something felt off, I wrote down what was missing.</p>
 
       <div class="cs-flow-row">
-        <div class="cs-flow-img"><img src="Images/Alternate Worlds-BEFORE.png" alt="Before: multiple pages to reach a product" /></div>
+        <div class="cs-flow-img"><img loading="lazy" src="Images/Alternate Worlds-BEFORE.png" alt="Before: multiple pages to reach a product" /></div>
         <div class="cs-flow-copy">
-          <span style="font-family: var(--mono); font-size: 0.7rem; color: #b5502e;">BEFORE</span>
+          <span class="tag-before">Before</span>
           <h3>Several pages to a product list</h3>
           <p>Getting to a product list took several pages &mdash; users clicked through a category, then a sub-category, then a results page, sometimes more, before seeing any actual products.</p>
         </div>
       </div>
 
       <div class="cs-flow-row">
-        <div class="cs-flow-img"><img src="Images/Alternate Worlds-AFTER.png" alt="After: one collapsed product list page" /></div>
+        <div class="cs-flow-img"><img loading="lazy" src="Images/Alternate Worlds-AFTER.png" alt="After: one collapsed product list page" /></div>
         <div class="cs-flow-copy">
-          <span style="font-family: var(--mono); font-size: 0.7rem; color: var(--accent);">AFTER</span>
+          <span class="tag-after">After</span>
           <h3>One page, collapsed</h3>
           <p>The product list lives on a single page. Category, sub-category, and results collapse into one experience, so users see products immediately instead of clicking their way there.</p>
         </div>
       </div>
 
       <div class="cs-flow-row">
-        <div class="cs-flow-img cs-flow-img--a"></div>
         <div class="cs-flow-copy">
-          <span style="font-family: var(--mono); font-size: 0.7rem; color: #b5502e;">BEFORE</span>
+          <span class="tag-before">Before</span>
           <h3>One static filter set</h3>
           <p>Filtering meant a single, static filter set that tried to serve every use case at once &mdash; too much for quick narrowing, not enough for specific searches.</p>
         </div>
       </div>
 
       <div class="cs-flow-row">
-        <div class="cs-flow-img"><img src="Images/Alternate Worlds Filter.gif" alt="After: filtering split by intent" /></div>
+        <div class="cs-flow-img"><img loading="lazy" src="Images/Alternate Worlds Filter.gif" alt="After: filtering split by intent" /></div>
         <div class="cs-flow-copy">
-          <span style="font-family: var(--mono); font-size: 0.7rem; color: var(--accent);">AFTER</span>
+          <span class="tag-after">After</span>
           <h3>Filtering split by intent</h3>
           <p>An instant filter bar at the top of the page handles quick, common narrowing, while a complete filter panel off-canvas covers deeper, more specific searches.</p>
         </div>
@@ -210,7 +238,7 @@
       <p>I mapped every entry point that changes what someone sees: nav, search, and direct/deep link, plus the edge states inside each &mdash; empty results, a single exact match, partial matches, a fully populated grid, and loading/transitional states. When the set was complete, I took it to the manager, developers, and QA team.</p>
 
       <h3>Getting stakeholder buy-in</h3>
-      <img class="cs-img-full" src="Images/Workflow TEAM.png" alt="Review workflow across designers, manager, developers, and QA" />
+      <img class="cs-img-full" loading="lazy" src="Images/Workflow TEAM.png" alt="Review workflow across designers, manager, developers, and QA" />
       <p>Reviews and rounds of iteration are hard, but they're key to turning stakeholders into advocates for the work. I knew it was crucial to listen and address concerns, without forgetting we had to be assertive about some of the design direction we chose, and to show the value in that direction. One way I get buy-in is by showing the direct value and speaking to stakeholders directly &mdash; I walked the manager through a simple before/after of how many clicks it now took to reach a product, and the reaction was immediately positive.</p>
     </section>
 
@@ -266,17 +294,52 @@
       </div>
     </section>
 
-  </main>
+  
+  </article>
 </div>
-
-<footer class="cs-footer">
-  <span>DESIGNED + CODE WITH &hearts; BY VITAA</span>
-  <nav class="footer-links">
-    <a href="https://www.linkedin.com/in/vitaaddelia/" target="_blank" rel="noopener">LINKEDIN</a>
-    <a href="mailto:hola.vitaaddelia@gmail.com">EMAIL</a>
-  </nav>
+<section class="next-case" data-tone="dark" aria-labelledby="next-title">
+  <p class="eyebrow">Next case study</p>
+  <h2 class="d2" id="next-title">Bonza</h2>
+  <p>A meal plan that keeps adjusting after checkout.</p>
+  <a class="rbtn light" href="case-study-bonza.html"><span class="lbl">Read case study</span></a>
+</section>
+</main>
+<footer class="site-footer" data-tone="dark">
+  <div class="foot-top">
+    <nav class="foot-links" aria-label="Footer">
+      <a href="index.html#work">Work</a><a href="index.html#experience">Experience</a><a href="https://drive.google.com/file/d/1Z1WExbYRlDtL6YdGYjrXzk2tt7k5s6JA/view?usp=sharing" target="_blank" rel="noopener">Resume</a><a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="foot-social"><a href="https://www.linkedin.com/in/vitaaddelia/" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:hola.vitaaddelia@gmail.com">Email</a></div>
+  </div>
+  <div class="foot-word" aria-hidden="true">Vita Addelia</div>
+  <div class="foot-bottom"><span>DESIGNED + CODE WITH &hearts; BY VITAA</span>
+    <a class="cbtn up" href="#top" aria-label="Back to top"><span class="f"></span><svg class="" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></div>
 </footer>
+<button class="vlm-launcher" id="vlmLauncher" aria-label="Ask VitaLLM">
+  <span class="vlm-sparkle">&#10022;</span>
+</button>
 
-<script src="case-study-scroll.js"></script>
+<div class="vlm-panel" id="vlmPanel">
+  <div class="vlm-header">
+    <span class="vlm-title">VITALLM <span class="vlm-info" title="Answers a few common questions about Vita, based on pre-written responses.">&#9432;</span></span>
+    <div class="vlm-header-actions">
+      <button id="vlmReset" aria-label="Restart conversation">&#8635;</button>
+      <button id="vlmClose" aria-label="Close">&times;</button>
+    </div>
+  </div>
+
+  <div class="vlm-body" id="vlmBody">
+    <!-- messages injected by chat-widget.js -->
+  </div>
+
+  <form class="vlm-input-row" id="vlmForm">
+    <input type="text" id="vlmInput" placeholder="Ask about Vita..." autocomplete="off" />
+    <button type="submit" aria-label="Send">&#8593;</button>
+  </form>
+</div>
+<script defer src="vendor/lenis.min.js"></script>
+<script defer src="site.js"></script>
+<script defer src="chat-widget.js"></script>
+<script defer src="case-study-scroll.js"></script>
 </body>
 </html>

@@ -68,6 +68,17 @@ const FAQS = [
 ];
 
 const GREETING = "Hey there, I'm VitaLLM.";
+// Which suggestions show as chips, in this order. Everything in FAQS still
+// answers when typed, so the "email me" topics stay available without leading.
+const CHIP_ORDER = [
+  "What's your experience?",
+  "What have you worked on?",
+  "What's your design process like?",
+  "What tools do you use?",
+  "What are you looking for in opportunities?",
+  "How can I get in touch?"
+];
+
 const FALLBACK = "Hmm, I don't have a scripted answer for that one yet! Email Vita directly at hola.vitaaddelia@gmail.com — she'd love to answer that herself 😊";
 
 /* ==================================================================== */
@@ -102,7 +113,7 @@ function startConversation() {
 
   const suggestions = document.createElement('div');
   suggestions.className = 'vlm-suggestions';
-  FAQS.forEach(faq => {
+  CHIP_ORDER.map(q => FAQS.find(f => f.question === q)).filter(Boolean).forEach(faq => {
     const chip = document.createElement('button');
     chip.className = 'vlm-suggestion';
     chip.innerHTML = '&#8618;&nbsp; ' + faq.question;
