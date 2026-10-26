@@ -1,7 +1,7 @@
 /* ==========================================================================
    home.js — homepage-only interactions
    loader · scrolling stat circles · rotating word · draggable carousel
-   scroll-scrubbed 3D laptop (three.js is loaded lazily, only when needed)
+   (the 3D laptop lives in scene3d.js, an ES module)
    ========================================================================== */
 (() => {
   'use strict';
@@ -69,19 +69,13 @@
     };
     const setVal = (el, p) => { $('.n', el).textContent = fmt(el, +el.dataset.count * easeOut(clamp(p))); };
     const finalize = () => circs.forEach((c) => setVal(c, 1));
-    const mq = matchMedia('(min-width: 900px)');
     let pinned = false, top = 0, span = 1;
     const measureImp = () => { top = imp.getBoundingClientRect().top + scrollY; span = Math.max(1, imp.offsetHeight - innerHeight); };
-    const applyMode = () => {
-      pinned = mq.matches && !V.reduce;
-      imp.classList.toggle('is-pinned', pinned);
-      circs.forEach((c) => { c.style.transform = ''; c.style.opacity = ''; });
-      if (!pinned) finalize();
-      measureImp();
-    };
-    mq.addEventListener ? mq.addEventListener('change', applyMode) : mq.addListener(applyMode);
+    imp.classList.add('is-pinned');          // layout is always the pinned one
+    pinned = !V.reduce;                      // but it only animates when motion is allowed
+    if (!pinned) finalize();
     addEventListener('resize', measureImp);
-    applyMode();
+    measureImp();
     // counting for the un-pinned layout: run once as each circle scrolls into view
     if ('IntersectionObserver' in window && !V.reduce) {
       const seen = new WeakSet();
@@ -166,57 +160,4 @@
     });
   }
 
-  /* --------------------------- 3D laptop --------------------------- */
-  const seq = $('#sequence');
-  if (seq) {
-    const canWebGL = () => {
-      try { const c = doc.createElement('canvas'); return !!(c.getContext('webgl2') || c.getContext('webgl')); } catch (e) { return false; }
-    };
-    const cards = $$('.fb-card', seq);
-    const slides = cards.map((c) => ({
-      title: c.dataset.title, tag: c.dataset.tag, href: c.getAttribute('href'),
-      img: c.dataset.img || '', bg: c.dataset.bg || '', fg: c.dataset.fg || '',
-    }));
-    const ui = { angle: $('#angle'), bar: $('#angleBar'), tag: $('#seqTag'), title: $('#seqTitle'), link: $('#seqLink') };
-    const fail = () => seq.classList.remove('is3d');
-    const load = (src) => new Promise((res, rej) => {
-      const s = doc.createElement('script'); s.src = src; s.async = true; s.onload = res; s.onerror = rej; doc.head.appendChild(s);
-    });
-
-    const start = async () => {
-      try {
-        await load('vendor/three.min.js');
-        await load('scene3d.js');
-        const host = $('#three');
-        const inst = window.VITA3D.init({ el: host, slides, onFail: fail });
-        if (!inst) return fail();
-        let top = 0, height = 1, vis = false, shown = -1;
-        const m = () => { const r = seq.getBoundingClientRect(); top = r.top + scrollY; height = seq.offsetHeight; };
-        m(); addEventListener('resize', m);
-        if (window.ResizeObserver) new ResizeObserver(m).observe(seq);
-        V.tick((t) => {
-          const r = seq.getBoundingClientRect();
-          vis = r.bottom > -200 && r.top < innerHeight + 200;
-          const p = clamp(-r.top / Math.max(1, height - innerHeight));
-          const st = inst.update(p, t, vis);
-          if (!st) return;
-          ui.angle.textContent = Math.round(st.angle) + '°';
-          ui.bar.style.width = (st.angle / 108) * 100 + '%';
-          if (st.slide !== shown) {
-            shown = st.slide;
-            const s = slides[shown];
-            ui.tag.textContent = s.tag; ui.title.textContent = s.title; ui.link.setAttribute('href', s.href);
-          }
-        });
-      } catch (e) { console.warn('3D laptop unavailable, showing fallback', e); fail(); }
-    };
-
-    if (!V.reduce && canWebGL() && slides.length) {
-      seq.classList.add('is3d');
-      if ('IntersectionObserver' in window) {
-        const io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { io.disconnect(); start(); } }, { rootMargin: '150% 0px' });
-        io.observe(seq);
-      } else start();
-    }
-  }
 })();

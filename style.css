@@ -407,3 +407,64 @@ section { position: relative; }
 /* ---------- small fixes from testing ---------- */
 .site-footer .cbtn { background: transparent; border-color: var(--cream); color: var(--cream); }
 @media (max-width: 899px) { .cdoo.b { display: none; } }
+
+/* ==========================================================================
+   One 3D laptop rides hero -> stats -> selected work -> "keep scrolling"
+   (same structure as the reference: a sticky layer inside #seqwrap)
+   ========================================================================== */
+.logo img { display: block; height: clamp(50px, 4.6vw, 76px); width: auto; }
+#seqwrap { position: relative; z-index: 1; }
+.pin3d { position: sticky; top: 0; height: 100vh; height: 100svh; margin-bottom: -100vh; margin-bottom: -100svh; z-index: 5; pointer-events: none; }
+.pin3d #three { position: absolute; inset: 0; z-index: auto; }
+#three .fallback { position: absolute; left: 50%; top: 50%; width: min(36vw, 360px); transform: translate(-50%, -50%); }
+#three.ready .fallback { display: none; }
+#seqwrap ~ .scallop, #intro { position: relative; z-index: 2; }
+
+/* hero: headline on the left, laptop on the right */
+#hero { min-height: 100vh; min-height: 100svh; }
+@media (min-width: 768px) {
+  #hero h1 { font-size: clamp(44px, 6vw, 120px); max-width: 56vw; }
+  .hero-cta { width: min(25vw, 440px); }
+}
+
+/* stats: four circles flank a centre lane the laptop spins through */
+#impact.is-pinned { height: 320vh; padding: 0; }
+#impact.is-pinned .imp-pin { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; padding: max(8vw, 110px) var(--gutter) 0; }
+#impact.is-pinned .circs { display: block; margin: 0; }
+#impact.is-pinned .circ { position: absolute; width: clamp(170px, 15vw, 280px); aspect-ratio: 1; padding: 2%; }
+#impact.is-pinned .circ .n { font-size: clamp(44px, 4.2vw, 84px); }
+#impact.is-pinned .circ p { font-size: clamp(12px, 1vw, 17px); padding: 0 1.2em; }
+#impact.is-pinned .c1 { left: 5vw;  right: auto; top: 40vh; }
+#impact.is-pinned .c2 { left: 21vw; right: auto; top: 62vh; }
+#impact.is-pinned .c3 { right: 21vw; left: auto; top: 40vh; }
+#impact.is-pinned .c4 { right: 5vw;  left: auto; top: 62vh; }
+
+/* selected work: title top-left, lid meter bottom-left, link bottom-right */
+#sequence { height: auto; }
+#sequence.is3d { height: 260vh; }
+#sequence.is3d .seq-pin { position: sticky; top: 0; height: 100vh; height: 100svh; display: block; }
+.seq-head h2 { white-space: nowrap; }
+#sequence.is3d .meter { position: absolute; left: var(--gutter); bottom: max(3vw, 24px); }
+.seq-side { display: grid; gap: 12px; justify-items: end; text-align: right; }
+.seq-side p { font-size: clamp(16px, 1.2vw, 21px); line-height: 1.35; }
+#sequence.is3d .seq-side { position: absolute; right: calc(var(--gutter) + 58px); bottom: max(3vw, 24px); width: min(26vw, 420px); }
+#sequence:not(.is3d) .seq-meter-wrap { display: none; }
+#sequence:not(.is3d) ~ * .pin3d, #seqwrap:has(#sequence:not(.is3d)) .pin3d { display: none; }
+
+#break { min-height: 100vh; min-height: 100svh; padding: 0 var(--gutter); }
+
+@media (max-width: 767px) {
+  #impact.is-pinned .imp-pin { padding-top: 96px; }
+  #impact .imp-head small { display: none; }
+  #impact.is-pinned .circ { width: 40vw; padding: 3%; }
+  #impact.is-pinned .circ .n { font-size: clamp(30px, 9vw, 44px); }
+  #impact.is-pinned .circ p { font-size: 11px; padding: 0 .9em; }
+  #impact.is-pinned .c1 { left: 5vw; top: 41vh; }
+  #impact.is-pinned .c3 { right: 5vw; top: 41vh; }
+  #impact.is-pinned .c2 { left: 5vw; top: 76vh; }
+  #impact.is-pinned .c4 { right: 5vw; top: 76vh; }
+  .seq-head h2 { white-space: normal; }
+  #sequence.is3d .seq-side { left: var(--gutter); right: auto; width: auto; justify-items: start; text-align: left; bottom: calc(max(3vw, 24px) + 70px); }
+  #sequence.is3d .seq-side p { display: none; }
+  #sequence.is3d .meter { width: calc(100vw - 2 * var(--gutter) - 70px); min-width: 0; }
+}
