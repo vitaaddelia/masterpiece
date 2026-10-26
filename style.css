@@ -468,3 +468,12 @@ section { position: relative; }
   #sequence.is3d .seq-side p { display: none; }
   #sequence.is3d .meter { width: calc(100vw - 2 * var(--gutter) - 70px); min-width: 0; }
 }
+
+/* logo: plum on light sections, cream on the dark plum sections and inside the open menu */
+.logo { position: relative; }
+.logo img { transition: opacity .4s; }
+.logo .on-dark { position: absolute; left: 0; top: 0; opacity: 0; }
+.nav.dark .logo .on-light, .menu-on .nav .logo .on-light { opacity: 0; }
+.nav.dark .logo .on-dark, .menu-on .nav .logo .on-dark { opacity: 1; }
+/* the bigger open laptop reaches the bottom corners: keep just the button there */
+#sequence.is3d .seq-side p { display: none; }

@@ -93,7 +93,7 @@ function start() {
   const paintWall = (logo) => {
     const g = xD.createLinearGradient(0, 0, DW, DH); g.addColorStop(0, '#3B1E33'); g.addColorStop(1, '#6a2350'); xD.fillStyle = g; xD.fillRect(0, 0, DW, DH);
     for (const [x, y, r, c] of [[200, 640, 400, 'rgba(155,58,110,.55)'], [1000, 180, 440, 'rgba(255,227,134,.18)'], [720, 740, 320, 'rgba(239,221,230,.12)']]) { const rg = xD.createRadialGradient(x, y, 0, x, y, r); rg.addColorStop(0, c); rg.addColorStop(1, 'rgba(0,0,0,0)'); xD.fillStyle = rg; xD.fillRect(0, 0, DW, DH); }
-    if (logo) { const h = 470, w = h * logo.width / logo.height; xD.drawImage(logo, (DW - w) / 2, 82 + (DH - 82 - h) / 2, w, h); }
+    if (logo) { const w = 560, h = w * logo.height / logo.width; xD.drawImage(logo, (DW - w) / 2, 82 + (DH - 82 - h) / 2, w, h); }
     xD.fillStyle = 'rgba(20,8,16,.55)'; xD.fillRect(0, 0, DW, 26);
     xD.fillStyle = '#f4eef1'; xD.textAlign = 'left';
     let mx = 16; for (const m of ['Browser', 'File', 'Edit', 'View', 'History']) { xD.font = (m === 'Browser' ? '600' : '400') + ' 12px Inter, system-ui, sans-serif'; xD.fillText(m, mx, 18); mx += xD.measureText(m).width + 18; }
@@ -125,12 +125,12 @@ function start() {
   ];
   const label = (x, W, H, i, light) => {
     x.fillStyle = light ? '#FBF7F2' : PAL[i][1];
-    x.font = '600 26px Inter, system-ui, sans-serif'; x.textAlign = 'left'; x.fillText(CARDS[i][0], 28, H - 30);
-    x.font = '500 18px Inter, system-ui, sans-serif'; x.textAlign = 'right'; x.globalAlpha = light ? .85 : .7; x.fillText(CARDS[i][1], W - 28, H - 32); x.globalAlpha = 1;
+    x.font = '600 38px Inter, system-ui, sans-serif'; x.textAlign = 'left'; x.fillText(CARDS[i][0], 40, H - 44);
+    x.font = '500 26px Inter, system-ui, sans-serif'; x.textAlign = 'right'; x.globalAlpha = light ? .85 : .7; x.fillText(CARDS[i][1], W - 40, H - 46); x.globalAlpha = 1;
   };
   const cardTex = PAL.map(([bg, fg], i) => {
-    const W = 612, H = 408, [c, x] = canvas(W, H);
-    rr(x, 0, 0, W, H, 26); x.save(); x.clip();
+    const W = 900, H = 600, [c, x] = canvas(W, H);
+    rr(x, 0, 0, W, H, 38); x.save(); x.clip();
     x.fillStyle = bg; x.fillRect(0, 0, W, H);
     x.strokeStyle = fg; x.globalAlpha = .08; x.lineWidth = 14; for (let d = -H; d < W; d += 44) { x.beginPath(); x.moveTo(d, H); x.lineTo(d + H, 0); x.stroke(); }
     x.globalAlpha = 1;
@@ -144,9 +144,9 @@ function start() {
   cardTex.forEach((t, i) => {
     loadImg(CARDS[i][2]).then((img) => {
       const c = t.image, x = c.getContext('2d'), W = c.width, H = c.height;
-      x.clearRect(0, 0, W, H); x.save(); rr(x, 0, 0, W, H, 26); x.clip();
+      x.clearRect(0, 0, W, H); x.save(); rr(x, 0, 0, W, H, 38); x.clip();
       const s = Math.max(W / img.width, H / img.height), w = img.width * s, h = img.height * s; x.drawImage(img, (W - w) / 2, (H - h) / 2, w, h);
-      const g = x.createLinearGradient(0, H - 100, 0, H); g.addColorStop(0, 'rgba(59,30,51,0)'); g.addColorStop(1, 'rgba(59,30,51,.88)'); x.fillStyle = g; x.fillRect(0, H - 100, W, 100);
+      const g = x.createLinearGradient(0, H - 150, 0, H); g.addColorStop(0, 'rgba(59,30,51,0)'); g.addColorStop(1, 'rgba(59,30,51,.88)'); x.fillStyle = g; x.fillRect(0, H - 150, W, 150);
       label(x, W, H, i, true);
       x.restore(); t.needsUpdate = true;
     }).catch(() => {});
@@ -200,15 +200,15 @@ function start() {
   const lid = new THREE.Group(); lid.position.set(0, BH + .006, -BD / 2 + .04); laptop.add(lid);
   const lidMesh = new THREE.Mesh(slab(W, LD, LT, .12, .01), alu); lidMesh.position.set(0, 0, LD / 2); lid.add(lidMesh);
   { const logoMat = new THREE.MeshStandardMaterial({ transparent: true, opacity: 0, roughness: .4, metalness: 0, toneMapped: false });
-    const logo = new THREE.Mesh(new THREE.PlaneGeometry(.9, .9), logoMat);
+    const logo = new THREE.Mesh(new THREE.PlaneGeometry(1.25, 1.25), logoMat);
     // the plane lies on the lid, oriented so the logo reads correctly while the laptop is closed in the hero
     logo.rotation.set(-Math.PI / 2, 0, 0); logo.position.set(0, LT + .0012, LD / 2); lid.add(logo);
     loadImg('Images/brand/logo.png').then((img) => {
       const t = new THREE.Texture(img); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; t.needsUpdate = true;
       logoMat.map = t; logoMat.opacity = 1; logoMat.alphaTest = .02; logoMat.needsUpdate = true;
-      logo.scale.set(img.width / img.height, 1, 1);
-      paintWall(img); wall.needsUpdate = true;
-    }).catch(() => {}); }
+      logo.scale.set(1, img.height / img.width, 1);
+    }).catch(() => {});
+    loadImg('Images/brand/logo-light.png').then((img) => { paintWall(img); wall.needsUpdate = true; }).catch(() => {}); }
 
   // screen: local x right, y up the screen, z towards the viewer
   const scr = new THREE.Group(); scr.rotation.x = Math.PI / 2; scr.position.set(0, -.0015, LD / 2); lid.add(scr);
@@ -226,10 +226,10 @@ function start() {
   const world = local.map(p => p.clone());
 
   // card strip: two rows moving in opposite directions
-  const CW = 1.08, CH = .72, S = 1.16, N = 10, L = N * S;
+  const CW = 1.38, CH = .92, S = 1.48, N = 10, L = N * S;
   const cardMats = cardTex.map(t => new THREE.MeshBasicMaterial({ map: t, transparent: true, opacity: 0, toneMapped: false, clippingPlanes: world }));
   const strip = new THREE.Group(); strip.position.set(0, 0, .006); scr.add(strip);
-  const rows = [{ y: .34, dir: 1, off: 0, items: [] }, { y: -.48, dir: -1, off: .58, items: [] }];
+  const rows = [{ y: .36, dir: 1, off: 0, items: [] }, { y: -.54, dir: -1, off: .74, items: [] }];
   const cardGeo = new THREE.PlaneGeometry(CW, CH);
   rows.forEach((row, r) => { for (let i = 0; i < N; i++) { const m = new THREE.Mesh(cardGeo, cardMats[r ? (i * 3 + 5) % N : i]); m.position.y = row.y; strip.add(m); row.items.push({ m, x0: i * S }); } });
 
@@ -263,13 +263,13 @@ function start() {
     const inSeq = ss(0, .2, s), drop = ss(.45, 1, k), open = ss(.04, .38, s);
 
     // position + size as fractions of the screen, so the layout holds at any viewport
-    const fx = mobile ? 0 : lerp(.24, 0, ss(0, .85, h));
-    let fy = mobile ? lerp(-.06, -.24, ss(0, .9, h)) : lerp(-.02, -.08, h);
-    fy = lerp(fy, mobile ? -.12 : -.08, inSeq) - drop * 1.35;
-    let size = lerp(mobile ? .62 : .3, mobile ? .46 : .25, ss(0, 1, h));
-    size = lerp(size, mobile ? .84 : .38, ss(0, .22, s));
+    const fx = mobile ? 0 : lerp(.28, 0, ss(0, .85, h));
+    let fy = mobile ? lerp(-.06, -.24, ss(0, .9, h)) : lerp(-.08, -.08, h);
+    fy = lerp(fy, mobile ? -.14 : -.11, inSeq) - drop * 1.35;
+    let size = lerp(mobile ? .74 : .38, mobile ? .5 : .29, ss(0, 1, h));
+    size = lerp(size, mobile ? .92 : .48, ss(0, .22, s));
     size *= lerp(1, .72, ss(.3, 1, k));
-    const sc = Math.min(size * Wv / 3.2, .52 * Hv / 2.3);
+    const sc = Math.min(size * Wv / 3.2, .64 * Hv / 2.3);
     laptop.scale.setScalar(sc);
     laptop.position.set(fx * Wv / 2, fy * Hv / 2 - lerp(.05, .95, open) * sc + idle * Math.sin(t * 1.1) * .05 * sc * (1 - inSeq), 0);
     laptop.rotation.x = lerp(lerp(.62, .5, h), .14, inSeq);
