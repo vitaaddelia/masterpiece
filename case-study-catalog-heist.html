@@ -30,7 +30,7 @@
 </defs></svg>
 
 <header class="nav paddx" id="nav">
-  <a class="logo" href="/#top" aria-label="Vita Design, home"><img class="on-light" src="Images/logo.png" alt="" width="420" height="307" /><img class="on-dark" src="Images/logo-light.png" alt="" width="420" height="307" /></a>
+  <a class="logo" href="/#top" aria-label="Vita Design, home"><img class="on-light" src="Images/logo.png" alt="" width="420" height="307" /><img class="on-dark" src="Images/logo-light.png" alt="" width="420" height="307" /><span class="logo-name">Vita Addelia</span></a>
   <div class="navr">
     <button class="bk vlm-header-link" id="vlmHeaderLink" type="button" aria-label="Ask VitaLLM"><svg class="" width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg><span class="bk-label">VitaLLM</span></button>
     <button class="mbtn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu"><span class="g"><span>Menu</span><span>Close</span></span></button>
@@ -41,7 +41,7 @@
   <nav aria-label="Main">
     <a href="/#work" style="--i:0"><span class="in"><span class="base">Work</span><span class="fill" aria-hidden="true">Work</span></span></a>
     <a href="/#experience" style="--i:1"><span class="in"><span class="base">Experience</span><span class="fill" aria-hidden="true">Experience</span></span></a>
-    <a href="https://drive.google.com/file/d/1Z1WExbYRlDtL6YdGYjrXzk2tt7k5s6JA/view?usp=sharing" style="--i:2" target="_blank" rel="noopener"><span class="in"><span class="base">Resume</span><span class="fill" aria-hidden="true">Resume</span></span></a>
+    <a href="/resume" style="--i:2"><span class="in"><span class="base">Resume</span><span class="fill" aria-hidden="true">Resume</span></span></a>
     <a href="/#contact" style="--i:3"><span class="in"><span class="base">Contact</span><span class="fill" aria-hidden="true">Contact</span></span></a>
   </nav>
   <div class="hello">
@@ -68,8 +68,22 @@
     </nav>
   </aside>
   <article class="cs-main">
+    <details class="cs-toc">
+      <summary>On this page</summary>
+      <nav aria-label="On this page">
+      <a href="#overview">Overview</a>
+      <a href="#solution">Solution</a>
+      <a href="#problem">Problem</a>
+      <a href="#initial-findings">Initial Findings</a>
+      <a href="#design-process">Design Process</a>
+      <a href="#design-decisions">Design Decisions</a>
+      <a href="#design-system">Design System</a>
+      <a href="#qa">QA &amp; Testing</a>
+      <a href="#reflection">Reflection</a>
+      </nav>
+    </details>
     <div class="cs-eyebrow">ALTERNATE WORLDS &middot; E-COMMERCE &middot; 2026</div>
-    <h1 class="cs-title">The Catalog Heist: Driving Growth Through Systems &amp; User Experience</h1>
+    <h1 class="cs-title">The Catalog Heist: Rebuilding search and navigation for a 500,000-product catalog</h1>
 
     <div class="cs-hero">
       <img src="Images/Alternate worlds Hero.gif" alt="Alternate Worlds catalog redesign" />
@@ -78,7 +92,7 @@
     <div class="cs-meta-row">
       <div>
         <span class="cs-meta-label">ROLE</span>
-        <span class="cs-meta-value">Product Designer (Me!)</span>
+        <span class="cs-meta-value">Product Designer: IA, UI, components, developer handoff, QA</span>
       </div>
       <div>
         <span class="cs-meta-label">TIMELINE</span>
@@ -86,7 +100,7 @@
       </div>
       <div>
         <span class="cs-meta-label">TEAM</span>
-        <span class="cs-meta-value">Designers, Developers,<br />Manager, QA Team</span>
+        <span class="cs-meta-value">Designers, developers,<br />a manager and QA</span>
       </div>
       <div>
         <span class="cs-meta-label">SKILLS</span>
@@ -143,17 +157,16 @@
       <p>The catalog had grown for decades without the underlying navigation system growing with it. Categories, filters, and search were all bolted on at different points, for different reasons, with no shared logic tying them together.</p>
 
       <div class="cs-diagram-box">
-        <span class="cs-diagram-caption">THE NUMBERS</span>
+        <span class="cs-diagram-caption">THE CATALOG</span>
         <div class="cs-diagram-row">
           <div class="cs-diagram-chip">47 years in business</div>
           <div class="cs-diagram-chip">500K+ products</div>
-          <div class="cs-diagram-chip cs-diagram-chip--accent">61% search abandonment</div>
         </div>
       </div>
 
       <h3>A user types "Batman" and gets chaos.</h3>
-      <p>A simple, high-intent search &mdash; someone looking for a specific character or collectible &mdash; returned an unfiltered, disorganized wall of results. Categories didn't behave like categories. Filters didn't behave like filters. Search didn't behave like search. In testing, a "Batman" search returned only 18% relevant results, 67% irrelevant, and 15% no match at all.</p>
-      <p>61% of e-commerce visitors abandon a site if they can't find what they're looking for within five seconds. The design wasn't entirely wrong &mdash; it had worked for years. But the catalog had outgrown the system, and every workaround since then had made the experience harder to trust, not easier.</p>
+      <p>A simple, high-intent search &mdash; someone looking for a specific character or collectible &mdash; returned an unfiltered, disorganized wall of results. Categories didn't behave like categories. Filters didn't behave like filters. Search didn't behave like search. In one test search for "Batman", only 18% of the results were relevant, 67% were irrelevant and 15% didn't match at all.</p>
+      <p>The design wasn't entirely wrong &mdash; it had worked for years. But the catalog had outgrown the system, and every workaround since then had made the experience harder to trust, not easier.</p>
 
       <blockquote class="cs-quote">"I know what I'm looking for and I still can't find it." &mdash; user research quote</blockquote>
     </section>
@@ -259,7 +272,7 @@
     <section id="qa">
       <div class="cs-eyebrow">QA &amp; TESTING</div>
       <h2>I tested multiple catalog states in staging and evaluated design specifications across various screen sizes to be sure.</h2>
-      <p>I used Claude Code to help run through QA systematically &mdash; checking each entry point (nav, search, direct link) against its expected states (empty, single-match, partial-match, fully populated, loading) and flagging layout breaks, truncated copy, and misaligned filters across common breakpoints before the limited rollout.</p>
+      <p>I used Claude Code to help run through QA systematically &mdash; checking each entry point (nav, search, direct link) against its expected states (empty, single-match, partial-match, fully populated, loading) and flagging layout breaks, truncated copy, and misaligned filters across common breakpoints before release.</p>
       <p><em>This project is still in build &mdash; outcome metrics aren't available yet. Once the redesign ships and we have data to measure against (clicks to product, search abandonment, catalog engagement), this section will be updated with real, post-launch numbers.</em></p>
     </section>
 
@@ -306,13 +319,15 @@
 </section>
 </main>
 <footer class="site-footer" data-tone="dark">
+  <canvas class="foot-game" aria-hidden="true"></canvas><canvas class="foot-trail" aria-hidden="true"></canvas>
   <div class="foot-top">
     <nav class="foot-links" aria-label="Footer">
-      <a href="/#work">Work</a><a href="/#experience">Experience</a><a href="https://drive.google.com/file/d/1Z1WExbYRlDtL6YdGYjrXzk2tt7k5s6JA/view?usp=sharing" target="_blank" rel="noopener">Resume</a><a href="/#contact">Contact</a>
+      <a href="/#work">Work</a><a href="/#experience">Experience</a><a href="/resume">Resume</a><a href="/#contact">Contact</a>
     </nav>
     <div class="foot-social"><a href="https://www.linkedin.com/in/vitaaddelia/" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:hola.vitaaddelia@gmail.com">Email</a></div>
   </div>
   <div class="foot-word" aria-hidden="true">Vita Addelia</div>
+  <div class="foot-score"><span class="hint">Swipe to slice</span><span>Score <b id="fScore">0</b></span><span>Best <b id="fBest">0</b></span><button class="foot-play" type="button" aria-pressed="false">Play</button></div>
   <div class="foot-bottom"><span>DESIGNED + CODE WITH &hearts; BY VITAA</span>
     <a class="cbtn up" href="#top" aria-label="Back to top"><span class="f"></span><svg class="" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></div>
 </footer>

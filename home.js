@@ -39,15 +39,15 @@
       if (finished) return; finished = true;
       setTimeout(() => {
         loader.classList.add('out');
-        setTimeout(() => V.markReady(), 500);
+        setTimeout(() => V.markReady(), 300);
         setTimeout(() => {
           loader.remove(); V.endLoading();
           try { sessionStorage.setItem('vita-loaded', '1'); } catch (e) {}
-        }, 1500);
-      }, 260);
+        }, 900);
+      }, 120);
     };
     requestAnimationFrame(() => setTimeout(() => mark && mark.classList.add('in'), 80));
-    const DUR = 1700, t0 = performance.now();
+    const DUR = 900, t0 = performance.now();
     const step = (now) => {
       const p = clamp((now - t0) / DUR);
       setCount(Math.round(100 * easeInOut(p)));
@@ -160,4 +160,33 @@
     });
   }
 
+})();
+
+/* ---------- project cards: colour fill grows from the cursor; title letters roll ---------- */
+(() => {
+  document.querySelectorAll('.proj').forEach((card) => {
+    const media = card.querySelector('.proj-media');
+    if (media) media.addEventListener('pointerenter', (e) => {
+      const r = media.getBoundingClientRect();
+      media.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+      media.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+    });
+    const h = card.querySelector('.proj-meta h3');
+    if (!h || h.dataset.rolled) return;
+    const text = h.textContent; h.dataset.rolled = '1';
+    h.setAttribute('aria-label', text);
+    h.innerHTML = '';
+    let i = 0;
+    text.split(' ').forEach((word, wi) => {
+      if (wi) h.appendChild(document.createTextNode(' '));      // lines break between words, never inside one
+      const wordEl = document.createElement('span'); wordEl.style.whiteSpace = 'nowrap'; wordEl.setAttribute('aria-hidden', 'true');
+      [...word].forEach((ch) => {
+        const w = document.createElement('span'); w.className = 'tl'; w.style.setProperty('--i', i++);
+        const a = document.createElement('span'); const b = document.createElement('span');
+        a.textContent = b.textContent = ch;
+        w.append(a, b); wordEl.appendChild(w);
+      });
+      h.appendChild(wordEl);
+    });
+  });
 })();

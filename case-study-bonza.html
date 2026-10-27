@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Bonza: an AI dog nutritionist concept | Vita Addelia</title>
-<meta name="description" content="A concept for a dog meal-plan subscription where an AI keeps adjusting the plan after checkout. A case study by Vita Addelia." />
+<title>Bonza: an AI dog nutritionist | Vita Addelia</title>
+<meta name="description" content="A dog meal-plan subscription where an AI keeps adjusting the plan after checkout, now in staging. A case study by Vita Addelia." />
 <meta name="theme-color" content="#3B1E33" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Bonza: an AI dog nutritionist concept | Vita Addelia" />
-<meta property="og:description" content="A concept for a dog meal-plan subscription where an AI keeps adjusting the plan after checkout. A case study by Vita Addelia." />
+<meta property="og:title" content="Bonza: an AI dog nutritionist | Vita Addelia" />
+<meta property="og:description" content="A dog meal-plan subscription where an AI keeps adjusting the plan after checkout, now in staging. A case study by Vita Addelia." />
 <meta name="twitter:card" content="summary" />
 
 <link rel="icon" type="image/png" href="Images/favicon.png" />
@@ -30,7 +30,7 @@
 </defs></svg>
 
 <header class="nav paddx" id="nav">
-  <a class="logo" href="/#top" aria-label="Vita Design, home"><img class="on-light" src="Images/logo.png" alt="" width="420" height="307" /><img class="on-dark" src="Images/logo-light.png" alt="" width="420" height="307" /></a>
+  <a class="logo" href="/#top" aria-label="Vita Design, home"><img class="on-light" src="Images/logo.png" alt="" width="420" height="307" /><img class="on-dark" src="Images/logo-light.png" alt="" width="420" height="307" /><span class="logo-name">Vita Addelia</span></a>
   <div class="navr">
     <button class="bk vlm-header-link" id="vlmHeaderLink" type="button" aria-label="Ask VitaLLM"><svg class="" width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg><span class="bk-label">VitaLLM</span></button>
     <button class="mbtn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu"><span class="g"><span>Menu</span><span>Close</span></span></button>
@@ -41,7 +41,7 @@
   <nav aria-label="Main">
     <a href="/#work" style="--i:0"><span class="in"><span class="base">Work</span><span class="fill" aria-hidden="true">Work</span></span></a>
     <a href="/#experience" style="--i:1"><span class="in"><span class="base">Experience</span><span class="fill" aria-hidden="true">Experience</span></span></a>
-    <a href="https://drive.google.com/file/d/1Z1WExbYRlDtL6YdGYjrXzk2tt7k5s6JA/view?usp=sharing" style="--i:2" target="_blank" rel="noopener"><span class="in"><span class="base">Resume</span><span class="fill" aria-hidden="true">Resume</span></span></a>
+    <a href="/resume" style="--i:2"><span class="in"><span class="base">Resume</span><span class="fill" aria-hidden="true">Resume</span></span></a>
     <a href="/#contact" style="--i:3"><span class="in"><span class="base">Contact</span><span class="fill" aria-hidden="true">Contact</span></span></a>
   </nav>
   <div class="hello">
@@ -66,6 +66,18 @@
     </nav>
   </aside>
   <article class="cs-main">
+    <details class="cs-toc">
+      <summary>On this page</summary>
+      <nav aria-label="On this page">
+      <a href="#overview">Overview</a>
+      <a href="#solution">Solution</a>
+      <a href="#problem">Problem</a>
+      <a href="#design-process">Design Process</a>
+      <a href="#design-decisions">Design Decisions</a>
+      <a href="#qa">QA &amp; Testing</a>
+      <a href="#reflection">Reflection</a>
+      </nav>
+    </details>
     <div class="cs-eyebrow">BONZA &middot; PRODUCT &middot; 2025</div>
     <h1 class="cs-title">The world's first AI dog nutritionist</h1>
 
@@ -76,7 +88,7 @@
     <div class="cs-meta-row">
       <div>
         <span class="cs-meta-label">ROLE</span>
-        <span class="cs-meta-value">Product Designer (Me!)</span>
+        <span class="cs-meta-value">Product Designer: strategy, UX, UI, developer handoff</span>
       </div>
       <div>
         <span class="cs-meta-label">TIMELINE</span>
@@ -84,7 +96,7 @@
       </div>
       <div>
         <span class="cs-meta-label">TEAM</span>
-        <span class="cs-meta-value">Designers, Developers,<br />Manager, QA Team</span>
+        <span class="cs-meta-value">Designers, developers,<br />a manager and QA</span>
       </div>
       <div>
         <span class="cs-meta-label">SKILLS</span>
@@ -93,7 +105,7 @@
     </div>
 
     <div class="cs-summary">
-      <div><span class="cs-meta-label">OUTCOME</span><p>A concept for a plan that keeps adjusting after checkout. No launch data yet.</p></div>
+      <div><span class="cs-meta-label">OUTCOME</span><p>In staging: a plan that keeps adjusting after checkout. No launch data yet.</p></div>
       <div><span class="cs-meta-label">CONSTRAINT</span><p>Built on WooCommerce: AI changes must map to swapping a product variation or a subscription's renewal interval.</p></div>
       <div><span class="cs-meta-label">KEY DECISION</span><p>The AI proposes every change and the owner confirms it before the next delivery.</p></div>
       <div><span class="cs-meta-label">TRADE-OFF</span><p>Single-question check-ins every 2 weeks instead of a weekly survey: less data, but owners actually respond.</p></div>
@@ -103,7 +115,7 @@
       <div class="cs-eyebrow">OVERVIEW</div>
       <h2>What if a dog's meal plan didn't just get calculated once, but kept adjusting as the dog actually changed?</h2>
       <p class="cs-intro">Every dog meal-plan subscription today works the same way: a short quiz (breed, age, weight, activity, health flags) feeds a formula, the formula spits out a fixed daily portion and recipe, and that's it &mdash; the plan stays static until the owner manually edits it months later. The quiz is smart. The relationship after checkout is not.</p>
-      <p>Bonza is a concept for a dog meal-plan subscription where the onboarding quiz is only the starting point for the AI, not the final answer. The AI keeps refining the plan using signals the owner already has easy access to &mdash; weight check-ins, leftover food, stool quality, energy level &mdash; so the portion and recipe adjust the way a good vet nutritionist would, without the owner having to ask.</p>
+      <p>Bonza is a dog meal-plan subscription. In this redesign, the onboarding quiz is only the starting point for the AI, not the final answer. The AI keeps refining the plan using signals the owner already has easy access to &mdash; weight check-ins, leftover food, stool quality, energy level &mdash; so the portion and recipe adjust the way a good vet nutritionist would, without the owner having to ask.</p>
 
     </section>
 
@@ -190,11 +202,9 @@
     <section id="design-process">
       <div class="cs-eyebrow">DESIGN PROCESS</div>
       <h2>How might we collect ongoing signals without turning the app into a chore?</h2>
-      <p>Early direction was a short in-app survey every week, mirroring the thoroughness of the original 5-step quiz. This tested logically &mdash; more data, better AI adjustments &mdash; but risked the exact fatigue that makes owners abandon long onboarding quizzes in the first place. A meal-plan app that starts feeling like a chore works against the "set it and forget it" reason people subscribe in the first place.</p>
+      <p>Early direction was a short in-app survey every week, mirroring the thoroughness of the original 5-step quiz. This made sense on paper &mdash; more data, better AI adjustments &mdash; but risked the exact fatigue that makes owners abandon long onboarding quizzes in the first place. A meal-plan app that starts feeling like a chore works against the "set it and forget it" reason people subscribe in the first place.</p>
       <p>What we did instead: single-question, push-notification-style check-ins spaced 2 weeks apart, framed conversationally rather than as a form ("Did Bella finish her bowl today?" not "Please rate food consumption 1&ndash;5"). This trades data density for actually getting a response.</p>
 
-      <h3>Getting stakeholder buy-in</h3>
-      <p>Reviews and rounds of iteration are hard, but they're key to turning stakeholders into advocates for the work. I knew it was crucial to listen and address concerns, without forgetting we had to be assertive about some of the design direction we chose. One way I get buy-in is by showing the direct value and speaking to stakeholders directly &mdash; I walked the manager through a simple before/after, and the reaction was immediately positive.</p>
     </section>
 
     <section id="design-decisions">
@@ -207,9 +217,9 @@
 
     <section id="qa">
       <div class="cs-eyebrow">QA &amp; TESTING</div>
-      <h2>I tested multiple states in staging and evaluated design specifications across various screen sizes to be sure.</h2>
-      <p>I used Claude Code to help run through QA systematically &mdash; checking each entry point (nav, search, direct link) against its expected states (empty, single-match, partial-match, fully populated, loading) and flagging layout breaks, truncated copy, and misaligned filters across common breakpoints before the limited rollout.</p>
-      <p><em>This project is still in build &mdash; outcome metrics aren't available yet. Once it ships and we have data to measure against, this section will be updated with real, post-launch numbers.</em></p>
+      <h2>In staging now: checking every step before launch.</h2>
+      <p>Bonza is in staging. I'm checking the five quiz steps, the result page and the subscription screens against their expected states across common screen sizes before it goes live.</p>
+      <p><em>There's no outcome data yet. Once Bonza launches, this section will be updated with real post-launch numbers.</em></p>
     </section>
 
     <section id="reflection">
@@ -227,12 +237,6 @@
         </div>
       </div>
 
-      <div class="cs-col-2" style="margin-top: -1rem;">
-        <div>
-          <h3>Naming conventions are part of the design, not an afterthought.</h3>
-          <p>Mirroring Blocksy's setting names in Figma variables turned handover from a translation exercise into a direct mapping, so developers didn't have to guess what a token meant.</p>
-        </div>
-      </div>
     </section>
 
   
@@ -246,13 +250,15 @@
 </section>
 </main>
 <footer class="site-footer" data-tone="dark">
+  <canvas class="foot-game" aria-hidden="true"></canvas><canvas class="foot-trail" aria-hidden="true"></canvas>
   <div class="foot-top">
     <nav class="foot-links" aria-label="Footer">
-      <a href="/#work">Work</a><a href="/#experience">Experience</a><a href="https://drive.google.com/file/d/1Z1WExbYRlDtL6YdGYjrXzk2tt7k5s6JA/view?usp=sharing" target="_blank" rel="noopener">Resume</a><a href="/#contact">Contact</a>
+      <a href="/#work">Work</a><a href="/#experience">Experience</a><a href="/resume">Resume</a><a href="/#contact">Contact</a>
     </nav>
     <div class="foot-social"><a href="https://www.linkedin.com/in/vitaaddelia/" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:hola.vitaaddelia@gmail.com">Email</a></div>
   </div>
   <div class="foot-word" aria-hidden="true">Vita Addelia</div>
+  <div class="foot-score"><span class="hint">Swipe to slice</span><span>Score <b id="fScore">0</b></span><span>Best <b id="fBest">0</b></span><button class="foot-play" type="button" aria-pressed="false">Play</button></div>
   <div class="foot-bottom"><span>DESIGNED + CODE WITH &hearts; BY VITAA</span>
     <a class="cbtn up" href="#top" aria-label="Back to top"><span class="f"></span><svg class="" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></div>
 </footer>

@@ -124,7 +124,7 @@ html.lenis, html.lenis body { height: auto; }
 #loader { display: none; position: fixed; inset: 0; z-index: 1000; place-items: center; overflow: hidden; }
 .loading #loader { display: grid; }
 .loading { overflow: hidden; }
-.lp { position: absolute; top: -30vh; height: 160vh; width: 58%; transition: transform 1s var(--ease); will-change: transform; }
+.lp { position: absolute; top: -30vh; height: 160vh; width: 58%; transition: transform .7s var(--ease); will-change: transform; }
 .lp.l { left: 0; transform-origin: right center; }
 .lp.r { right: 0; transform-origin: left center; }
 .lp.b { background: var(--beige); z-index: 1; }
@@ -428,7 +428,7 @@ section { position: relative; }
 }
 
 /* stats: four circles flank a centre lane the laptop spins through */
-#impact.is-pinned { height: 320vh; padding: 0; }
+#impact.is-pinned { height: 180vh; padding: 0; }
 #impact.is-pinned .imp-pin { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; padding: max(8vw, 110px) var(--gutter) 0; }
 #impact.is-pinned .circs { display: block; margin: 0; }
 #impact.is-pinned .circ { position: absolute; width: clamp(170px, 15vw, 280px); aspect-ratio: 1; padding: 2%; }
@@ -441,7 +441,7 @@ section { position: relative; }
 
 /* selected work: title top-left, lid meter bottom-left, link bottom-right */
 #sequence { height: auto; }
-#sequence.is3d { height: 260vh; }
+#sequence.is3d { height: 190vh; }
 #sequence.is3d .seq-pin { position: sticky; top: 0; height: 100vh; height: 100svh; display: block; }
 .seq-head h2 { white-space: nowrap; }
 #sequence.is3d .meter { position: absolute; left: var(--gutter); bottom: max(3vw, 24px); }
@@ -451,7 +451,7 @@ section { position: relative; }
 #sequence:not(.is3d) .seq-meter-wrap { display: none; }
 #sequence:not(.is3d) ~ * .pin3d, #seqwrap:has(#sequence:not(.is3d)) .pin3d { display: none; }
 
-#break { min-height: 100vh; min-height: 100svh; padding: 0 var(--gutter); }
+#break { min-height: 70vh; min-height: 70svh; padding: 0 var(--gutter); }
 
 @media (max-width: 767px) {
   #impact.is-pinned .imp-pin { padding-top: 96px; }
@@ -501,3 +501,154 @@ section { position: relative; }
 .cbtn svg { transition: color .5s var(--soft); }
 .menu nav a .fill { transition: clip-path .7s var(--soft); }
 .copy, .bk { transition: background .5s var(--soft), color .5s var(--soft), transform .4s var(--soft); }
+
+/* VitaLLM: links inside answers, and follow-up suggestions after each answer */
+.vlm-msg--bot a { color: var(--berry); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+.vlm-msg--bot a:hover { color: var(--ink); }
+.vlm-followups { margin-top: -.3rem; }
+
+
+/* ==========================================================================
+   Audit fixes: name beside the logo, hero links, case-study menu on phones
+   ========================================================================== */
+.logo .logo-name { font-size: clamp(18px, 1.5vw, 26px); white-space: nowrap; }
+.hero-links a { color: var(--berry); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.hero-links a:hover { color: var(--ink); }
+
+.cs-toc { display: none; }
+@media (max-width: 900px) {
+  .cs-toc { display: block; position: sticky; top: 78px; z-index: 6; margin: 0 0 1.6rem; background: var(--cream); border: 2px solid var(--ink); border-radius: 14px; }
+  .cs-toc summary { list-style: none; cursor: pointer; padding: .75rem 1rem; font-family: var(--hand); font-size: 1.2rem; color: var(--ink); display: flex; justify-content: space-between; align-items: center; min-height: 44px; box-sizing: border-box; }
+  .cs-toc summary::-webkit-details-marker { display: none; }
+  .cs-toc summary::after { content: "+"; font-family: var(--ui); font-size: 1.3rem; color: var(--berry); }
+  .cs-toc[open] summary::after { content: "–"; }
+  .cs-toc nav { display: flex; flex-direction: column; padding: 0 1rem .8rem; max-height: 55vh; overflow-y: auto; }
+  .cs-toc nav a { padding: .55rem 0; border-top: 1px solid var(--beige); font-size: .95rem; color: var(--ink); }
+}
+@media (max-width: 420px) { .logo .logo-name { font-size: 17px; } }
+
+/* ==========================================================================
+   Resume page (screen) — the same markup prints to the A4 PDF
+   ========================================================================== */
+.resume-wrap { max-width: 920px; margin: 0 auto; padding: clamp(110px, 10vw, 150px) var(--gutter) clamp(3rem, 6vw, 6rem); }
+.resume-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
+.resume { background: #fff; border: 2px solid var(--ink); border-radius: clamp(16px, 2vw, 28px); padding: clamp(24px, 5vw, 60px); color: var(--ink); }
+.r-head { border-bottom: 2px solid var(--ink); padding-bottom: 22px; margin-bottom: 8px; }
+.r-head h1 { margin: 0; font-family: var(--display); font-weight: 700; text-transform: uppercase; letter-spacing: -.03em; line-height: .9; font-size: clamp(48px, 7vw, 84px); }
+.r-title { margin: 10px 0 14px; font-size: clamp(16px, 1.5vw, 20px); font-weight: 600; color: var(--berry); }
+.r-contact { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 15px; }
+.r-contact a, .r-cases a { color: var(--berry); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.r-sec { padding-top: 22px; }
+.r-sec h2 { margin: 0 0 12px; font-family: var(--display); font-weight: 600; text-transform: uppercase; font-size: 26px; letter-spacing: .01em; color: var(--ink); }
+.r-sec > p { margin: 0; font-size: 16px; line-height: 1.6; color: var(--ink-body); }
+.r-job { padding: 14px 0 16px; border-top: 1px solid var(--beige); }
+.r-job:first-of-type { border-top: 0; padding-top: 0; }
+.r-job-head { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; }
+.r-job h3 { margin: 0; font-size: 18px; font-weight: 700; }
+.r-co { margin: 2px 0 0; font-size: 15px; color: var(--ink-soft); }
+.r-when { margin: 0; font-size: 14px; color: var(--ink-soft); white-space: nowrap; }
+.r-blurb { margin: 8px 0 0; font-size: 15px; font-style: italic; color: var(--ink-soft); }
+.r-job ul, .r-cases { margin: 8px 0 0; padding-left: 1.1em; }
+.r-job li { font-size: 15px; line-height: 1.55; margin: 4px 0; color: var(--ink-body); }
+.r-cases li { font-size: 15px; line-height: 1.5; margin: 6px 0; }
+.r-cases li span { display: block; color: var(--ink-soft); font-size: 14px; }
+.r-skills { margin: 0; display: grid; gap: 10px; }
+.r-skills div { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 12px; font-size: 15px; line-height: 1.5; }
+.r-skills dt { font-weight: 700; }
+.r-skills dd { margin: 0; color: var(--ink-body); }
+@media (max-width: 600px) {
+  .r-job-head { flex-direction: column; gap: 2px; }
+  .r-skills div { grid-template-columns: 1fr; gap: 0; }
+}
+
+@page { size: A4; margin: 12mm 14mm; }
+@media print {
+  html, body { background: #fff !important; }
+  .nav, .menu, .site-footer, .vlm-launcher, .vlm-panel, .resume-actions, .skip, #trail, #loader, .cursor, svg[width="0"] { display: none !important; }
+  main { margin: 0 !important; background: #fff !important; box-shadow: none !important; border-radius: 0 !important; }
+  .resume-wrap { padding: 0; max-width: none; }
+  .resume { border: 0; border-radius: 0; padding: 0; }
+  .r-head { padding-bottom: 10px; }
+  .r-head h1 { font-size: 34pt; }
+  .r-title { font-size: 11.5pt; margin: 4px 0 6px; }
+  .r-contact { font-size: 9.5pt; gap: 2px 16px; }
+  .r-sec { padding-top: 10px; }
+  .r-sec h2 { font-size: 13pt; margin-bottom: 4px; }
+  .r-sec > p, .r-job li, .r-cases li, .r-skills div { font-size: 9.5pt; line-height: 1.42; }
+  .r-job { padding: 6px 0 7px; break-inside: avoid; }
+  .r-job h3 { font-size: 10.5pt; }
+  .r-co, .r-when, .r-blurb, .r-cases li span { font-size: 9pt; }
+  .r-blurb { margin-top: 2px; }
+  .r-job ul { margin-top: 3px; }
+  .r-job li { margin: 1px 0; }
+  .r-cases li { margin: 3px 0; }
+  .r-skills { gap: 3px; }
+  .r-skills div { grid-template-columns: 95px minmax(0, 1fr); }
+  .r-sec { break-inside: auto; }
+  .r-sec h2 { break-after: avoid; }
+}
+.r-job ul { list-style: disc; }
+.r-job li::marker { color: var(--berry); }
+.r-cases { list-style: none; padding-left: 0; }
+/* phones: give the hero laptop its own space between the headline and the bullet list */
+@media (max-width: 767px) { #hero { min-height: 118vh; min-height: 118svh; } }
+@media (max-width: 380px) { #hero { min-height: 130vh; min-height: 130svh; } }
+
+/* ==========================================================================
+   Project cards: Palmo-style hover
+   colour circle grows from the cursor · screenshot lifts and tilts ·
+   sparkles spin in from the corners · title letters roll
+   ========================================================================== */
+.proj-media { background: var(--lbeige); }
+.proj-media::after { display: none; }
+.pm-fill { position: absolute; inset: 0; z-index: 0; background: var(--pc, var(--berry)); clip-path: circle(0% at var(--mx, 50%) var(--my, 50%)); transition: clip-path .8s var(--soft); }
+.pm-img { position: absolute; inset: 0; z-index: 1; transition: transform .9s var(--soft), border-radius .9s var(--soft), box-shadow .9s var(--soft); overflow: hidden; }
+.proj-media .pm-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: none !important; }
+.pm-doo { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+.pm-doo svg { position: absolute; width: clamp(34px, 4.4vw, 70px); height: auto; aspect-ratio: 1; color: var(--sun); opacity: 0; transition: transform .9s var(--soft), opacity .5s var(--soft); }
+.pm-doo .d1 { left: 4%; top: 6%; transform: translate(-60%, -60%) scale(.3) rotate(-90deg); }
+.pm-doo .d2 { right: 5%; top: 8%; transform: translate(60%, -60%) scale(.3) rotate(90deg); width: clamp(24px, 3vw, 46px); }
+.pm-doo .d3 { left: 7%; bottom: 7%; transform: translate(-60%, 60%) scale(.3) rotate(90deg); width: clamp(22px, 2.6vw, 40px); color: var(--cream); }
+.pm-doo .d4 { right: 4%; bottom: 5%; transform: translate(60%, 60%) scale(.3) rotate(-90deg); color: var(--cream); }
+.proj-media[style*="#FFE386"] .pm-doo svg, .proj-media[style*="#EFDDE6"] .pm-doo svg { color: var(--plum); }
+.proj-media .pill { z-index: 4; }
+
+@media (hover: hover) and (pointer: fine) {
+  .proj:hover .pm-fill, .proj-media:focus-visible .pm-fill { clip-path: circle(150% at var(--mx, 50%) var(--my, 50%)); }
+  .proj:hover .pm-img, .proj-media:focus-visible .pm-img { transform: scale(.84) rotate(-2.5deg); border-radius: 14px; box-shadow: 0 24px 50px rgba(30, 10, 25, .35); }
+  .proj:hover .pm-doo svg, .proj-media:focus-visible .pm-doo svg { opacity: 1; transform: none; }
+  .proj:hover .pm-doo .d2 { transition-delay: .06s; }
+  .proj:hover .pm-doo .d3 { transition-delay: .1s; }
+  .proj:hover .pm-doo .d4 { transition-delay: .14s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pm-fill, .pm-img, .pm-doo svg { transition: opacity .3s; }
+  .proj:hover .pm-img { transform: none; }
+}
+
+/* rolling title letters */
+.proj-meta h3 .tl { display: inline-block; position: relative; overflow: hidden; vertical-align: bottom; }
+.proj-meta h3 .tl > span { display: block; transition: transform .6s var(--soft); transition-delay: calc(var(--i) * 16ms); }
+.proj-meta h3 .tl > span + span { position: absolute; left: 0; top: 100%; color: var(--sun); }
+@media (hover: hover) and (pointer: fine) {
+  .proj:hover .proj-meta h3 .tl > span { transform: translateY(-100%); }
+}
+
+/* ==========================================================================
+   Footer slicing game (Palmo-style). Canvas sits behind the footer content;
+   content ignores the pointer except links and buttons, so swipes reach the game.
+   ========================================================================== */
+.site-footer .foot-game, .site-footer .foot-trail { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+.site-footer > :not(canvas) { position: relative; z-index: 2; }
+.site-footer.game-on > :not(canvas) { pointer-events: none; }
+.site-footer.game-on a, .site-footer.game-on button { pointer-events: auto; }
+@media (pointer: fine) { .site-footer.game-on { cursor: crosshair; } }
+.site-footer.playing { touch-action: none; }
+.foot-score { display: none; }
+.site-footer.game-on .foot-score { display: flex; align-self: center; align-items: center; gap: 14px; width: fit-content; padding: 6px 16px; margin: 0 auto; border-radius: 999px; border: 1px solid rgba(251, 247, 242, .22); background: rgba(59, 30, 51, .7); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); font-family: var(--hand); font-size: clamp(15px, 1.1vw, 19px); color: var(--cream-soft); }
+.foot-score b { font-family: var(--display); font-weight: 700; font-size: 1.35em; color: var(--sun); font-variant-numeric: tabular-nums; }
+.foot-score .hint { color: var(--sun); }
+.foot-play { display: none; font-family: var(--hand); font-size: 1em; padding: 4px 12px; min-height: 36px; border-radius: 999px; border: 1px solid var(--sun); background: transparent; color: var(--sun); cursor: pointer; }
+@media (pointer: coarse) { .foot-play { display: inline-flex; align-items: center; } .foot-score .hint { display: none; } }
+/* every section after the 3D laptop's track sits above it, so the falling laptop never covers the work */
+#seqwrap ~ section, #seqwrap ~ .scallop { position: relative; z-index: 2; }

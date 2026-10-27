@@ -263,10 +263,10 @@ function start() {
     const inSeq = ss(0, .2, s), drop = ss(.45, 1, k), open = ss(.04, .38, s);
 
     // position + size as fractions of the screen, so the layout holds at any viewport
-    const fx = mobile ? 0 : lerp(.28, 0, ss(0, .85, h));
-    let fy = mobile ? lerp(-.06, -.24, ss(0, .9, h)) : lerp(-.08, -.08, h);
+    const fx = mobile ? 0 : lerp(.32, 0, ss(0, .85, h));
+    let fy = mobile ? lerp(-.3, -.24, ss(0, .9, h)) : lerp(-.03, -.08, h);
     fy = lerp(fy, mobile ? -.14 : -.11, inSeq) - drop * 1.35;
-    let size = lerp(mobile ? .74 : .38, mobile ? .5 : .29, ss(0, 1, h));
+    let size = lerp(mobile ? .56 : .3, mobile ? .5 : .29, ss(0, 1, h));
     size = lerp(size, mobile ? .92 : .48, ss(0, .22, s));
     size *= lerp(1, .72, ss(.3, 1, k));
     const sc = Math.min(size * Wv / 3.2, .64 * Hv / 2.3);

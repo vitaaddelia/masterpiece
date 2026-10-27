@@ -37,7 +37,7 @@ try{if(true&&!sessionStorage.getItem('vita-loaded')&&!matchMedia('(prefers-reduc
   <div class="lcount"><span class="odo"><span class="col"></span><span class="col"></span><span class="col"></span></span><span class="pc">%</span></div>
 </div>
 <header class="nav paddx" id="nav">
-  <a class="logo" href="#top" aria-label="Vita Design, home"><img class="on-light" src="Images/logo.png" alt="" width="420" height="307" /><img class="on-dark" src="Images/logo-light.png" alt="" width="420" height="307" /></a>
+  <a class="logo" href="#top" aria-label="Vita Design, home"><img class="on-light" src="Images/logo.png" alt="" width="420" height="307" /><img class="on-dark" src="Images/logo-light.png" alt="" width="420" height="307" /><span class="logo-name">Vita Addelia</span></a>
   <div class="navr">
     <button class="bk vlm-header-link" id="vlmHeaderLink" type="button" aria-label="Ask VitaLLM"><svg class="" width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg><span class="bk-label">VitaLLM</span></button>
     <button class="mbtn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu"><span class="g"><span>Menu</span><span>Close</span></span></button>
@@ -48,7 +48,7 @@ try{if(true&&!sessionStorage.getItem('vita-loaded')&&!matchMedia('(prefers-reduc
   <nav aria-label="Main">
     <a href="#work" style="--i:0"><span class="in"><span class="base">Work</span><span class="fill" aria-hidden="true">Work</span></span></a>
     <a href="#experience" style="--i:1"><span class="in"><span class="base">Experience</span><span class="fill" aria-hidden="true">Experience</span></span></a>
-    <a href="https://drive.google.com/file/d/1Z1WExbYRlDtL6YdGYjrXzk2tt7k5s6JA/view?usp=sharing" style="--i:2" target="_blank" rel="noopener"><span class="in"><span class="base">Resume</span><span class="fill" aria-hidden="true">Resume</span></span></a>
+    <a href="/resume" style="--i:2"><span class="in"><span class="base">Resume</span><span class="fill" aria-hidden="true">Resume</span></span></a>
     <a href="#contact" style="--i:3"><span class="in"><span class="base">Contact</span><span class="fill" aria-hidden="true">Contact</span></span></a>
   </nav>
   <div class="hello">
@@ -79,10 +79,10 @@ try{if(true&&!sessionStorage.getItem('vita-loaded')&&!matchMedia('(prefers-reduc
       </ul>
     </div>
     <div class="hero-cta" data-rise style="--d:120ms">
-      <p>Case studies on catalog search, AI meal planning, doctors' payslips and automated QA.</p>
+      <p class="hero-links">Case studies: <a href="/case-study-catalog-heist">catalog search</a>, <a href="/case-study-bonza">AI meal planning</a>, <a href="/case-study-notes-payslip">doctors' payslips</a> and <a href="/case-study-qa-automation">automated QA</a>.</p>
       <div class="row">
         <a class="rbtn" href="#work"><span class="lbl">See the work</span></a>
-        <a class="rbtn ghost" href="https://drive.google.com/file/d/1Z1WExbYRlDtL6YdGYjrXzk2tt7k5s6JA/view?usp=sharing" target="_blank" rel="noopener"><span class="lbl">Resume</span></a>
+        <a class="rbtn ghost" href="/resume"><span class="lbl">Resume</span></a>
       </div>
     </div>
   </div>
@@ -126,32 +126,32 @@ try{if(true&&!sessionStorage.getItem('vita-loaded')&&!matchMedia('(prefers-reduc
 
 <div class="scallop"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
 
+<section id="work" class="dark-band" data-tone="dark" aria-labelledby="work-title">
+  <div class="work-head"><h2 class="d2" id="work-title" data-split>Selected work</h2><p data-rise>Four case studies. Hover a project to see where it goes.</p></div>
+  <div class="proj-grid"><article class="proj">
+      <a class="proj-media has-pill" href="/case-study-catalog-heist" style="--pc:#9B3A6E" aria-label="Read case study: The Catalog Heist"><span class="pm-fill" aria-hidden="true"></span><span class="pm-doo" aria-hidden="true"><svg class="d1" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg><svg class="d2" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg><svg class="d3" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg><svg class="d4" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg></span><span class="pm-img"><img src="Images/Alternate worlds Hero.gif" alt="The Catalog Heist: redesigned category and search experience for the Alternate Worlds comics storefront" loading="lazy" decoding="async" /></span><span class="pill"><svg class="" aria-hidden="true" focusable="false"><use href="#i-eye"/></svg>Read case study</span></a>
+      <div class="proj-meta"><span class="tag">ALTERNATE WORLDS &middot; 2026</span><h3 class="d3">The Catalog Heist</h3><p>Category, sub-category and results collapsed into one page. Launch metrics pending.</p>
+        <a class="rbtn light ghost" href="/case-study-catalog-heist"><span class="lbl">Read case study</span></a></div>
+    </article><article class="proj">
+      <a class="proj-media has-pill" href="/case-study-bonza" style="--pc:#FFE386" aria-label="Read case study: The world&#x27;s first AI dog nutritionist"><span class="pm-fill" aria-hidden="true"></span><span class="pm-doo" aria-hidden="true"><svg class="d1" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg><svg class="d2" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg><svg class="d3" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg><svg class="d4" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg></span><span class="pm-img"><img src="Images/Bonza-HERO.gif" alt="Bonza: AI dog meal-plan quiz interface" loading="lazy" decoding="async" /></span><span class="pill"><svg class="" aria-hidden="true" focusable="false"><use href="#i-eye"/></svg>Read case study</span></a>
+      <div class="proj-meta"><span class="tag">BONZA &middot; 2025</span><h3 class="d3">The world's first AI dog nutritionist</h3><p>In staging: a meal plan that keeps adjusting after checkout, with the owner confirming every change.</p>
+        <a class="rbtn light ghost" href="/case-study-bonza"><span class="lbl">Read case study</span></a></div>
+    </article><article class="proj">
+      <a class="proj-media has-pill" href="/case-study-notes-payslip" style="--pc:#EFDDE6" aria-label="Read case study: Doctors can&#x27;t read their payslip"><span class="pm-fill" aria-hidden="true"></span><span class="pm-doo" aria-hidden="true"><svg class="d1" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg><svg class="d2" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg><svg class="d3" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg><svg class="d4" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg></span><span class="pm-img"><img src="Images/card-doctor-finance.jpg" alt="The redesigned salary dashboard inside Notes ERP" loading="lazy" decoding="async" /></span><span class="pill"><svg class="" aria-hidden="true" focusable="false"><use href="#i-eye"/></svg>Read case study</span></a>
+      <div class="proj-meta"><span class="tag">NOTES HEALTHCARE ERP &middot; 2022&ndash;24</span><h3 class="d3">Doctors can't read their payslip</h3><p>A 70% usage jump after redesigning how doctors read, trace and dispute their pay.</p>
+        <a class="rbtn light ghost" href="/case-study-notes-payslip"><span class="lbl">Read case study</span></a></div>
+    </article><article class="proj">
+      <a class="proj-media has-pill" href="/case-study-qa-automation" style="--pc:#5A1D44" aria-label="Read case study: I build designs. I make sure they work."><span class="pm-fill" aria-hidden="true"></span><span class="pm-doo" aria-hidden="true"><svg class="d1" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg><svg class="d2" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg><svg class="d3" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg><svg class="d4" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg></span><span class="pm-img"><img src="Images/card-qa-automation.jpg" alt="A QA automation tool shown on a phone mockup" loading="lazy" decoding="async" /></span><span class="pill"><svg class="" aria-hidden="true" focusable="false"><use href="#i-eye"/></svg>Read case study</span></a>
+      <div class="proj-meta"><span class="tag">UI/UX + AI + QA AUTOMATION</span><h3 class="d3">I build designs. I make sure they work.</h3><p>413 automated tests covering 200+ pages, run with a single API call.</p>
+        <a class="rbtn light ghost" href="/case-study-qa-automation"><span class="lbl">Read case study</span></a></div>
+    </article></div>
+</section>
+
 <section id="intro" class="dark-band" data-tone="dark" aria-labelledby="intro-title">
   <span class="idoo a" aria-hidden="true"><svg class="doodle" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg></span>
   <span class="idoo b" aria-hidden="true"><svg class="doodle" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg></span>
   <span class="idoo c" aria-hidden="true"><svg class="doodle" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg></span>
   <h2 class="d1" id="intro-title">I make <span class="rot" aria-hidden="true"><span class="g"><span>catalogs</span><span>payslips</span><span>quizzes</span><span>checkouts</span><span>workflows</span></span></span><span class="sr-only">catalogs, payslips, quizzes, checkouts and workflows</span> easier to use.</h2>
-</section>
-
-<section id="work" class="dark-band" data-tone="dark" aria-labelledby="work-title">
-  <div class="work-head"><h2 class="d2" id="work-title" data-split>Selected work</h2><p data-rise>Four case studies. Hover a project to see where it goes.</p></div>
-  <div class="proj-grid"><article class="proj">
-      <a class="proj-media has-pill" href="/case-study-catalog-heist" aria-label="Read case study: The Catalog Heist"><img src="Images/Alternate worlds Hero.gif" alt="The Catalog Heist: redesigned category and search experience for the Alternate Worlds comics storefront" loading="lazy" decoding="async" /><span class="pill"><svg class="" aria-hidden="true" focusable="false"><use href="#i-eye"/></svg>Read case study</span></a>
-      <div class="proj-meta"><span class="tag">ALTERNATE WORLDS &middot; 2026</span><h3 class="d3">The Catalog Heist</h3><p>Category, sub-category and results collapsed into one page. Launch metrics pending.</p>
-        <a class="rbtn light ghost" href="/case-study-catalog-heist"><span class="lbl">Read case study</span></a></div>
-    </article><article class="proj">
-      <a class="proj-media has-pill" href="/case-study-bonza" aria-label="Read case study: The world&#x27;s first AI dog nutritionist"><img src="Images/Bonza-HERO.gif" alt="Bonza: AI dog meal-plan quiz interface" loading="lazy" decoding="async" /><span class="pill"><svg class="" aria-hidden="true" focusable="false"><use href="#i-eye"/></svg>Read case study</span></a>
-      <div class="proj-meta"><span class="tag">BONZA &middot; 2025</span><h3 class="d3">The world's first AI dog nutritionist</h3><p>Concept: a meal plan that keeps adjusting after checkout, with the owner confirming every change.</p>
-        <a class="rbtn light ghost" href="/case-study-bonza"><span class="lbl">Read case study</span></a></div>
-    </article><article class="proj">
-      <a class="proj-media has-pill" href="/case-study-notes-payslip" aria-label="Read case study: Doctors can&#x27;t read their payslip"><img src="Images/card-doctor-finance.jpg" alt="The redesigned salary dashboard inside Notes ERP" loading="lazy" decoding="async" /><span class="pill"><svg class="" aria-hidden="true" focusable="false"><use href="#i-eye"/></svg>Read case study</span></a>
-      <div class="proj-meta"><span class="tag">NOTES HEALTHCARE ERP &middot; 2022&ndash;24</span><h3 class="d3">Doctors can't read their payslip</h3><p>A 70% usage jump after redesigning how doctors read, trace and dispute their pay.</p>
-        <a class="rbtn light ghost" href="/case-study-notes-payslip"><span class="lbl">Read case study</span></a></div>
-    </article><article class="proj">
-      <a class="proj-media has-pill" href="/case-study-qa-automation" aria-label="Read case study: I build designs. I make sure they work."><img src="Images/card-qa-automation.jpg" alt="A QA automation tool shown on a phone mockup" loading="lazy" decoding="async" /><span class="pill"><svg class="" aria-hidden="true" focusable="false"><use href="#i-eye"/></svg>Read case study</span></a>
-      <div class="proj-meta"><span class="tag">UI/UX + AI + QA AUTOMATION</span><h3 class="d3">I build designs. I make sure they work.</h3><p>413 automated tests covering 200+ pages, run with a single API call.</p>
-        <a class="rbtn light ghost" href="/case-study-qa-automation"><span class="lbl">Read case study</span></a></div>
-    </article></div>
 </section>
 
 <div class="scallop to-cream"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
@@ -174,18 +174,20 @@ try{if(true&&!sessionStorage.getItem('vita-loaded')&&!matchMedia('(prefers-reduc
   <div class="contact-row" data-rise>
     <a class="rbtn light" href="mailto:hola.vitaaddelia@gmail.com"><span class="lbl">Email me</span></a>
     <a class="rbtn ghost light" href="https://www.linkedin.com/in/vitaaddelia/" target="_blank" rel="noopener"><span class="lbl">LinkedIn</span></a>
-    <a class="rbtn ghost light" href="https://drive.google.com/file/d/1Z1WExbYRlDtL6YdGYjrXzk2tt7k5s6JA/view?usp=sharing" target="_blank" rel="noopener"><span class="lbl">Resume</span></a>
+    <a class="rbtn ghost light" href="/resume"><span class="lbl">Resume</span></a>
   </div>
 </section>
 </main>
 <footer class="site-footer" data-tone="dark">
+  <canvas class="foot-game" aria-hidden="true"></canvas><canvas class="foot-trail" aria-hidden="true"></canvas>
   <div class="foot-top">
     <nav class="foot-links" aria-label="Footer">
-      <a href="#work">Work</a><a href="#experience">Experience</a><a href="https://drive.google.com/file/d/1Z1WExbYRlDtL6YdGYjrXzk2tt7k5s6JA/view?usp=sharing" target="_blank" rel="noopener">Resume</a><a href="#contact">Contact</a>
+      <a href="#work">Work</a><a href="#experience">Experience</a><a href="/resume">Resume</a><a href="#contact">Contact</a>
     </nav>
     <div class="foot-social"><a href="https://www.linkedin.com/in/vitaaddelia/" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:hola.vitaaddelia@gmail.com">Email</a></div>
   </div>
   <div class="foot-word" aria-hidden="true">Vita Addelia</div>
+  <div class="foot-score"><span class="hint">Swipe to slice</span><span>Score <b id="fScore">0</b></span><span>Best <b id="fBest">0</b></span><button class="foot-play" type="button" aria-pressed="false">Play</button></div>
   <div class="foot-bottom"><span>DESIGNED + CODE WITH &hearts; BY VITAA</span>
     <a class="cbtn up" href="#top" aria-label="Back to top"><span class="f"></span><svg class="" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></div>
 </footer>

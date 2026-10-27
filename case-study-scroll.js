@@ -29,3 +29,10 @@
 
   sections.forEach(section => observer.observe(section));
 })();
+
+/* phones: close the "On this page" menu after a section is chosen */
+(function () {
+  var toc = document.querySelector('.cs-toc');
+  if (!toc) return;
+  toc.addEventListener('click', function (e) { if (e.target.closest('a')) toc.removeAttribute('open'); });
+})();

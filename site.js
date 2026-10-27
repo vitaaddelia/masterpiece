@@ -253,3 +253,19 @@
     });
   }
 })();
+
+/* ---------- footer game: load it only when the visitor nears the footer ---------- */
+(function () {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches || !document.querySelector('.site-footer .foot-game')) return;
+  var loaded = false;
+  function near() {
+    if (loaded) return;
+    var foot = document.querySelector('.site-footer');
+    if (innerHeight + scrollY >= document.documentElement.scrollHeight - foot.offsetHeight * 2) {
+      loaded = true; removeEventListener('scroll', near);
+      import('./footer3d.js').catch(function () {});
+    }
+  }
+  addEventListener('scroll', near, { passive: true });
+  near();
+})();

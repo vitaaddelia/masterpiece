@@ -30,7 +30,7 @@
 </defs></svg>
 
 <header class="nav paddx" id="nav">
-  <a class="logo" href="/#top" aria-label="Vita Design, home"><img class="on-light" src="Images/logo.png" alt="" width="420" height="307" /><img class="on-dark" src="Images/logo-light.png" alt="" width="420" height="307" /></a>
+  <a class="logo" href="/#top" aria-label="Vita Design, home"><img class="on-light" src="Images/logo.png" alt="" width="420" height="307" /><img class="on-dark" src="Images/logo-light.png" alt="" width="420" height="307" /><span class="logo-name">Vita Addelia</span></a>
   <div class="navr">
     <button class="bk vlm-header-link" id="vlmHeaderLink" type="button" aria-label="Ask VitaLLM"><svg class="" width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg><span class="bk-label">VitaLLM</span></button>
     <button class="mbtn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu"><span class="g"><span>Menu</span><span>Close</span></span></button>
@@ -41,7 +41,7 @@
   <nav aria-label="Main">
     <a href="/#work" style="--i:0"><span class="in"><span class="base">Work</span><span class="fill" aria-hidden="true">Work</span></span></a>
     <a href="/#experience" style="--i:1"><span class="in"><span class="base">Experience</span><span class="fill" aria-hidden="true">Experience</span></span></a>
-    <a href="https://drive.google.com/file/d/1Z1WExbYRlDtL6YdGYjrXzk2tt7k5s6JA/view?usp=sharing" style="--i:2" target="_blank" rel="noopener"><span class="in"><span class="base">Resume</span><span class="fill" aria-hidden="true">Resume</span></span></a>
+    <a href="/resume" style="--i:2"><span class="in"><span class="base">Resume</span><span class="fill" aria-hidden="true">Resume</span></span></a>
     <a href="/#contact" style="--i:3"><span class="in"><span class="base">Contact</span><span class="fill" aria-hidden="true">Contact</span></span></a>
   </nav>
   <div class="hello">
@@ -67,11 +67,24 @@
     </nav>
   </aside>
   <article class="cs-main">
-    <div class="cs-eyebrow">UI/UX DESIGNER USING AI AUTOMATION</div>
+    <details class="cs-toc">
+      <summary>On this page</summary>
+      <nav aria-label="On this page">
+      <a href="#overview">Overview</a>
+      <a href="#problem">The problem</a>
+      <a href="#approach">My approach</a>
+      <a href="#ai">Where AI came in</a>
+      <a href="#interactions">Testing interactions</a>
+      <a href="#result">The result</a>
+      <a href="#impact">Impact</a>
+      <a href="#takeaway">What this shows</a>
+      </nav>
+    </details>
+    <div class="cs-eyebrow">PRODUCT DESIGNER · AI-ASSISTED QA</div>
     <h1 class="cs-title">I build designs. I also make sure they actually work.</h1>
     <div class="cs-bigword" aria-hidden="true">QA</div>
     <div class="cs-meta-row">
-      <div><span class="cs-meta-label">Role</span><span class="cs-meta-value">UI/UX Designer</span></div>
+      <div><span class="cs-meta-label">Role</span><span class="cs-meta-value">Product Designer</span></div>
       <div><span class="cs-meta-label">Tools</span><span class="cs-meta-value">Ghost Inspector + Claude AI</span></div>
       <div><span class="cs-meta-label">Tests built</span><span class="cs-meta-value">413</span></div>
       <div><span class="cs-meta-label">Pages covered</span><span class="cs-meta-value">200+</span></div>
@@ -173,9 +186,9 @@
       <h3>From reactive to proactive.</h3>
       <p>Before this system, catching a broken interaction meant someone had to stumble across it: a designer, a client, or a real user. After this, the system catches it automatically right after deployment, before anyone else sees it.</p>
       <div class="cs-stats">
-        <div class="cs-stat"><span class="n">~3</span><p>Hours of full manual QA review per deployment</p></div>
+        <div class="cs-stat"><span class="n">~3 h</span><p>Manual QA per deployment before the suite existed</p></div>
         <div class="cs-stat"><span class="n">413</span><p>Automated tests running across the full site</p></div>
-        <div class="cs-stat"><span class="n">100%</span><p>Of interactive components verified in their designed open states</p></div>
+        <div class="cs-stat"><span class="n">All</span><p>Interactive components in the suite are checked in their open states</p></div>
       </div>
       <ul class="cs-list"><li>Every interactive UI state, including open cart, open menu, open drawers, and wishlist, is verified after every single deployment</li><li>Visual regressions are surfaced automatically before any client or end user encounters them</li><li>Desktop and mobile parity is verified programmatically rather than assumed or spot-checked</li><li>Design intent is codified in running tests, not just documented in a Figma file that nobody checks against</li><li>The development team receives specific failure context (the exact step, selector, and viewport) instead of vague reports that something looks wrong</li></ul>
     </section>
@@ -203,13 +216,15 @@
 </section>
 </main>
 <footer class="site-footer" data-tone="dark">
+  <canvas class="foot-game" aria-hidden="true"></canvas><canvas class="foot-trail" aria-hidden="true"></canvas>
   <div class="foot-top">
     <nav class="foot-links" aria-label="Footer">
-      <a href="/#work">Work</a><a href="/#experience">Experience</a><a href="https://drive.google.com/file/d/1Z1WExbYRlDtL6YdGYjrXzk2tt7k5s6JA/view?usp=sharing" target="_blank" rel="noopener">Resume</a><a href="/#contact">Contact</a>
+      <a href="/#work">Work</a><a href="/#experience">Experience</a><a href="/resume">Resume</a><a href="/#contact">Contact</a>
     </nav>
     <div class="foot-social"><a href="https://www.linkedin.com/in/vitaaddelia/" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:hola.vitaaddelia@gmail.com">Email</a></div>
   </div>
   <div class="foot-word" aria-hidden="true">Vita Addelia</div>
+  <div class="foot-score"><span class="hint">Swipe to slice</span><span>Score <b id="fScore">0</b></span><span>Best <b id="fBest">0</b></span><button class="foot-play" type="button" aria-pressed="false">Play</button></div>
   <div class="foot-bottom"><span>DESIGNED + CODE WITH &hearts; BY VITAA</span>
     <a class="cbtn up" href="#top" aria-label="Back to top"><span class="f"></span><svg class="" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></div>
 </footer>
