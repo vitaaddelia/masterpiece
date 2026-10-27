@@ -110,7 +110,7 @@ function start() {
 
   // project cards: a coloured placeholder first, swapped for the real screen once it loads
   const PAL = [['#EFDDE6', '#9B3A6E'], ['#FFE386', '#5A1D44'], ['#CFDDA0', '#3B1E33'], ['#9B3A6E', '#FBF7F2'], ['#5A1D44', '#FFE386'], ['#F2C6A0', '#3B1E33'], ['#FBF7F2', '#9B3A6E'], ['#3B1E33', '#EFDDE6'], ['#B9D1E6', '#3B1E33'], ['#FFD0B5', '#5A1D44']];
-  const IMG = (n) => `Images/strip/${n}.jpg`;
+  const IMG = (n) => `Images/laptop-${n}.jpg`;
   const CARDS = [
     ['Alternate Worlds', 'Search rebuild', IMG('catalog-heist')],
     ['Bonza', 'AI onboarding', IMG('bonza')],
@@ -203,12 +203,12 @@ function start() {
     const logo = new THREE.Mesh(new THREE.PlaneGeometry(1.25, 1.25), logoMat);
     // the plane lies on the lid, oriented so the logo reads correctly while the laptop is closed in the hero
     logo.rotation.set(-Math.PI / 2, 0, 0); logo.position.set(0, LT + .0012, LD / 2); lid.add(logo);
-    loadImg('Images/brand/logo.png').then((img) => {
+    loadImg('Images/logo.png').then((img) => {
       const t = new THREE.Texture(img); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; t.needsUpdate = true;
       logoMat.map = t; logoMat.opacity = 1; logoMat.alphaTest = .02; logoMat.needsUpdate = true;
       logo.scale.set(1, img.height / img.width, 1);
     }).catch(() => {});
-    loadImg('Images/brand/logo-light.png').then((img) => { paintWall(img); wall.needsUpdate = true; }).catch(() => {}); }
+    loadImg('Images/logo-light.png').then((img) => { paintWall(img); wall.needsUpdate = true; }).catch(() => {}); }
 
   // screen: local x right, y up the screen, z towards the viewer
   const scr = new THREE.Group(); scr.rotation.x = Math.PI / 2; scr.position.set(0, -.0015, LD / 2); lid.add(scr);
@@ -229,7 +229,7 @@ function start() {
   const CW = 1.38, CH = .92, S = 1.48, N = 10, L = N * S;
   const cardMats = cardTex.map(t => new THREE.MeshBasicMaterial({ map: t, transparent: true, opacity: 0, toneMapped: false, clippingPlanes: world }));
   const strip = new THREE.Group(); strip.position.set(0, 0, .006); scr.add(strip);
-  const rows = [{ y: .36, dir: 1, off: 0, items: [] }, { y: -.54, dir: -1, off: .74, items: [] }];
+  const rows = [{ y: .42, dir: 1, off: 0, items: [] }, { y: -.62, dir: -1, off: .74, items: [] }];   // 1.04 apart: clear gap even at the 1.1x breakout scale
   const cardGeo = new THREE.PlaneGeometry(CW, CH);
   rows.forEach((row, r) => { for (let i = 0; i < N; i++) { const m = new THREE.Mesh(cardGeo, cardMats[r ? (i * 3 + 5) % N : i]); m.position.y = row.y; strip.add(m); row.items.push({ m, x0: i * S }); } });
 

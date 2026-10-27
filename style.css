@@ -477,3 +477,27 @@ section { position: relative; }
 .nav.dark .logo .on-dark, .menu-on .nav .logo .on-dark { opacity: 1; }
 /* the bigger open laptop reaches the bottom corners: keep just the button there */
 #sequence.is3d .seq-side p { display: none; }
+
+/* ==========================================================================
+   Smoother hovers: one soft ease-out curve, slightly longer durations
+   ========================================================================== */
+:root { --soft: cubic-bezier(.22, 1, .36, 1); }
+
+/* pill: position + scale are eased in JS; CSS only fades it */
+.pill.follow { left: 0; top: 0; transform: translate(-50%, -50%) scale(0); transition: opacity .35s var(--soft); will-change: transform, opacity; }
+
+/* project image: gentle, longer zoom and a soft tint */
+.proj-media img { transition: transform 1.2s var(--soft); will-change: transform; }
+.proj-media:hover img { transform: scale(1.05); }
+.proj-media::after { transition: opacity .6s var(--soft); }
+
+/* rolling-letter buttons */
+.rbtn { transition: color .5s var(--soft), border-color .5s var(--soft); }
+.rbtn::before { transition: transform .7s var(--soft); }
+.rbtn .ch span { transition: transform .65s var(--soft); transition-delay: calc(var(--i) * 22ms); }
+
+/* circle buttons and menu links */
+.cbtn .f { transition: transform .7s var(--soft); }
+.cbtn svg { transition: color .5s var(--soft); }
+.menu nav a .fill { transition: clip-path .7s var(--soft); }
+.copy, .bk { transition: background .5s var(--soft), color .5s var(--soft), transform .4s var(--soft); }

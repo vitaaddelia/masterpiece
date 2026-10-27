@@ -161,19 +161,42 @@
     b.addEventListener('pointerleave', set);
   });
 
-  /* ---------- "read case study" pill follows the cursor ---------- */
+  /* ---------- "read case study" pill follows the cursor ----------
+     Eased with requestAnimationFrame + transform (GPU), so it glides instead of
+     snapping; it grows in, shrinks out, and leans a little in the direction you move. */
   $$('.has-pill').forEach((card) => {
     const pill = $('.pill', card);
     if (!pill || !fine) return;
-    const place = (e, instant) => {
-      const r = card.getBoundingClientRect();
-      if (instant) pill.style.transition = 'opacity .2s ease, transform .25s cubic-bezier(.2,.8,.2,1)';
-      pill.style.left = e.clientX - r.left + 'px';
-      pill.style.top = e.clientY - r.top + 'px';
-      if (instant) { void pill.offsetWidth; pill.style.transition = ''; }
+    pill.classList.add('follow');
+    let tx = 0, ty = 0, x = 0, y = 0, s = 0, ts = 0, rot = 0, cx = 0, cy = 0, inside = false, raf = 0, last = 0;
+    const FOLLOW = reduce ? 1 : 0.16, GROW = reduce ? 1 : 0.14;
+    // time-based easing: feels the same on 60 Hz and 120 Hz screens
+    const ease = (k, dt) => 1 - Math.pow(1 - k, dt / 16.667);
+    const loop = (now) => {
+      const dt = last ? Math.min(250, now - last) : 16.667; last = now;
+      const f = ease(FOLLOW, dt), g = ease(GROW, dt);
+      x += (tx - x) * f; y += (ty - y) * f; s += (ts - s) * g;
+      const lean = reduce ? 0 : Math.max(-10, Math.min(10, (tx - x) * 0.12));
+      rot += (lean - rot) * ease(0.2, dt);
+      pill.style.transform = `translate3d(${x.toFixed(2)}px, ${y.toFixed(2)}px, 0) translate(-50%, -50%) rotate(${rot.toFixed(2)}deg) scale(${s.toFixed(3)})`;
+      const busy = Math.abs(tx - x) > 0.2 || Math.abs(ty - y) > 0.2 || Math.abs(ts - s) > 0.002 || Math.abs(rot) > 0.05;
+      raf = busy ? requestAnimationFrame(loop) : 0;
+      if (!busy) last = 0;
     };
-    card.addEventListener('pointerenter', (e) => place(e, true));
-    card.addEventListener('pointermove', (e) => place(e, false));
+    const kick = () => { if (!raf) raf = requestAnimationFrame(loop); };
+    const aim = () => { const r = card.getBoundingClientRect(); tx = cx - r.left; ty = cy - r.top; };
+    card.addEventListener('pointerenter', (e) => {
+      cx = e.clientX; cy = e.clientY; aim(); inside = true;
+      if (s < 0.05) { x = tx; y = ty; }          // appear right under the cursor, then grow
+      ts = 1; pill.style.opacity = '1'; kick();
+    });
+    card.addEventListener('pointermove', (e) => { cx = e.clientX; cy = e.clientY; aim(); kick(); });
+    card.addEventListener('pointerleave', (e) => {
+      cx = e.clientX; cy = e.clientY; aim(); inside = false;
+      ts = 0; pill.style.opacity = '0'; kick();
+    });
+    // keep it under the cursor if the page scrolls while hovering
+    addEventListener('scroll', () => { if (inside) { aim(); kick(); } }, { passive: true });
   });
 
   /* ---------- copy email ---------- */
