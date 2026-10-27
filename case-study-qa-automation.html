@@ -18,7 +18,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Khand:wght@500;600;700&family=Patrick+Hand&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="style.css" />
 <link rel="stylesheet" href="case-study.css" />
-<script>document.documentElement.classList.add("js");</script>
+<script>(function(){var r=document.documentElement;r.classList.add('js');try{if(sessionStorage.getItem('vita-pt')==='1'&&!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add('pt-in');}sessionStorage.removeItem('vita-pt');}catch(e){}})();</script>
 </head>
 <body>
 <a class="skip" href="#main-content">Skip to content</a>
@@ -26,13 +26,14 @@
 <symbol id="i-sparkle" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0c.6 6.7 5.3 11.4 12 12-6.7.6-11.4 5.3-12 12-.6-6.7-5.3-11.4-12-12 6.7-.6 11.4-5.3 12-12z"/></symbol>
 <symbol id="i-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></g></symbol>
 <symbol id="i-arrow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></g></symbol>
+<symbol id="i-up" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></g></symbol>
 <symbol id="i-copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></g></symbol>
 </defs></svg>
 
+<div class="pt" aria-hidden="true"><i class="l b"></i><i class="r b"></i><i class="l k"></i><i class="r k"></i></div>
 <header class="nav paddx" id="nav">
-  <a class="logo" href="/#top" aria-label="Vita Design, home"><img class="on-light" src="Images/logo.png" alt="" width="420" height="307" /><img class="on-dark" src="Images/logo-light.png" alt="" width="420" height="307" /><span class="logo-name">Vita Addelia</span></a>
+  <a class="logo" href="/#top" aria-label="Vita Design, home"><img class="on-light" src="Images/logo.png" alt="" width="420" height="307" /><img class="on-dark" src="Images/logo-light.png" alt="" width="420" height="307" /></a>
   <div class="navr">
-    <button class="bk vlm-header-link" id="vlmHeaderLink" type="button" aria-label="Ask VitaLLM"><svg class="" width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg><span class="bk-label">VitaLLM</span></button>
     <button class="mbtn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu"><span class="g"><span>Menu</span><span>Close</span></span></button>
   </div>
 </header>
@@ -103,7 +104,7 @@
     </section>
 
     <section id="problem">
-      <div class="cs-eyebrow">01 &mdash; THE PROBLEM</div>
+      <div class="cs-eyebrow">01 · THE PROBLEM</div>
       <h2>Designs ship. Things break quietly.</h2>
       <p>After a development handoff, things break in ways that are easy to miss. These kinds of issues are not caught in a standard dev review because developers test functionality, not design intent.</p>
       <blockquote class="cs-quote">But manually verifying 200 pages across desktop and mobile after every single deployment is hours of work. It is also inconsistent by nature.</blockquote>
@@ -112,7 +113,7 @@
     </section>
 
     <section id="approach">
-      <div class="cs-eyebrow">02 &mdash; MY APPROACH</div>
+      <div class="cs-eyebrow">02 · MY APPROACH</div>
       <h2>Think like a designer. Test like a machine.</h2>
       <p>The first question was not how to build the tests. It was what to test. A 200+ page site cannot be covered at equal depth everywhere. I prioritized coverage based on how much a broken experience on any given page would hurt a real user and the business behind it.</p>
       <div class="cs-col-2">
@@ -133,7 +134,7 @@
     </section>
 
     <section id="ai">
-      <div class="cs-eyebrow">03 &mdash; WHERE AI CAME IN</div>
+      <div class="cs-eyebrow">03 · WHERE AI CAME IN</div>
       <h2>Claude wrote the tests. I directed the thinking.</h2>
       <p>Writing 50+ Ghost Inspector tests by hand in JSON is technically possible. But the time cost makes it the kind of task that never actually gets done. That is exactly where Claude AI became a genuine force multiplier. I described what I needed in plain language, and Claude generated the complete test JSON, suggested the right CSS selectors for the Blocksy WordPress theme, and flagged which assertions should be hard failures versus optional.</p>
       <blockquote class="cs-quote">Claude handled the translation from design intent to working test code. I stayed focused on knowing what to test and why it mattered.</blockquote>
@@ -142,7 +143,7 @@
     </section>
 
     <section id="interactions">
-      <div class="cs-eyebrow">04 &mdash; TESTING INTERACTIONS</div>
+      <div class="cs-eyebrow">04 · TESTING INTERACTIONS</div>
       <h2>Not just pages. The states inside them.</h2>
       <p>The most important shift in this project was testing actual UI interactions. What this system checks is whether clicking the cart icon opens the cart, whether the mobile menu drawer animates in fully, and whether the close button on that drawer responds. These are the things that reflect design intent, and they are the things that most QA processes skip entirely.</p>
       <h3>Mini cart open state</h3>
@@ -167,7 +168,7 @@
     </section>
 
     <section id="result">
-      <div class="cs-eyebrow">05 &mdash; THE RESULT</div>
+      <div class="cs-eyebrow">05 · THE RESULT</div>
       <h2>A full site under automated watch.</h2>
       <div class="cs-stats">
         <div class="cs-stat"><span class="n">413</span><p>Tests after the build-out</p></div>
@@ -181,7 +182,7 @@
     </section>
 
     <section id="impact">
-      <div class="cs-eyebrow">06 &mdash; IMPACT</div>
+      <div class="cs-eyebrow">06 · IMPACT</div>
       <h2>Design intent. Actually protected.</h2>
       <h3>From reactive to proactive.</h3>
       <p>Before this system, catching a broken interaction meant someone had to stumble across it: a designer, a client, or a real user. After this, the system catches it automatically right after deployment, before anyone else sees it.</p>
@@ -194,7 +195,7 @@
     </section>
 
     <section id="takeaway">
-      <div class="cs-eyebrow">07 &mdash; WHAT THIS SHOWS</div>
+      <div class="cs-eyebrow">07 · WHAT THIS SHOWS</div>
       <h2>A designer who owns the full delivery.</h2>
       <p>Most designers consider the job done when the design file is handed over. I consider it done when the experience is working correctly in the browser, at every viewport, on every page, after every deployment. That is a fundamentally different standard, and this project is evidence that I hold myself to it.</p>
       <p>Building this system required thinking like a designer, a QA tester, and a systems thinker at the same time. Understanding the design deeply enough to know what "correct" looks like. Understanding the site structure well enough to prioritize coverage where it matters most. And using AI tools well enough to turn weeks of potential manual work into something that runs in five minutes.</p>
@@ -226,7 +227,7 @@
   <div class="foot-word" aria-hidden="true">Vita Addelia</div>
   <div class="foot-score"><span class="hint">Swipe to slice</span><span>Score <b id="fScore">0</b></span><span>Best <b id="fBest">0</b></span><button class="foot-play" type="button" aria-pressed="false">Play</button></div>
   <div class="foot-bottom"><span>DESIGNED + CODE WITH &hearts; BY VITAA</span>
-    <a class="cbtn up" href="#top" aria-label="Back to top"><span class="f"></span><svg class="" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></div>
+    <a class="cbtn up" href="#top" aria-label="Back to top"><span class="f"></span><svg class="" aria-hidden="true" focusable="false"><use href="#i-up"/></svg></a></div>
 </footer>
 <button class="vlm-launcher" id="vlmLauncher" aria-label="Ask VitaLLM">
   <span class="vlm-sparkle">&#10022;</span>

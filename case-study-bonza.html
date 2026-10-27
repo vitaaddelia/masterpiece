@@ -18,7 +18,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Khand:wght@500;600;700&family=Patrick+Hand&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="style.css" />
 <link rel="stylesheet" href="case-study.css" />
-<script>document.documentElement.classList.add("js");</script>
+<script>(function(){var r=document.documentElement;r.classList.add('js');try{if(sessionStorage.getItem('vita-pt')==='1'&&!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add('pt-in');}sessionStorage.removeItem('vita-pt');}catch(e){}})();</script>
 </head>
 <body>
 <a class="skip" href="#main-content">Skip to content</a>
@@ -26,13 +26,14 @@
 <symbol id="i-sparkle" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0c.6 6.7 5.3 11.4 12 12-6.7.6-11.4 5.3-12 12-.6-6.7-5.3-11.4-12-12 6.7-.6 11.4-5.3 12-12z"/></symbol>
 <symbol id="i-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></g></symbol>
 <symbol id="i-arrow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></g></symbol>
+<symbol id="i-up" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></g></symbol>
 <symbol id="i-copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></g></symbol>
 </defs></svg>
 
+<div class="pt" aria-hidden="true"><i class="l b"></i><i class="r b"></i><i class="l k"></i><i class="r k"></i></div>
 <header class="nav paddx" id="nav">
-  <a class="logo" href="/#top" aria-label="Vita Design, home"><img class="on-light" src="Images/logo.png" alt="" width="420" height="307" /><img class="on-dark" src="Images/logo-light.png" alt="" width="420" height="307" /><span class="logo-name">Vita Addelia</span></a>
+  <a class="logo" href="/#top" aria-label="Vita Design, home"><img class="on-light" src="Images/logo.png" alt="" width="420" height="307" /><img class="on-dark" src="Images/logo-light.png" alt="" width="420" height="307" /></a>
   <div class="navr">
-    <button class="bk vlm-header-link" id="vlmHeaderLink" type="button" aria-label="Ask VitaLLM"><svg class="" width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg><span class="bk-label">VitaLLM</span></button>
     <button class="mbtn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu"><span class="g"><span>Menu</span><span>Close</span></span></button>
   </div>
 </header>
@@ -114,8 +115,8 @@
     <section id="overview">
       <div class="cs-eyebrow">OVERVIEW</div>
       <h2>What if a dog's meal plan didn't just get calculated once, but kept adjusting as the dog actually changed?</h2>
-      <p class="cs-intro">Every dog meal-plan subscription today works the same way: a short quiz (breed, age, weight, activity, health flags) feeds a formula, the formula spits out a fixed daily portion and recipe, and that's it &mdash; the plan stays static until the owner manually edits it months later. The quiz is smart. The relationship after checkout is not.</p>
-      <p>Bonza is a dog meal-plan subscription. In this redesign, the onboarding quiz is only the starting point for the AI, not the final answer. The AI keeps refining the plan using signals the owner already has easy access to &mdash; weight check-ins, leftover food, stool quality, energy level &mdash; so the portion and recipe adjust the way a good vet nutritionist would, without the owner having to ask.</p>
+      <p class="cs-intro">Every dog meal-plan subscription today works the same way: a short quiz (breed, age, weight, activity, health flags) feeds a formula, the formula spits out a fixed daily portion and recipe, and that's it. The plan stays static until the owner manually edits it months later. The quiz is smart. The relationship after checkout is not.</p>
+      <p>Bonza is a dog meal-plan subscription. In this redesign, the onboarding quiz is only the starting point for the AI, not the final answer. The AI keeps refining the plan using signals the owner already has easy access to (weight check-ins, leftover food, stool quality, energy level), so the portion and recipe adjust the way a good vet nutritionist would, without the owner having to ask.</p>
 
     </section>
 
@@ -136,7 +137,7 @@
         <div class="cs-flow-img"><img loading="lazy" src="Images/Bonza-step 2.gif" alt="Breed and age step" /></div>
         <div class="cs-flow-copy">
           <h3>2. Breed and age</h3>
-          <p>Owner enters breed and date of birth. This sets the calorie baseline &mdash; age changes how many calories a dog burns, so it shifts the daily portion more than most owners expect.</p>
+          <p>Owner enters breed and date of birth. This sets the calorie baseline: age changes how many calories a dog burns, so it shifts the daily portion more than most owners expect.</p>
         </div>
       </div>
 
@@ -152,7 +153,7 @@
         <div class="cs-flow-img"><img loading="lazy" src="Images/Bonza-step 4.gif" alt="Health step" /></div>
         <div class="cs-flow-copy">
           <h3>4. Health</h3>
-          <p>Owner ticks any relevant condition tags &mdash; joints and mobility, digestion, weight management, anxiety, etc. This doesn't change the calorie number, but it steers which ingredients the recipe prioritizes, and can trigger a "worth speaking to your vet" note for higher-stakes conditions.</p>
+          <p>Owner ticks any relevant condition tags: joints and mobility, digestion, weight management, anxiety, etc. This doesn't change the calorie number, but it steers which ingredients the recipe prioritizes, and can trigger a "worth speaking to your vet" note for higher-stakes conditions.</p>
         </div>
       </div>
 
@@ -172,7 +173,7 @@
         </div>
       </div>
 
-      <blockquote class="cs-quote">What the AI deliberately does not do: it doesn't change a paid subscription's contents automatically &mdash; it proposes every adjustment, and the owner confirms it before the next delivery. It also doesn't make medical claims; health-tag-driven suggestions keep the same "worth speaking to your vet" framing Bonza already uses for higher-stakes conditions like cancer.</blockquote>
+      <blockquote class="cs-quote">What the AI deliberately does not do: it doesn't change a paid subscription's contents automatically. It proposes every adjustment, and the owner confirms it before the next delivery. It also doesn't make medical claims; health-tag-driven suggestions keep the same "worth speaking to your vet" framing Bonza already uses for higher-stakes conditions like cancer.</blockquote>
     </section>
 
     <section id="problem">
@@ -183,7 +184,7 @@
       <div class="cs-diagram-box">
         <span class="cs-diagram-caption">WHAT COMPETITORS DO AFTER SIGNUP</span>
         <div class="cs-diagram-row">
-          <div class="cs-diagram-chip">Owner-initiated only &mdash; has to notice and act</div>
+          <div class="cs-diagram-chip">Owner-initiated only: has to notice and act</div>
           <div class="cs-diagram-chip">Some ingredient/recipe reasoning shown</div>
           <div class="cs-diagram-chip cs-diagram-chip--accent">Bonza + AI: proactive, ~2-week check-ins</div>
         </div>
@@ -196,13 +197,13 @@
       <p>Leftover food or a dog going off a recipe isn't captured anywhere; the subscription just keeps shipping the same thing.</p>
 
       <h3>Re-doing the whole quiz feels like admitting the first answer was wrong</h3>
-      <p>This creates friction &mdash; owners would rather just cancel than restart a 5-step form.</p>
+      <p>This creates friction: owners would rather just cancel than restart a 5-step form.</p>
     </section>
 
     <section id="design-process">
       <div class="cs-eyebrow">DESIGN PROCESS</div>
       <h2>How might we collect ongoing signals without turning the app into a chore?</h2>
-      <p>Early direction was a short in-app survey every week, mirroring the thoroughness of the original 5-step quiz. This made sense on paper &mdash; more data, better AI adjustments &mdash; but risked the exact fatigue that makes owners abandon long onboarding quizzes in the first place. A meal-plan app that starts feeling like a chore works against the "set it and forget it" reason people subscribe in the first place.</p>
+      <p>Early direction was a short in-app survey every week, mirroring the thoroughness of the original 5-step quiz. This made sense on paper (more data, better AI adjustments), but risked the exact fatigue that makes owners abandon long onboarding quizzes in the first place. A meal-plan app that starts feeling like a chore works against the "set it and forget it" reason people subscribe in the first place.</p>
       <p>What we did instead: single-question, push-notification-style check-ins spaced 2 weeks apart, framed conversationally rather than as a form ("Did Bella finish her bowl today?" not "Please rate food consumption 1&ndash;5"). This trades data density for actually getting a response.</p>
 
     </section>
@@ -211,7 +212,7 @@
       <div class="cs-eyebrow">DESIGNING WITH THE TECHNICAL BUILD IN MIND</div>
       <h2>WooCommerce and the Blocksy theme setup forced me to rethink the design again.</h2>
       <p>Bonza runs on WooCommerce (WordPress), not a custom-built app or headless storefront. That shaped several design decisions rather than sitting separately from them:</p>
-      <p>The quiz output has to resolve into real WooCommerce objects &mdash; a specific product variation (recipe + bag size) and a WooCommerce Subscriptions billing schedule (delivery frequency). The AI's "proposed adjustment" after checkout isn't a freeform recommendation; it has to map cleanly onto swapping a subscription's product variation or changing its renewal interval, both of which WooCommerce Subscriptions supports natively. Designing the adjustment screen meant staying inside what that plugin can actually change without a custom backend.</p>
+      <p>The quiz output has to resolve into real WooCommerce objects: a specific product variation (recipe + bag size) and a WooCommerce Subscriptions billing schedule (delivery frequency). The AI's "proposed adjustment" after checkout isn't a freeform recommendation; it has to map cleanly onto swapping a subscription's product variation or changing its renewal interval, both of which WooCommerce Subscriptions supports natively. Designing the adjustment screen meant staying inside what that plugin can actually change without a custom backend.</p>
       <p>The result and account pages reuse WooCommerce's native cart/subscription management patterns (like the frequency selector and "pause/skip/cancel" options) already familiar from the current flow rather than introducing a parallel custom system, keeping the AI-driven parts of the experience feeling like an extension of the existing store, not a bolted-on app.</p>
     </section>
 
@@ -229,7 +230,7 @@
       <div class="cs-col-2">
         <div>
           <h3>A good calculator isn't the same as a relationship.</h3>
-          <p>Bonza's existing onboarding gets the initial calculation right. The hard problem is what happens in the following months &mdash; which almost nobody in this category has solved well.</p>
+          <p>Bonza's existing onboarding gets the initial calculation right. The hard problem is what happens in the following months, which almost nobody in this category has solved well.</p>
         </div>
         <div>
           <h3>The AI is only as good as the willingness to answer a two-second question.</h3>
@@ -260,7 +261,7 @@
   <div class="foot-word" aria-hidden="true">Vita Addelia</div>
   <div class="foot-score"><span class="hint">Swipe to slice</span><span>Score <b id="fScore">0</b></span><span>Best <b id="fBest">0</b></span><button class="foot-play" type="button" aria-pressed="false">Play</button></div>
   <div class="foot-bottom"><span>DESIGNED + CODE WITH &hearts; BY VITAA</span>
-    <a class="cbtn up" href="#top" aria-label="Back to top"><span class="f"></span><svg class="" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></div>
+    <a class="cbtn up" href="#top" aria-label="Back to top"><span class="f"></span><svg class="" aria-hidden="true" focusable="false"><use href="#i-up"/></svg></a></div>
 </footer>
 <button class="vlm-launcher" id="vlmLauncher" aria-label="Ask VitaLLM">
   <span class="vlm-sparkle">&#10022;</span>

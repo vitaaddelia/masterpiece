@@ -1,5 +1,5 @@
 /* ====================================================================
-   VITALLM — a scripted FAQ assistant. No API key, no backend, no AI model.
+   VITALLM: a scripted FAQ assistant. No API key, no backend, no AI model.
 
    HOW TO EDIT ANSWERS
    Each entry in FAQS has:

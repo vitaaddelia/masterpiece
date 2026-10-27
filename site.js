@@ -269,3 +269,41 @@
   addEventListener('scroll', near, { passive: true });
   near();
 })();
+
+/* ---------- footer height: margin under <main> always matches the real footer ---------- */
+(function () {
+  var foot = document.querySelector('.site-footer'); if (!foot) return;
+  function sync() { document.documentElement.style.setProperty('--fhv', foot.offsetHeight + 'px'); }
+  sync(); addEventListener('resize', sync); addEventListener('load', sync);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(sync);
+})();
+
+/* ---------- page transitions (Palmo-style curtains) ---------- */
+(function () {
+  var root = document.documentElement;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  // arriving: curtains start closed (set in <head>), then open
+  if (root.classList.contains('pt-in')) {
+    requestAnimationFrame(function () { requestAnimationFrame(function () {
+      root.classList.add('pt-open');
+      setTimeout(function () { root.classList.remove('pt-in', 'pt-open'); }, 1000);
+    }); });
+  }
+  // leaving: close the curtains, then navigate
+  document.addEventListener('click', function (e) {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    var a = e.target.closest && e.target.closest('a[href]'); if (!a) return;
+    if (a.target && a.target !== '_self') return;
+    if (a.hasAttribute('download')) return;
+    var url = new URL(a.href, location.href);
+    if (url.origin !== location.origin || /^(mailto|tel):/.test(a.getAttribute('href'))) return;
+    if (url.pathname === location.pathname && url.hash) return;            // same-page anchors scroll instead
+    if (/\.(pdf|zip|png|jpe?g|gif)$/i.test(url.pathname)) return;
+    e.preventDefault();
+    try { sessionStorage.setItem('vita-pt', '1'); } catch (err) {}
+    root.classList.add('pt-out');
+    setTimeout(function () { location.href = url.href; }, 650);
+  });
+  // coming back with the browser's back button should never leave the curtains closed
+  addEventListener('pageshow', function (e) { if (e.persisted) root.classList.remove('pt-out', 'pt-in', 'pt-open'); });
+})();

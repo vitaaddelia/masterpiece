@@ -18,7 +18,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Khand:wght@500;600;700&family=Patrick+Hand&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="style.css" />
 <link rel="stylesheet" href="case-study.css" />
-<script>document.documentElement.classList.add("js");</script>
+<script>(function(){var r=document.documentElement;r.classList.add('js');try{if(sessionStorage.getItem('vita-pt')==='1'&&!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add('pt-in');}sessionStorage.removeItem('vita-pt');}catch(e){}})();</script>
 </head>
 <body>
 <a class="skip" href="#main-content">Skip to content</a>
@@ -26,13 +26,14 @@
 <symbol id="i-sparkle" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0c.6 6.7 5.3 11.4 12 12-6.7.6-11.4 5.3-12 12-.6-6.7-5.3-11.4-12-12 6.7-.6 11.4-5.3 12-12z"/></symbol>
 <symbol id="i-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></g></symbol>
 <symbol id="i-arrow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></g></symbol>
+<symbol id="i-up" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></g></symbol>
 <symbol id="i-copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></g></symbol>
 </defs></svg>
 
+<div class="pt" aria-hidden="true"><i class="l b"></i><i class="r b"></i><i class="l k"></i><i class="r k"></i></div>
 <header class="nav paddx" id="nav">
-  <a class="logo" href="/#top" aria-label="Vita Design, home"><img class="on-light" src="Images/logo.png" alt="" width="420" height="307" /><img class="on-dark" src="Images/logo-light.png" alt="" width="420" height="307" /><span class="logo-name">Vita Addelia</span></a>
+  <a class="logo" href="/#top" aria-label="Vita Design, home"><img class="on-light" src="Images/logo.png" alt="" width="420" height="307" /><img class="on-dark" src="Images/logo-light.png" alt="" width="420" height="307" /></a>
   <div class="navr">
-    <button class="bk vlm-header-link" id="vlmHeaderLink" type="button" aria-label="Ask VitaLLM"><svg class="" width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg><span class="bk-label">VitaLLM</span></button>
     <button class="mbtn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu"><span class="g"><span>Menu</span><span>Close</span></span></button>
   </div>
 </header>
@@ -96,7 +97,7 @@
       </div>
       <div>
         <span class="cs-meta-label">TIMELINE</span>
-        <span class="cs-meta-value">3 months &mdash; Research, Design, QA</span>
+        <span class="cs-meta-value">3 months · Research, Design, QA</span>
       </div>
       <div>
         <span class="cs-meta-label">TEAM</span>
@@ -118,7 +119,7 @@
     <section id="overview">
       <div class="cs-eyebrow">OVERVIEW</div>
       <h2>500,000+ products, 47 years of history, one navigation system that never grew up.</h2>
-      <p class="cs-intro">Alternate Worlds is a comic book, collectibles, and pop culture retailer in Bayswater, Victoria &mdash; selling comics, manga, trading cards, tabletop games, action figures, and collectibles through its retail store, online storefront, and wholesale channel, built up over 47 years in business.</p>
+      <p class="cs-intro">Alternate Worlds is a comic book, collectibles, and pop culture retailer in Bayswater, Victoria, selling comics, manga, trading cards, tabletop games, action figures, and collectibles through its retail store, online storefront, and wholesale channel, built up over 47 years in business.</p>
 
     </section>
 
@@ -130,7 +131,7 @@
         <div class="cs-flow-img"><img loading="lazy" src="Images/Alternate Worlds Full design.png" alt="Hybrid category landing page" /></div>
         <div class="cs-flow-copy">
           <h3>Hybrid category landing pages</h3>
-          <p>Instead of forcing every visitor through the same generic browse pattern, nav-driven visits land on a hybrid category page that blends curated collections with filterable product sets &mdash; matching how people actually think about the catalog, not how the database is structured.</p>
+          <p>Instead of forcing every visitor through the same generic browse pattern, nav-driven visits land on a hybrid category page that blends curated collections with filterable product sets, matching how people actually think about the catalog, not how the database is structured.</p>
         </div>
       </div>
 
@@ -146,7 +147,7 @@
         <div class="cs-flow-img"><img loading="lazy" src="Images/Alternate Worlds ACCORDION.gif" alt="Series-first product grouping" /></div>
         <div class="cs-flow-copy">
           <h3>Series-first product grouping</h3>
-          <p>Products are grouped the way collectors actually think &mdash; by series, rather than by internal attribute taxonomy. The product card and series accordion carry that logic through the entire browse experience.</p>
+          <p>Products are grouped the way collectors actually think: by series, rather than by internal attribute taxonomy. The product card and series accordion carry that logic through the entire browse experience.</p>
         </div>
       </div>
     </section>
@@ -165,10 +166,10 @@
       </div>
 
       <h3>A user types "Batman" and gets chaos.</h3>
-      <p>A simple, high-intent search &mdash; someone looking for a specific character or collectible &mdash; returned an unfiltered, disorganized wall of results. Categories didn't behave like categories. Filters didn't behave like filters. Search didn't behave like search. In one test search for "Batman", only 18% of the results were relevant, 67% were irrelevant and 15% didn't match at all.</p>
-      <p>The design wasn't entirely wrong &mdash; it had worked for years. But the catalog had outgrown the system, and every workaround since then had made the experience harder to trust, not easier.</p>
+      <p>A simple, high-intent search (someone looking for a specific character or collectible) returned an unfiltered, disorganized wall of results. Categories didn't behave like categories. Filters didn't behave like filters. Search didn't behave like search. In one test search for "Batman", only 18% of the results were relevant, 67% were irrelevant and 15% didn't match at all.</p>
+      <p>The design wasn't entirely wrong. It had worked for years. But the catalog had outgrown the system, and every workaround since then had made the experience harder to trust, not easier.</p>
 
-      <blockquote class="cs-quote">"I know what I'm looking for and I still can't find it." &mdash; user research quote</blockquote>
+      <blockquote class="cs-quote">"I know what I'm looking for and I still can't find it." (user research quote)</blockquote>
     </section>
 
     <section id="initial-findings">
@@ -179,7 +180,7 @@
       <div class="cs-col-3">
         <div>
           <h3>Categories are filters, not steps.</h3>
-          <p>Users didn't want to be funneled through a rigid hierarchy &mdash; they wanted to narrow down a set on their own terms.</p>
+          <p>Users didn't want to be funneled through a rigid hierarchy. They wanted to narrow down a set on their own terms.</p>
         </div>
         <div>
           <h3>Search &ne; browse.</h3>
@@ -208,14 +209,14 @@
     <section id="design-process">
       <div class="cs-eyebrow">DESIGN PROCESS</div>
       <h2>Working my way down, thinking from a high level structure</h2>
-      <p>I started with information architecture and the category hierarchy, then moved screen by screen into browse, search, and product pages. The working principle was collector-first: group the way a collector's brain works, then let filtering handle the rest. I compared the live storefront to support and sales-floor feedback and walked each path the way a shopper would &mdash; when something felt off, I wrote down what was missing.</p>
+      <p>I started with information architecture and the category hierarchy, then moved screen by screen into browse, search, and product pages. The working principle was collector-first: group the way a collector's brain works, then let filtering handle the rest. I compared the live storefront to support and sales-floor feedback and walked each path the way a shopper would. When something felt off, I wrote down what was missing.</p>
 
       <div class="cs-flow-row">
         <div class="cs-flow-img"><img loading="lazy" src="Images/Alternate Worlds-BEFORE.png" alt="Before: multiple pages to reach a product" /></div>
         <div class="cs-flow-copy">
           <span class="tag-before">Before</span>
           <h3>Several pages to a product list</h3>
-          <p>Getting to a product list took several pages &mdash; users clicked through a category, then a sub-category, then a results page, sometimes more, before seeing any actual products.</p>
+          <p>Getting to a product list took several pages: users clicked through a category, then a sub-category, then a results page, sometimes more, before seeing any actual products.</p>
         </div>
       </div>
 
@@ -232,7 +233,7 @@
         <div class="cs-flow-copy">
           <span class="tag-before">Before</span>
           <h3>One static filter set</h3>
-          <p>Filtering meant a single, static filter set that tried to serve every use case at once &mdash; too much for quick narrowing, not enough for specific searches.</p>
+          <p>Filtering meant a single, static filter set that tried to serve every use case at once: too much for quick narrowing, not enough for specific searches.</p>
         </div>
       </div>
 
@@ -246,14 +247,14 @@
       </div>
 
       <h3>Building out the catalog page with multiple states and edge cases</h3>
-      <p>I mapped the user journey from start to finish for the main catalog page, considering every state that could impact what a shopper sees &mdash; a product image, a short overview, attribute pills, and the publish date inside each series group, and how that would vary depending on how someone arrived at the page. I did the same for search, except the use case there was different: a shopper landing from search already knows what they want, so that flow strips out the curation layer and leads straight into a filterable, intent-driven grid.</p>
+      <p>I mapped the user journey from start to finish for the main catalog page, considering every state that could impact what a shopper sees: a product image, a short overview, attribute pills, and the publish date inside each series group, and how that would vary depending on how someone arrived at the page. I did the same for search, except the use case there was different: a shopper landing from search already knows what they want, so that flow strips out the curation layer and leads straight into a filterable, intent-driven grid.</p>
 
       <h3>Finally, the first version was ready for cross-team review</h3>
-      <p>I mapped every entry point that changes what someone sees: nav, search, and direct/deep link, plus the edge states inside each &mdash; empty results, a single exact match, partial matches, a fully populated grid, and loading/transitional states. When the set was complete, I took it to the manager, developers, and QA team.</p>
+      <p>I mapped every entry point that changes what someone sees: nav, search, and direct/deep link, plus the edge states inside each: empty results, a single exact match, partial matches, a fully populated grid, and loading/transitional states. When the set was complete, I took it to the manager, developers, and QA team.</p>
 
       <h3>Getting stakeholder buy-in</h3>
       <img class="cs-img-full" loading="lazy" src="Images/Workflow TEAM.png" alt="Review workflow across designers, manager, developers, and QA" />
-      <p>Reviews and rounds of iteration are hard, but they're key to turning stakeholders into advocates for the work. I knew it was crucial to listen and address concerns, without forgetting we had to be assertive about some of the design direction we chose, and to show the value in that direction. One way I get buy-in is by showing the direct value and speaking to stakeholders directly &mdash; I walked the manager through a simple before/after of how many clicks it now took to reach a product, and the reaction was immediately positive.</p>
+      <p>Reviews and rounds of iteration are hard, but they're key to turning stakeholders into advocates for the work. I knew it was crucial to listen and address concerns, without forgetting we had to be assertive about some of the design direction we chose, and to show the value in that direction. One way I get buy-in is by showing the direct value and speaking to stakeholders directly: I walked the manager through a simple before/after of how many clicks it now took to reach a product, and the reaction was immediately positive.</p>
     </section>
 
     <section id="design-decisions">
@@ -265,15 +266,15 @@
     <section id="design-system">
       <div class="cs-eyebrow">DESIGN SYSTEM</div>
       <h2>Adding new reusable components and setting them up for a clean developer handover.</h2>
-      <p>I used Figma AI to help generate first-pass component variants &mdash; the series accordion, filter states, and product card &mdash; while designing, so I could spend more time refining hierarchy and interaction instead of building every state by hand from scratch.</p>
+      <p>I used Figma AI to help generate first-pass component variants (the series accordion, filter states and product card) while designing, so I could spend more time refining hierarchy and interaction instead of building every state by hand from scratch.</p>
       <p>To keep handover simple, I named every design variable to mirror Blocksy's own theme setting names (color, spacing, and typography tokens), so developers could map a Figma variable straight to a Blocksy customizer setting without translating naming conventions in between. Figma MCP was connected so developers could pull live component specs and variable values directly from the working file, instead of relying on static redlines that go stale the moment a variant changes.</p>
     </section>
 
     <section id="qa">
       <div class="cs-eyebrow">QA &amp; TESTING</div>
       <h2>I tested multiple catalog states in staging and evaluated design specifications across various screen sizes to be sure.</h2>
-      <p>I used Claude Code to help run through QA systematically &mdash; checking each entry point (nav, search, direct link) against its expected states (empty, single-match, partial-match, fully populated, loading) and flagging layout breaks, truncated copy, and misaligned filters across common breakpoints before release.</p>
-      <p><em>This project is still in build &mdash; outcome metrics aren't available yet. Once the redesign ships and we have data to measure against (clicks to product, search abandonment, catalog engagement), this section will be updated with real, post-launch numbers.</em></p>
+      <p>I used Claude Code to help run through QA systematically, checking each entry point (nav, search, direct link) against its expected states (empty, single-match, partial-match, fully populated, loading) and flagging layout breaks, truncated copy, and misaligned filters across common breakpoints before release.</p>
+      <p><em>This project is still in build, so outcome metrics aren't available yet. Once the redesign ships and we have data to measure against (clicks to product, search abandonment, catalog engagement), this section will be updated with real, post-launch numbers.</em></p>
     </section>
 
     <section id="reflection">
@@ -283,11 +284,11 @@
       <div class="cs-col-2">
         <div>
           <h3>Structure before pixels saves rework.</h3>
-          <p>Mapping page types and states to user intent before touching visual design meant fewer surprises later &mdash; and a system that could flex as the catalog kept growing.</p>
+          <p>Mapping page types and states to user intent before touching visual design meant fewer surprises later, and a system that could flex as the catalog kept growing.</p>
         </div>
         <div>
           <h3>Naming conventions are part of the design, not an afterthought.</h3>
-          <p>Mirroring Blocksy's setting names in Figma variables turned handover from a translation exercise into a direct mapping &mdash; developers didn't have to guess what a token meant.</p>
+          <p>Mirroring Blocksy's setting names in Figma variables turned handover from a translation exercise into a direct mapping, so developers didn't have to guess what a token meant.</p>
         </div>
       </div>
 
@@ -329,7 +330,7 @@
   <div class="foot-word" aria-hidden="true">Vita Addelia</div>
   <div class="foot-score"><span class="hint">Swipe to slice</span><span>Score <b id="fScore">0</b></span><span>Best <b id="fBest">0</b></span><button class="foot-play" type="button" aria-pressed="false">Play</button></div>
   <div class="foot-bottom"><span>DESIGNED + CODE WITH &hearts; BY VITAA</span>
-    <a class="cbtn up" href="#top" aria-label="Back to top"><span class="f"></span><svg class="" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></div>
+    <a class="cbtn up" href="#top" aria-label="Back to top"><span class="f"></span><svg class="" aria-hidden="true" focusable="false"><use href="#i-up"/></svg></a></div>
 </footer>
 <button class="vlm-launcher" id="vlmLauncher" aria-label="Ask VitaLLM">
   <span class="vlm-sparkle">&#10022;</span>

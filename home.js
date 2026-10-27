@@ -32,6 +32,7 @@
     const setCount = (n) => {
       const h = n >= 100 ? 1 : 0, t = Math.floor((n % 100) / 10), o = n % 10;
       [h, t, o].forEach((d, i) => { cols[i].firstChild.style.transform = `translateY(${-d}em)`; });
+      if (mark) mark.style.setProperty('--lp', Math.min(100, n) + '%');   // the logo fills up with the count
     };
     setCount(0);
     let finished = false;
@@ -47,7 +48,7 @@
       }, 120);
     };
     requestAnimationFrame(() => setTimeout(() => mark && mark.classList.add('in'), 80));
-    const DUR = 900, t0 = performance.now();
+    const DUR = 1300, t0 = performance.now();
     const step = (now) => {
       const p = clamp((now - t0) / DUR);
       setCount(Math.round(100 * easeInOut(p)));

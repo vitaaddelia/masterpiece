@@ -652,3 +652,43 @@ section { position: relative; }
 @media (pointer: coarse) { .foot-play { display: inline-flex; align-items: center; } .foot-score .hint { display: none; } }
 /* every section after the 3D laptop's track sits above it, so the falling laptop never covers the work */
 #seqwrap ~ section, #seqwrap ~ .scallop { position: relative; z-index: 2; }
+
+/* ==========================================================================
+   Round 3 fixes
+   ========================================================================== */
+/* footer grows to fit its content, so the bottom row (and its arrow) is never cut off */
+.site-footer { height: auto; min-height: var(--fh); }
+main { margin-bottom: var(--fhv, var(--fh)); }
+.cbtn.up svg { transform: none; overflow: visible; }
+@media (max-height: 760px) {
+  .foot-word { font-size: min(18.6vw, 24vh); }
+  .foot-links a { font-size: min(3.4vw, 6.5vh); }
+}
+
+/* case studies: start right under the header */
+.cs-layout { padding-top: calc(max(78px, 7.5vw) + 14px); }
+.cs-sidebar { top: calc(max(78px, 7.5vw) + 14px); }
+.cs-main > .cs-toc + .cs-eyebrow { margin-top: 0; }
+
+/* loader: the logo fills up from the bottom as the counter runs (Palmo-style) */
+.lmark { position: relative; width: clamp(170px, 20vw, 320px); clip-path: none !important; font-size: 0; line-height: 0; }
+.lmark img { display: block; width: 100%; height: auto; }
+.lm-base { opacity: .14; }
+.lm-fill { position: absolute; left: 0; top: 0; clip-path: inset(calc(100% - var(--lp, 0%)) 0 0 0); transition: clip-path .18s linear; }
+
+/* page transitions: curtains close on the way out, open on the way in */
+.pt { position: fixed; inset: 0; z-index: 1200; pointer-events: none; overflow: hidden; }
+.pt i { position: absolute; top: -30vh; height: 160vh; width: 58%; transform: scaleX(0); will-change: transform; }
+.pt .l { left: 0; transform-origin: left center; }
+.pt .r { right: 0; transform-origin: right center; }
+.pt .b { background: var(--beige); z-index: 1; }
+.pt .k { background: var(--ink); z-index: 2; }
+.pt-out .pt i { transform: scaleX(1); transition: transform .55s var(--ease); }
+.pt-out .pt .k { transition-delay: .08s; }
+.pt-in .pt i { transform: scaleX(1); transition: none; }
+.pt-in.pt-open .pt i { transform: scaleX(0); transition: transform .75s var(--ease); }
+.pt-in.pt-open .pt .b { transition-delay: .12s; }
+@media (prefers-reduced-motion: reduce) { .pt { display: none; } }
+/* circle-button icons: size by width + aspect ratio. A % height inside an auto-height grid row
+   falls back to the SVG's default 150px, which pushed the footer arrow down and out of its circle. */
+.cbtn svg { width: 34%; height: auto; aspect-ratio: 1; }

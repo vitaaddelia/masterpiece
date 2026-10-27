@@ -18,7 +18,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Khand:wght@500;600;700&family=Patrick+Hand&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="style.css" />
 <link rel="stylesheet" href="case-study.css" />
-<script>document.documentElement.classList.add("js");</script>
+<script>(function(){var r=document.documentElement;r.classList.add('js');try{if(sessionStorage.getItem('vita-pt')==='1'&&!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add('pt-in');}sessionStorage.removeItem('vita-pt');}catch(e){}})();</script>
 </head>
 <body>
 <a class="skip" href="#main-content">Skip to content</a>
@@ -26,13 +26,14 @@
 <symbol id="i-sparkle" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0c.6 6.7 5.3 11.4 12 12-6.7.6-11.4 5.3-12 12-.6-6.7-5.3-11.4-12-12 6.7-.6 11.4-5.3 12-12z"/></symbol>
 <symbol id="i-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></g></symbol>
 <symbol id="i-arrow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></g></symbol>
+<symbol id="i-up" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></g></symbol>
 <symbol id="i-copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></g></symbol>
 </defs></svg>
 
+<div class="pt" aria-hidden="true"><i class="l b"></i><i class="r b"></i><i class="l k"></i><i class="r k"></i></div>
 <header class="nav paddx" id="nav">
-  <a class="logo" href="/#top" aria-label="Vita Design, home"><img class="on-light" src="Images/logo.png" alt="" width="420" height="307" /><img class="on-dark" src="Images/logo-light.png" alt="" width="420" height="307" /><span class="logo-name">Vita Addelia</span></a>
+  <a class="logo" href="/#top" aria-label="Vita Design, home"><img class="on-light" src="Images/logo.png" alt="" width="420" height="307" /><img class="on-dark" src="Images/logo-light.png" alt="" width="420" height="307" /></a>
   <div class="navr">
-    <button class="bk vlm-header-link" id="vlmHeaderLink" type="button" aria-label="Ask VitaLLM"><svg class="" width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg><span class="bk-label">VitaLLM</span></button>
     <button class="mbtn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu"><span class="g"><span>Menu</span><span>Close</span></span></button>
   </div>
 </header>
@@ -97,7 +98,7 @@
     </section>
 
     <section id="problem">
-      <div class="cs-eyebrow">01 &mdash; THE PROBLEM</div>
+      <div class="cs-eyebrow">01 · THE PROBLEM</div>
       <h2>Doctors couldn't trace their own salary.</h2>
       <p>On payday, doctors saw a single number with no context and no breakdown. Deductions had no labels, tax calculations weren't shown, and any question meant emailing HR and waiting up to three days.</p>
       <figure class="cs-figure"><img src="https://framerusercontent.com/images/j0AGMvQIjZXLeI9TIeTWKNpZBw.png?scale-down-to=1024&width=1624&height=782" srcset="https://framerusercontent.com/images/j0AGMvQIjZXLeI9TIeTWKNpZBw.png?scale-down-to=512&width=1624&height=782 512w, https://framerusercontent.com/images/j0AGMvQIjZXLeI9TIeTWKNpZBw.png?scale-down-to=1024&width=1624&height=782 1024w" sizes="(min-width: 900px) 800px, 100vw" width="1624" height="782" alt="The old finance data: a spreadsheet of service units and item groups with no labels or explanation" loading="lazy" decoding="async" /><figcaption>The old way: rows of service codes, with no story attached to any of them.</figcaption></figure>
@@ -110,7 +111,7 @@
     </section>
 
     <section id="principles">
-      <div class="cs-eyebrow">02 &mdash; THE NORTH STARS</div>
+      <div class="cs-eyebrow">02 · THE NORTH STARS</div>
       <h2>Three rules. No exceptions.</h2>
       <p>Before opening Figma, we agreed on three principles that every screen had to follow.</p>
       <div class="cs-col-3">
@@ -121,7 +122,7 @@
     </section>
 
     <section id="moves">
-      <div class="cs-eyebrow">03 &mdash; THE MOVES</div>
+      <div class="cs-eyebrow">03 · THE MOVES</div>
       <h2>Four design decisions that mattered most.</h2>
 
       <h3>Move 01 &middot; Dashboard: "Your eye already knows where to look."</h3>
@@ -149,9 +150,9 @@
     </section>
 
     <section id="voices">
-      <div class="cs-eyebrow">04 &mdash; STRAIGHT FROM THE DOCTORS</div>
+      <div class="cs-eyebrow">04 · STRAIGHT FROM THE DOCTORS</div>
       <h2>No paraphrasing. Their exact words.</h2>
-      <div class="cs-col-2"><div><p style="font-family:var(--display);font-size:clamp(22px,2vw,30px);line-height:1.1;color:var(--ink);margin-bottom:.6rem">&quot;I have no idea why my salary this month is different from last month. I just accept it.&quot;</p><p style="font-family:var(--hand);color:var(--berry);margin:0">P1 · General practitioner</p></div><div><p style="font-family:var(--display);font-size:clamp(22px,2vw,30px);line-height:1.1;color:var(--ink);margin-bottom:.6rem">&quot;If I want to dispute something, I have to call HR, wait 3 days, and sometimes the answer still isn&#x27;t clear.&quot;</p><p style="font-family:var(--hand);color:var(--berry);margin:0">P2 · Specialist, internal medicine</p></div><div><p style="font-family:var(--display);font-size:clamp(22px,2vw,30px);line-height:1.1;color:var(--ink);margin-bottom:.6rem">&quot;I want to see my income per patient. How else do I know if I&#x27;m being fairly compensated?&quot;</p><p style="font-family:var(--hand);color:var(--berry);margin:0">P3 · Surgeon</p></div><div><p style="font-family:var(--display);font-size:clamp(22px,2vw,30px);line-height:1.1;color:var(--ink);margin-bottom:.6rem">&quot;The current system shows me numbers but no context. A number without a story is useless.&quot;</p><p style="font-family:var(--hand);color:var(--berry);margin:0">P4 · Emergency physician</p></div><div><p style="font-family:var(--display);font-size:clamp(22px,2vw,30px);line-height:1.1;color:var(--ink);margin-bottom:.6rem">&quot;I just want to open one screen and see: is everything okay this month? Yes or no.&quot;</p><p style="font-family:var(--hand);color:var(--berry);margin:0">P5 · Pediatrician</p></div><div><p style="font-family:var(--display);font-size:clamp(22px,2vw,30px);line-height:1.1;color:var(--ink);margin-bottom:.6rem">&quot;Taxes, BPJS, admin fees — they&#x27;re all just lumped together. Show me each one separately.&quot;</p><p style="font-family:var(--hand);color:var(--berry);margin:0">P6 · Cardiologist</p></div></div>
+      <div class="cs-col-2"><div><p style="font-family:var(--display);font-size:clamp(22px,2vw,30px);line-height:1.1;color:var(--ink);margin-bottom:.6rem">&quot;I have no idea why my salary this month is different from last month. I just accept it.&quot;</p><p style="font-family:var(--hand);color:var(--berry);margin:0">P1 · General practitioner</p></div><div><p style="font-family:var(--display);font-size:clamp(22px,2vw,30px);line-height:1.1;color:var(--ink);margin-bottom:.6rem">&quot;If I want to dispute something, I have to call HR, wait 3 days, and sometimes the answer still isn&#x27;t clear.&quot;</p><p style="font-family:var(--hand);color:var(--berry);margin:0">P2 · Specialist, internal medicine</p></div><div><p style="font-family:var(--display);font-size:clamp(22px,2vw,30px);line-height:1.1;color:var(--ink);margin-bottom:.6rem">&quot;I want to see my income per patient. How else do I know if I&#x27;m being fairly compensated?&quot;</p><p style="font-family:var(--hand);color:var(--berry);margin:0">P3 · Surgeon</p></div><div><p style="font-family:var(--display);font-size:clamp(22px,2vw,30px);line-height:1.1;color:var(--ink);margin-bottom:.6rem">&quot;The current system shows me numbers but no context. A number without a story is useless.&quot;</p><p style="font-family:var(--hand);color:var(--berry);margin:0">P4 · Emergency physician</p></div><div><p style="font-family:var(--display);font-size:clamp(22px,2vw,30px);line-height:1.1;color:var(--ink);margin-bottom:.6rem">&quot;I just want to open one screen and see: is everything okay this month? Yes or no.&quot;</p><p style="font-family:var(--hand);color:var(--berry);margin:0">P5 · Pediatrician</p></div><div><p style="font-family:var(--display);font-size:clamp(22px,2vw,30px);line-height:1.1;color:var(--ink);margin-bottom:.6rem">&quot;Taxes, BPJS, admin fees: they&#x27;re all just lumped together. Show me each one separately.&quot;</p><p style="font-family:var(--hand);color:var(--berry);margin:0">P6 · Cardiologist</p></div></div>
     </section>
   </article>
 </div>
@@ -173,7 +174,7 @@
   <div class="foot-word" aria-hidden="true">Vita Addelia</div>
   <div class="foot-score"><span class="hint">Swipe to slice</span><span>Score <b id="fScore">0</b></span><span>Best <b id="fBest">0</b></span><button class="foot-play" type="button" aria-pressed="false">Play</button></div>
   <div class="foot-bottom"><span>DESIGNED + CODE WITH &hearts; BY VITAA</span>
-    <a class="cbtn up" href="#top" aria-label="Back to top"><span class="f"></span><svg class="" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></div>
+    <a class="cbtn up" href="#top" aria-label="Back to top"><span class="f"></span><svg class="" aria-hidden="true" focusable="false"><use href="#i-up"/></svg></a></div>
 </footer>
 <button class="vlm-launcher" id="vlmLauncher" aria-label="Ask VitaLLM">
   <span class="vlm-sparkle">&#10022;</span>

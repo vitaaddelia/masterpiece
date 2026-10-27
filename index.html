@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Vita Addelia — Product Designer for e-commerce &amp; healthcare</title>
+<title>Vita Addelia | Product Designer for e-commerce &amp; healthcare</title>
 <meta name="description" content="Vita Addelia is a product designer for e-commerce and healthcare platforms. Case studies on catalog search and navigation, AI meal planning, healthcare payslips and automated QA." />
 <meta name="theme-color" content="#3B1E33" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Vita Addelia — Product Designer for e-commerce &amp; healthcare" />
+<meta property="og:title" content="Vita Addelia | Product Designer for e-commerce &amp; healthcare" />
 <meta property="og:description" content="Vita Addelia is a product designer for e-commerce and healthcare platforms. Case studies on catalog search and navigation, AI meal planning, healthcare payslips and automated QA." />
 <meta name="twitter:card" content="summary" />
 
@@ -20,7 +20,9 @@
 
 <script>
 (function(){var r=document.documentElement;r.classList.add('js');
-try{if(true&&!sessionStorage.getItem('vita-loaded')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add('loading');}}catch(e){}})();
+var rm=matchMedia('(prefers-reduced-motion: reduce)').matches,pt=false;
+try{pt=sessionStorage.getItem('vita-pt')==='1';sessionStorage.removeItem('vita-pt');}catch(e){}
+if(!rm&&pt){r.classList.add('pt-in');}else if(true&&!rm){r.classList.add('loading');}})();
 </script>
 </head>
 <body>
@@ -29,17 +31,18 @@ try{if(true&&!sessionStorage.getItem('vita-loaded')&&!matchMedia('(prefers-reduc
 <symbol id="i-sparkle" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0c.6 6.7 5.3 11.4 12 12-6.7.6-11.4 5.3-12 12-.6-6.7-5.3-11.4-12-12 6.7-.6 11.4-5.3 12-12z"/></symbol>
 <symbol id="i-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></g></symbol>
 <symbol id="i-arrow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></g></symbol>
+<symbol id="i-up" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></g></symbol>
 <symbol id="i-copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></g></symbol>
 </defs></svg>
 <div id="loader" aria-hidden="true">
   <div class="lp l b"></div><div class="lp r b"></div><div class="lp l k"></div><div class="lp r k"></div>
-  <div class="lmark">Vita</div>
+  <div class="lmark"><img class="lm-base" src="Images/logo-light.png" alt="" width="420" height="307" /><img class="lm-fill" src="Images/logo-light.png" alt="" width="420" height="307" /></div>
   <div class="lcount"><span class="odo"><span class="col"></span><span class="col"></span><span class="col"></span></span><span class="pc">%</span></div>
 </div>
+<div class="pt" aria-hidden="true"><i class="l b"></i><i class="r b"></i><i class="l k"></i><i class="r k"></i></div>
 <header class="nav paddx" id="nav">
-  <a class="logo" href="#top" aria-label="Vita Design, home"><img class="on-light" src="Images/logo.png" alt="" width="420" height="307" /><img class="on-dark" src="Images/logo-light.png" alt="" width="420" height="307" /><span class="logo-name">Vita Addelia</span></a>
+  <a class="logo" href="#top" aria-label="Vita Design, home"><img class="on-light" src="Images/logo.png" alt="" width="420" height="307" /><img class="on-dark" src="Images/logo-light.png" alt="" width="420" height="307" /></a>
   <div class="navr">
-    <button class="bk vlm-header-link" id="vlmHeaderLink" type="button" aria-label="Ask VitaLLM"><svg class="" width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg><span class="bk-label">VitaLLM</span></button>
     <button class="mbtn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu"><span class="g"><span>Menu</span><span>Close</span></span></button>
   </div>
 </header>
@@ -189,7 +192,7 @@ try{if(true&&!sessionStorage.getItem('vita-loaded')&&!matchMedia('(prefers-reduc
   <div class="foot-word" aria-hidden="true">Vita Addelia</div>
   <div class="foot-score"><span class="hint">Swipe to slice</span><span>Score <b id="fScore">0</b></span><span>Best <b id="fBest">0</b></span><button class="foot-play" type="button" aria-pressed="false">Play</button></div>
   <div class="foot-bottom"><span>DESIGNED + CODE WITH &hearts; BY VITAA</span>
-    <a class="cbtn up" href="#top" aria-label="Back to top"><span class="f"></span><svg class="" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></div>
+    <a class="cbtn up" href="#top" aria-label="Back to top"><span class="f"></span><svg class="" aria-hidden="true" focusable="false"><use href="#i-up"/></svg></a></div>
 </footer>
 <button class="vlm-launcher" id="vlmLauncher" aria-label="Ask VitaLLM">
   <span class="vlm-sparkle">&#10022;</span>
