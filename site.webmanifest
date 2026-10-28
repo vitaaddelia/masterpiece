@@ -1,0 +1,12 @@
+{
+  "name": "Vita Addelia, Product Designer",
+  "short_name": "Vita Addelia",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FBF7F2",
+  "theme_color": "#3B1E33",
+  "icons": [
+    { "src": "/Images/favicon.png", "sizes": "64x64", "type": "image/png" },
+    { "src": "/Images/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

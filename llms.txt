@@ -1,0 +1,33 @@
+# Vita Addelia
+
+> Vita Addelia is a product designer for e-commerce and healthcare systems. She designs conversion-focused storefronts and landing pages and complex multi-role enterprise workflows, and stays involved from research through developer handoff and Design QA.
+
+Key facts, all from her resume:
+
+- Product Designer (E-commerce) at BlazeCommerce, Australia, remote, May 2024 to present. Designed 19+ e-commerce websites across Shopify, WooCommerce, WordPress and Framer; +40% organic traffic and +25% conversion.
+- Product Designer (Growth & Commerce) at DSCommerce, Germany, remote, Jan 2025 to Jan 2026. Designed 29+ landing pages for the DACH market; +116% conversion through UX optimization and A/B testing; 2.3× ROAS.
+- Senior Product Designer at NOTES Healthcare ERP, Indonesia, Jan 2022 to May 2024. Multi-role workflows for hospitals and clinics; contributed to +1,125% active user growth; doctor salary redesign raised feature usage by 70%.
+- UX Designer at Kampus Indonesia (2022) and Lead UX Designer at Diceritain (2021).
+- Tools: Figma (Variables, Auto Layout), Figma AI, Figma MCP, Claude, Claude Code, Cursor, Ghost Inspector, Microsoft Clarity, Google Analytics.
+
+## Case studies
+
+- [The Catalog Heist](https://vitadesign.vercel.app/case-study-catalog-heist): search, filtering and navigation for a 500,000+ product WooCommerce catalog of comics and collectibles.
+- [Bonza](https://vitadesign.vercel.app/case-study-bonza): an AI dog meal-plan subscription that keeps adjusting after checkout, with the owner confirming every change. In staging.
+- [Doctors can't read their payslip](https://vitadesign.vercel.app/case-study-notes-payslip): salary experience in a healthcare ERP; feature usage up 70%, multi-step drop-off down from 47% to 11%.
+- [QA automation](https://vitadesign.vercel.app/case-study-qa-automation): 413 automated UI tests across 200+ pages built with Ghost Inspector and Claude AI.
+
+## Writing
+
+- [F-pattern vs. Z-pattern, revisited: design for how people actually scan](https://vitadesign.vercel.app/article-f-pattern-vs-z-pattern): Why the F-pattern is a warning sign, when the Z-pattern helps, and how scan paths shaped a healthcare ERP dashboard that cut comprehension time by 40%.
+- [UX surveys: write fewer questions, get better answers](https://vitadesign.vercel.app/article-ux-survey-questions): When a survey is the wrong tool, how to anchor questions in real behavior, and how doctor interviews became design principles.
+- [Accessible color is a system decision, not a final check](https://vitadesign.vercel.app/article-accessible-color): The grayscale test still works, but senior teams build accessible color into tokens, components and QA. WCAG rules, real numbers and a review checklist.
+- [Show people there is more: continuation in multi-step flows](https://vitadesign.vercel.app/article-teasing-continuation): Continuation cues like peeking cards and step trackers cut drop-off when they are honest. How step summaries took a flow from 47% to 11%.
+- [The best interface is the step you remove](https://vitadesign.vercel.app/article-invisible-interface): Invisible design means removing work while keeping control visible. Lessons from AI meal plans, a healthcare ERP and QA automation.
+- [Waterfall or agile? Pick per risk, not per religion](https://vitadesign.vercel.app/article-waterfall-or-agile): Most teams mix both. Choose upfront structure or fast iteration based on the cost of being wrong, with healthcare ERP and e-commerce examples.
+
+## Profile
+
+- [Resume](https://vitadesign.vercel.app/resume): full work history; PDF at https://vitadesign.vercel.app/Vita-Addelia-Resume.pdf
+- [LinkedIn](https://www.linkedin.com/in/vitaaddelia/)
+- Email: hola.vitaaddelia@gmail.com

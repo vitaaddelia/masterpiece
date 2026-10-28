@@ -692,3 +692,32 @@ main { margin-bottom: var(--fhv, var(--fh)); }
 /* circle-button icons: size by width + aspect ratio. A % height inside an auto-height grid row
    falls back to the SVG's default 150px, which pushed the footer arrow down and out of its circle. */
 .cbtn svg { width: 34%; height: auto; aspect-ratio: 1; }
+
+/* ==========================================================================
+   Writing: article pages and the /writing list
+   ========================================================================== */
+.art-layout { max-width: 780px; margin: 0 auto; padding: calc(max(78px, 7.5vw) + 14px) var(--gutter) clamp(3rem, 6vw, 6rem); }
+.art-layout .cs-back { display: inline-flex; margin-bottom: 1.2rem; }
+.cs-main.art > .cs-eyebrow:first-child { margin-top: 0; }
+.cs-main.art .cs-eyebrow { margin-top: 0; }
+.art-title { font-size: clamp(40px, 5.4vw, 80px); max-width: 18ch; margin-bottom: .8rem; }
+.art-byline { font-family: var(--hand); font-size: 1.2rem; color: var(--berry) !important; margin: 0 0 2rem !important; }
+.cs-main.art h2 { font-size: clamp(28px, 3vw, 44px); margin-top: 2.4rem; }
+.cs-main.art p { max-width: 68ch; }
+.art-note { margin: 2.6rem 0 0; padding: 1.1rem 1.3rem; border: 2px dashed var(--beige); border-radius: 14px; }
+.cs-main.art .art-note p { margin: 0; font-size: .95rem; color: var(--ink-soft); }
+.art-note a, .art-related a { color: var(--berry); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.art-related { margin-top: 1.6rem; }
+.cs-main.art .art-related h2 { font-size: clamp(22px, 2vw, 30px); margin-top: 0; }
+
+.art-list { max-width: 1100px; }
+.art-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; margin-top: 2rem; }
+.art-card { display: grid; gap: .6rem; align-content: start; padding: 1.5rem 1.5rem 1.3rem; border: 2px solid var(--ink); border-radius: 20px; background: var(--lbeige); color: var(--ink); transition: transform .5s var(--soft), background .4s var(--soft), box-shadow .5s var(--soft); }
+.art-card .tag { font-family: var(--hand); font-size: 1.05rem; color: var(--berry); }
+.art-card h2 { margin: 0; font-family: var(--display); font-weight: 600; text-transform: uppercase; font-size: clamp(24px, 2.2vw, 34px); line-height: .95; letter-spacing: -.02em; }
+.art-card p { margin: 0; font-size: .95rem; line-height: 1.55; color: var(--ink-body); }
+.art-card .more { font-family: var(--hand); font-size: 1.1rem; color: var(--ink); margin-top: .3rem; }
+@media (hover: hover) and (pointer: fine) {
+  .art-card:hover { transform: translateY(-4px) rotate(-.4deg); background: var(--sun); box-shadow: 0 16px 30px rgba(59, 30, 51, .15); }
+}
+@media (max-width: 760px) { .art-grid { grid-template-columns: 1fr; } }

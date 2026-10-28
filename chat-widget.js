@@ -215,6 +215,14 @@ const FAQS = [
     related: ['designsystems', 'research', 'kampus']
   },
 
+  {
+    id: 'writing',
+    question: 'Has Vita written any articles?',
+    keywords: ['article', 'articles', 'blog', 'writing', 'write', 'written', 'medium', 'posts', 'post', 'tulisan', 'artikel'],
+    answer: "Yes, six articles on product design: visual hierarchy, UX surveys, accessible color, multi-step flows, invisible interfaces and design process. Each uses examples from real projects.\n\n[[Read Vita's writing|/writing]]",
+    related: ['research', 'a11y', 'process']
+  },
+
   /* ---------- practical ---------- */
   {
     id: 'resume',

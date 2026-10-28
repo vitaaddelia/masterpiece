@@ -3,13 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>The Catalog Heist: redesigning a 500,000-product catalog | Vita Addelia</title>
-<meta name="description" content="How I redesigned search, filtering and navigation for a 500,000+ product comics and collectibles catalog on WooCommerce. A case study by Vita Addelia." />
+<title>Catalog Heist: Search for 500K Products | Vita Addelia</title>
+<meta name="description" content="How Vita Addelia rebuilt search, filtering and navigation for a 500,000-product WooCommerce catalog of comics and collectibles." />
 <meta name="theme-color" content="#3B1E33" />
-<meta property="og:type" content="website" />
-<meta property="og:title" content="The Catalog Heist: redesigning a 500,000-product catalog | Vita Addelia" />
-<meta property="og:description" content="How I redesigned search, filtering and navigation for a 500,000+ product comics and collectibles catalog on WooCommerce. A case study by Vita Addelia." />
-<meta name="twitter:card" content="summary" />
 
 <link rel="icon" type="image/png" href="Images/favicon.png" />
 <link rel="apple-touch-icon" href="Images/apple-touch-icon.png" />
@@ -19,6 +15,25 @@
 <link rel="stylesheet" href="style.css" />
 <link rel="stylesheet" href="case-study.css" />
 <script>(function(){var r=document.documentElement;r.classList.add('js');try{if(sessionStorage.getItem('vita-pt')==='1'&&!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add('pt-in');}sessionStorage.removeItem('vita-pt');}catch(e){}})();</script>
+<link rel="canonical" href="https://vitadesign.vercel.app/case-study-catalog-heist" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+<meta name="author" content="Vita Addelia" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Vita Addelia" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://vitadesign.vercel.app/case-study-catalog-heist" />
+<meta property="og:title" content="Catalog Heist: Search for 500K Products | Vita Addelia" />
+<meta property="og:description" content="How Vita Addelia rebuilt search, filtering and navigation for a 500,000-product WooCommerce catalog of comics and collectibles." />
+<meta property="og:image" content="https://vitadesign.vercel.app/Images/og-catalog-heist.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Catalog Heist: Search for 500K Products | Vita Addelia" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Catalog Heist: Search for 500K Products | Vita Addelia" />
+<meta name="twitter:description" content="How Vita Addelia rebuilt search, filtering and navigation for a 500,000-product WooCommerce catalog of comics and collectibles." />
+<meta name="twitter:image" content="https://vitadesign.vercel.app/Images/og-catalog-heist.jpg" />
+<link rel="manifest" href="/site.webmanifest" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://vitadesign.vercel.app/#website", "url": "https://vitadesign.vercel.app/", "name": "Vita Addelia", "inLanguage": "en", "publisher": {"@id": "https://vitadesign.vercel.app/#person"}}, {"@type": "Person", "@id": "https://vitadesign.vercel.app/#person", "name": "Vita Addelia", "jobTitle": "Product Designer", "url": "https://vitadesign.vercel.app/", "image": "https://vitadesign.vercel.app/Images/og-home.jpg", "email": "mailto:hola.vitaaddelia@gmail.com", "sameAs": ["https://www.linkedin.com/in/vitaaddelia/"], "worksFor": {"@type": "Organization", "name": "BlazeCommerce"}, "knowsAbout": ["Product design", "UX design", "UX research", "Usability testing", "Information architecture", "Design systems", "E-commerce UX", "Conversion rate optimization", "A/B testing", "Healthcare ERP", "Figma", "Shopify", "WooCommerce", "AI-assisted design", "Design QA"]}, {"@type": "CreativeWork", "@id": "https://vitadesign.vercel.app/case-study-catalog-heist#casestudy", "url": "https://vitadesign.vercel.app/case-study-catalog-heist", "name": "Catalog Heist: Search for 500K Products", "headline": "The Catalog Heist: Rebuilding search and navigation for a 500,000-product catalog", "description": "How Vita Addelia rebuilt search, filtering and navigation for a 500,000-product WooCommerce catalog of comics and collectibles.", "image": "https://vitadesign.vercel.app/Images/og-catalog-heist.jpg", "inLanguage": "en", "genre": "UX case study", "author": {"@id": "https://vitadesign.vercel.app/#person"}, "creator": {"@id": "https://vitadesign.vercel.app/#person"}, "isPartOf": {"@id": "https://vitadesign.vercel.app/#website"}, "dateModified": "2026-10-28"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://vitadesign.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Catalog Heist: Search for 500K Products", "item": "https://vitadesign.vercel.app/case-study-catalog-heist"}]}]}</script>
 </head>
 <body>
 <a class="skip" href="#main-content">Skip to content</a>
@@ -42,8 +57,9 @@
   <nav aria-label="Main">
     <a href="/#work" style="--i:0"><span class="in"><span class="base">Work</span><span class="fill" aria-hidden="true">Work</span></span></a>
     <a href="/#experience" style="--i:1"><span class="in"><span class="base">Experience</span><span class="fill" aria-hidden="true">Experience</span></span></a>
-    <a href="/resume" style="--i:2"><span class="in"><span class="base">Resume</span><span class="fill" aria-hidden="true">Resume</span></span></a>
-    <a href="/#contact" style="--i:3"><span class="in"><span class="base">Contact</span><span class="fill" aria-hidden="true">Contact</span></span></a>
+    <a href="/writing" style="--i:2"><span class="in"><span class="base">Writing</span><span class="fill" aria-hidden="true">Writing</span></span></a>
+    <a href="/resume" style="--i:3"><span class="in"><span class="base">Resume</span><span class="fill" aria-hidden="true">Resume</span></span></a>
+    <a href="/#contact" style="--i:4"><span class="in"><span class="base">Contact</span><span class="fill" aria-hidden="true">Contact</span></span></a>
   </nav>
   <div class="hello">
     <span class="hand">Say hello</span>
@@ -323,7 +339,7 @@
   <canvas class="foot-game" aria-hidden="true"></canvas><canvas class="foot-trail" aria-hidden="true"></canvas>
   <div class="foot-top">
     <nav class="foot-links" aria-label="Footer">
-      <a href="/#work">Work</a><a href="/#experience">Experience</a><a href="/resume">Resume</a><a href="/#contact">Contact</a>
+      <a href="/#work">Work</a><a href="/#experience">Experience</a><a href="/writing">Writing</a><a href="/resume">Resume</a><a href="/#contact">Contact</a>
     </nav>
     <div class="foot-social"><a href="https://www.linkedin.com/in/vitaaddelia/" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:hola.vitaaddelia@gmail.com">Email</a></div>
   </div>
