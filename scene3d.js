@@ -255,15 +255,30 @@ function start() {
   const _p = new THREE.Vector3(), _q = new THREE.Quaternion(), _s = new THREE.Vector3();
   const _tp = new THREE.Vector3(), _sq = new THREE.Quaternion(), _sp = new THREE.Vector3(), _spin = new THREE.Quaternion(), _fwd = new THREE.Vector3();
   const easeIn = (x) => x * x * x;
+  // gallery grid: exactly 12px gaps and margins, full width; picks the column count that gives the biggest images
+  const GAP = 12, D = 4.2, CARD_AR = CW / CH;
+  let gridCache = null;
+  function gridLayout() {
+    const W = innerWidth, H = innerHeight, n = gal.length;
+    if (gridCache && gridCache.W === W && gridCache.H === H) return gridCache;
+    let best = null;
+    for (let cols = 2; cols <= 8; cols++) {
+      const rowsN = Math.ceil(n / cols);
+      const wByW = (W - GAP * (cols + 1)) / cols, wByH = ((H - GAP * (rowsN + 1)) / rowsN) * CARD_AR;
+      const w = Math.min(wByW, wByH);
+      if (!best || w > best.w) best = { cols, rowsN, w };
+    }
+    const h = best.w / CARD_AR;
+    const gridW = best.cols * best.w + (best.cols - 1) * GAP, gridH = best.rowsN * h + (best.rowsN - 1) * GAP;
+    const hV = 2 * D * Math.tan(cam.fov * Math.PI / 360);
+    gridCache = { W, H, ...best, h, x0: (W - gridW) / 2, y0: (H - gridH) / 2, k: hV / H };   // k = world units per pixel at depth D
+    return gridCache;
+  }
   function gridSlot(i) {
-    const cols = mobile ? 3 : 5, rowsN = Math.ceil(gal.length / cols), D = 4.2;
-    const hV = 2 * D * Math.tan(cam.fov * Math.PI / 360), wV = hV * cam.aspect;
-    const regionW = wV * .94, top = hV * (mobile ? .22 : .2), regionH = top + hV * .47;   // grid starts below the title
-    const cellW = regionW / cols, cellH = regionH / rowsN;
-    const w = Math.min(cellW * .9, (cellH * .9) / (CH / CW));
-    const col = i % cols, row = Math.floor(i / cols);
-    _tp.set(-regionW / 2 + cellW * (col + .5), top - cellH * (row + .5), -D).applyMatrix4(cam.matrixWorld);
-    return w;
+    const g = gridLayout(), col = i % g.cols, row = Math.floor(i / g.cols);
+    const cx = g.x0 + col * (g.w + GAP) + g.w / 2 - g.W / 2, cy = g.y0 + row * (g.h + GAP) + g.h / 2 - g.H / 2;
+    _tp.set(cx * g.k, -cy * g.k, -D).applyMatrix4(cam.matrixWorld);
+    return g.w * g.k;
   }
 
   /* ---------- scroll choreography ---------- */
@@ -339,7 +354,7 @@ function start() {
         g.position.copy(_p).lerp(_tp, a).addScaledVector(_fwd, -Math.sin(a * Math.PI) * .6);
         g.quaternion.copy(_q).slerp(cam.quaternion, a);
         let w = lerp(srcW, tw, a);
-        if (!reduce) g.position.y += Math.sin(t * 1.3 + i) * .012 * a * (1 - b);
+        if (!reduce) g.position.y += Math.sin(t * 1.3 + i) * .0025 * a * (1 - b);   // a barely-there drift, so the 12px grid stays crisp
         // into the screen: shrink, spin, disappear
         g.position.lerp(_sp, b);
         g.quaternion.slerp(_sq, b);
