@@ -69,20 +69,47 @@
   </div>
 </div>
 <main id="top">
-<div id="main-content" class="art-layout">
-  <a href="/writing" class="cs-back"><svg class="" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg> All writing</a>
+<div id="main-content" class="cs-layout art-page">
+  <aside class="cs-sidebar">
+    <a href="/writing" class="cs-back"><svg class="" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg> All writing</a>
+    <nav class="cs-nav" aria-label="On this page">
+      <a href="#introduction" class="active">Introduction</a>
+      <a href="#the-grayscale-test-still-earns-its-place">The grayscale test still earns its place</a>
+      <a href="#never-let-color-carry-meaning-alone">Never let color carry meaning alone</a>
+      <a href="#contrast-is-measurable-so-measure-it">Contrast is measurable, so measure it</a>
+      <a href="#put-it-in-the-design-system">Put it in the design system</a>
+      <a href="#then-check-it-on-every-release">Then check it on every release</a>
+      <a href="#review-checklist">Review checklist</a>
+      <a href="#related">Related work</a>
+    </nav>
+  </aside>
   <article class="cs-main art">
+    <details class="cs-toc" data-lenis-prevent>
+      <summary>On this page</summary>
+      <nav aria-label="On this page">
+      <a href="#introduction">Introduction</a>
+      <a href="#the-grayscale-test-still-earns-its-place">The grayscale test still earns its place</a>
+      <a href="#never-let-color-carry-meaning-alone">Never let color carry meaning alone</a>
+      <a href="#contrast-is-measurable-so-measure-it">Contrast is measurable, so measure it</a>
+      <a href="#put-it-in-the-design-system">Put it in the design system</a>
+      <a href="#then-check-it-on-every-release">Then check it on every release</a>
+      <a href="#review-checklist">Review checklist</a>
+      <a href="#related">Related work</a>
+      </nav>
+    </details>
     <p class="cs-eyebrow">ACCESSIBILITY · 3 MIN READ</p>
     <h1 class="cs-title art-title">Accessible color is a system decision, not a final check</h1>
     <p class="art-byline">By Vita Addelia, Product Designer</p>
-    <p>In 2023 I wrote about checking designs in grayscale so they work for people with color vision deficiency. It is still my favorite ten-second test. What changed is where I put the effort: accessible color works best when it is built into the design system and checked automatically, not fixed screen by screen at the end.</p><p>Color vision deficiency affects about 1 in 12 men and 1 in 200 women. On any product with real traffic, that is a lot of people.</p><h2>The grayscale test still earns its place</h2><p>Turn on a grayscale filter in your design tool or operating system and look at the screen. Can you still tell an error from a success state? Can you find the primary button? If the answer depends on hue, the design depends on hue, and some people will miss it.</p><h2>Never let color carry meaning alone</h2><p>WCAG success criterion 1.4.1 says color must not be the only way to convey information. In practice:</p><ul class="cs-list"><li>Status labels pair color with a word or an icon: "Paid", "Pending", "Disputed".</li><li>Charts label their series directly or use patterns, so a legend is not the only key.</li><li>Links in body text are underlined, not just colored.</li><li>Form errors show a message next to the field, not only a red border.</li></ul><h2>Contrast is measurable, so measure it</h2><p>WCAG level AA asks for a contrast ratio of at least 4.5:1 for body text, and 3:1 for large text and for interface parts such as input borders and icons. These are numbers, not opinions. On this portfolio, every text and background pair measures 6:1 or better, which I checked with a script rather than by eye.</p><h2>Put it in the design system</h2><p>I have built design systems with Figma Variables across multiple modules of a healthcare ERP, and reusable component libraries across e-commerce client projects. The lesson from both: decide accessibility once, at the token level. Define color tokens as approved pairs (this text color on this surface), give every status token a matching icon and label, and the components inherit the right answer everywhere.</p><h2>Then check it on every release</h2><p>The same thinking drives my QA automation work: 413 automated tests across more than 200 pages, run with one API call after every deployment. If a rule matters, check it every time something ships, not once before launch. Accessibility rules are exactly that kind of rule.</p><h2>Review checklist</h2><ul class="cs-list"><li>Does the screen still make sense in grayscale?</li><li>Is every status, error and chart readable without color?</li><li>Does body text reach 4.5:1, and do interface parts reach 3:1?</li><li>Do the tokens encode these rules, so new screens get them for free?</li><li>Is there an automated check, so the rules survive the next release?</li></ul>
+    <div class="cs-hero art-cover"><img src="Images/cover-article-accessible-color.jpg" width="1200" height="750" alt="" /></div>
+    <section id="introduction"><p>In 2023 I wrote about checking designs in grayscale so they work for people with color vision deficiency. It is still my favorite ten-second test. What changed is where I put the effort: accessible color works best when it is built into the design system and checked automatically, not fixed screen by screen at the end.</p><p>Color vision deficiency affects about 1 in 12 men and 1 in 200 women. On any product with real traffic, that is a lot of people.</p></section><section id="the-grayscale-test-still-earns-its-place"><h2>The grayscale test still earns its place</h2><p>Turn on a grayscale filter in your design tool or operating system and look at the screen. Can you still tell an error from a success state? Can you find the primary button? If the answer depends on hue, the design depends on hue, and some people will miss it.</p></section><section id="never-let-color-carry-meaning-alone"><h2>Never let color carry meaning alone</h2><p>WCAG success criterion 1.4.1 says color must not be the only way to convey information. In practice:</p><ul class="cs-list"><li>Status labels pair color with a word or an icon: "Paid", "Pending", "Disputed".</li><li>Charts label their series directly or use patterns, so a legend is not the only key.</li><li>Links in body text are underlined, not just colored.</li><li>Form errors show a message next to the field, not only a red border.</li></ul></section><section id="contrast-is-measurable-so-measure-it"><h2>Contrast is measurable, so measure it</h2><p>WCAG level AA asks for a contrast ratio of at least 4.5:1 for body text, and 3:1 for large text and for interface parts such as input borders and icons. These are numbers, not opinions. On this portfolio, every text and background pair measures 6:1 or better, which I checked with a script rather than by eye.</p></section><section id="put-it-in-the-design-system"><h2>Put it in the design system</h2><p>I have built design systems with Figma Variables across multiple modules of a healthcare ERP, and reusable component libraries across e-commerce client projects. The lesson from both: decide accessibility once, at the token level. Define color tokens as approved pairs (this text color on this surface), give every status token a matching icon and label, and the components inherit the right answer everywhere.</p></section><section id="then-check-it-on-every-release"><h2>Then check it on every release</h2><p>The same thinking drives my QA automation work: 413 automated tests across more than 200 pages, run with one API call after every deployment. If a rule matters, check it every time something ships, not once before launch. Accessibility rules are exactly that kind of rule.</p></section><section id="review-checklist"><h2>Review checklist</h2><ul class="cs-list"><li>Does the screen still make sense in grayscale?</li><li>Is every status, error and chart readable without color?</li><li>Does body text reach 4.5:1, and do interface parts reach 3:1?</li><li>Do the tokens encode these rules, so new screens get them for free?</li><li>Is there an automated check, so the rules survive the next release?</li></ul></section>
     <aside class="art-note">
       <p>This is a rewrite of my 2023 Medium article "Colorblind-friendly: Grayscale design" (March 2023), updated with what I have learned since and with examples from real projects.</p>
     </aside>
-    <section class="art-related" aria-labelledby="rel-article-accessible-color">
-      <h2 id="rel-article-accessible-color">Related case study</h2>
+    <section id="related" class="art-related" aria-labelledby="rel-h">
+      <h2 id="rel-h">Related case study</h2>
       <ul class="cs-list"><li><a href="/case-study-qa-automation">QA automation</a></li></ul>
     </section>
+    <div class="art-next"><span class="tag">Next article</span><a class="art-card art-card--wide" href="/article-teasing-continuation"><span class="art-img"><img src="Images/cover-article-teasing-continuation.jpg" width="1200" height="750" alt="" loading="lazy" decoding="async" /></span><span class="art-body"><span class="tag">Interaction design · 3 min read</span><span class="art-h">Show people there is more: continuation in multi-step flows</span><span class="art-p">Continuation cues like peeking cards and step trackers cut drop-off when they are honest. How step summaries took a flow from 47% to 11%.</span><span class="more">Read article</span></span></a></div>
   </article>
 </div>
 </main>
@@ -103,7 +130,7 @@
   <span class="vlm-sparkle">&#10022;</span>
 </button>
 
-<div class="vlm-panel" id="vlmPanel">
+<div class="vlm-panel" id="vlmPanel" data-lenis-prevent>
   <div class="vlm-header">
     <span class="vlm-title">VITALLM <span class="vlm-info" title="Answers a few common questions about Vita, based on pre-written responses.">&#9432;</span></span>
     <div class="vlm-header-actions">
@@ -125,5 +152,6 @@
 <script defer src="vendor/lenis.min.js"></script>
 <script defer src="site.js"></script>
 <script defer src="chat-widget.js"></script>
+<script defer src="case-study-scroll.js"></script>
 </body>
 </html>

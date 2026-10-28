@@ -23,7 +23,7 @@
 
   /* ---------- smooth scroll (Lenis) + one shared animation loop ---------- */
   if (!reduce && window.Lenis) {
-    try { V.lenis = new window.Lenis({ lerp: 0.1, smoothWheel: true }); } catch (e) { V.lenis = null; }
+    try { V.lenis = new window.Lenis({ lerp: 0.1, smoothWheel: true, prevent: (node) => !!(node.closest && node.closest('[data-lenis-prevent], .vlm-panel, .cs-toc')) }); } catch (e) { V.lenis = null; }
   }
   const loop = (t) => {
     if (V.lenis) V.lenis.raf(t);

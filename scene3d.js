@@ -122,13 +122,25 @@ function start() {
     ['Byron Bay Candles', 'Mobile checkout', IMG('checkout')],
     ['Social proof', 'Product page', IMG('social-proof')],
     ['Notes ERP', 'Patient list', IMG('patient-list')],
+    // second row: UI explorations (Dribbble shots and other work); all 20 cards also form the gallery
+    ['Zapatos', 'Shoe store', IMG('zapatos')],
+    ['UX audit', 'Hampers store', IMG('hampers-audit')],
+    ['Travel', 'Website', IMG('travel')],
+    ['UX audit', 'Jewelry store', IMG('jewelry-audit')],
+    ['Healthcare ERP', 'Landing page', IMG('healthcare-saas')],
+    ['The Holy Art', 'Website', IMG('holy-art')],
+    ['SaaS', 'Dashboard', IMG('saas-dashboard')],
+    ['Fashion', 'Sign-up form', IMG('fashion-signup')],
+    ['Performance', 'Speed audit', IMG('speed-audit')],
+    ['Education', 'Website', IMG('education')],
   ];
   const label = (x, W, H, i, light) => {
-    x.fillStyle = light ? '#FBF7F2' : PAL[i][1];
+    x.fillStyle = light ? '#FBF7F2' : PAL[i % PAL.length][1];
     x.font = '600 38px Inter, system-ui, sans-serif'; x.textAlign = 'left'; x.fillText(CARDS[i][0], 40, H - 44);
     x.font = '500 26px Inter, system-ui, sans-serif'; x.textAlign = 'right'; x.globalAlpha = light ? .85 : .7; x.fillText(CARDS[i][1], W - 40, H - 46); x.globalAlpha = 1;
   };
-  const cardTex = PAL.map(([bg, fg], i) => {
+  const PAL2 = PAL.concat(PAL);   // one placeholder colour per card, 20 cards
+  const cardTex = PAL2.map(([bg, fg], i) => {
     const W = 900, H = 600, [c, x] = canvas(W, H);
     rr(x, 0, 0, W, H, 38); x.save(); x.clip();
     x.fillStyle = bg; x.fillRect(0, 0, W, H);
@@ -231,7 +243,28 @@ function start() {
   const strip = new THREE.Group(); strip.position.set(0, 0, .006); scr.add(strip);
   const rows = [{ y: .42, dir: 1, off: 0, items: [] }, { y: -.62, dir: -1, off: .74, items: [] }];   // 1.04 apart: clear gap even at the 1.1x breakout scale
   const cardGeo = new THREE.PlaneGeometry(CW, CH);
-  rows.forEach((row, r) => { for (let i = 0; i < N; i++) { const m = new THREE.Mesh(cardGeo, cardMats[r ? (i * 3 + 5) % N : i]); m.position.y = row.y; strip.add(m); row.items.push({ m, x0: i * S }); } });
+  rows.forEach((row, r) => { for (let i = 0; i < N; i++) { const m = new THREE.Mesh(cardGeo, cardMats[r * N + i]); m.position.y = row.y; strip.add(m); row.items.push({ m, x0: i * S }); } });
+
+  /* ---------- UI exploration gallery: the strip cards fly out into a grid, then back into the screen ---------- */
+  const galGeo = new THREE.PlaneGeometry(1, CH / CW);
+  const srcItems = [...rows[0].items, ...rows[1].items];            // gallery card i uses the same texture as strip card i
+  const gal = srcItems.map((it, i) => {
+    const m = new THREE.Mesh(galGeo, new THREE.MeshBasicMaterial({ map: cardTex[i], transparent: true, toneMapped: false }));
+    m.visible = false; m.renderOrder = 10; scene.add(m); return m;
+  });
+  const _p = new THREE.Vector3(), _q = new THREE.Quaternion(), _s = new THREE.Vector3();
+  const _tp = new THREE.Vector3(), _sq = new THREE.Quaternion(), _sp = new THREE.Vector3(), _spin = new THREE.Quaternion(), _fwd = new THREE.Vector3();
+  const easeIn = (x) => x * x * x;
+  function gridSlot(i) {
+    const cols = mobile ? 3 : 5, rowsN = Math.ceil(gal.length / cols), D = 4.2;
+    const hV = 2 * D * Math.tan(cam.fov * Math.PI / 360), wV = hV * cam.aspect;
+    const regionW = wV * .94, top = hV * (mobile ? .22 : .2), regionH = top + hV * .47;   // grid starts below the title
+    const cellW = regionW / cols, cellH = regionH / rowsN;
+    const w = Math.min(cellW * .9, (cellH * .9) / (CH / CW));
+    const col = i % cols, row = Math.floor(i / cols);
+    _tp.set(-regionW / 2 + cellW * (col + .5), top - cellH * (row + .5), -D).applyMatrix4(cam.matrixWorld);
+    return w;
+  }
 
   /* ---------- scroll choreography ---------- */
   const c01 = v => Math.min(1, Math.max(0, v));
@@ -239,7 +272,7 @@ function start() {
   const pass = el => { const r = el.getBoundingClientRect(); return c01((innerHeight - r.top) / (innerHeight + r.height)); };
   const heroOut = () => { const r = SEC.hero.getBoundingClientRect(); return c01(-r.top / r.height); };
 
-  cam.position.set(0, .9, 9.5); cam.lookAt(0, 0, 0);
+  cam.position.set(0, .9, 9.5); cam.lookAt(0, 0, 0); cam.updateMatrixWorld();
   let Wv = 1, Hv = 1, mobile = false;
   function resize() {
     const w = innerWidth, h = innerHeight; renderer.setSize(w, h, false); mobile = w < 768;
@@ -249,7 +282,7 @@ function start() {
   addEventListener('resize', resize); resize();
 
   const st = { h: heroOut(), b: prog(SEC.ben), s: prog(SEC.seq), k: pass(SEC.brk) };
-  let running = true, last = 0, shownAngle = -1; const t0 = performance.now();
+  let running = true, last = 0, shownAngle = -1, lastGalUI = '', lastSeqHide = ''; const t0 = performance.now();
   new IntersectionObserver(es => { const was = running; running = es[0].isIntersecting; if (running && !was) { last = 0; requestAnimationFrame(loop); } })
     .observe(document.getElementById('seqwrap'));
 
@@ -260,14 +293,17 @@ function start() {
     for (const k in st) st[k] += (tg[k] - st[k]) * .16;
     const { h, b, s, k } = st, idle = reduce ? 0 : 1;
     const inBen = ss(0, .08, b) * (1 - ss(0, .2, s));
-    const inSeq = ss(0, .2, s), drop = ss(.45, 1, k), open = ss(.04, .38, s);
+    const inSeq = ss(0, .1, s), drop = ss(.45, 1, k), open = ss(.02, .16, s);
+    const galIn = ss(.38, .52, s), suck = ss(.68, .9, s), lapSink = ss(.38, .5, s) * (1 - ss(.62, .72, s));
+    const galOn = galIn > .001 && suck < .999;
 
     // position + size as fractions of the screen, so the layout holds at any viewport
     const fx = mobile ? 0 : lerp(.32, 0, ss(0, .85, h));
     let fy = mobile ? lerp(-.3, -.24, ss(0, .9, h)) : lerp(-.03, -.08, h);
-    fy = lerp(fy, mobile ? -.14 : -.11, inSeq) - drop * 1.35;
+    fy = lerp(fy, mobile ? -.14 : -.11, inSeq) - drop * 1.35 - lapSink * 2.3;   // laptop sinks fully out of view while the gallery is up
     let size = lerp(mobile ? .56 : .3, mobile ? .5 : .29, ss(0, 1, h));
-    size = lerp(size, mobile ? .92 : .48, ss(0, .22, s));
+    size = lerp(size, mobile ? .92 : .48, ss(0, .1, s));
+    size *= 1 - .22 * lapSink;
     size *= lerp(1, .72, ss(.3, 1, k));
     const sc = Math.min(size * Wv / 3.2, .64 * Hv / 2.3);
     laptop.scale.setScalar(sc);
@@ -277,18 +313,48 @@ function start() {
     laptop.rotation.z = .08 * (1 - h) * (1 - inSeq) * (1 - inBen);
     lid.rotation.x = -open * 1.92;
 
-    const power = ss(.3, .42, s), show = ss(.42, .52, s), out = ss(.56, .84, s) * (1 - ss(0, .35, k));
+    const power = ss(.13, .18, s), show = ss(.18, .23, s), out = ss(.25, .36, s) * (1 - ss(.5, .52, s)) * (1 - ss(0, .35, k));
     dispMat.color.setScalar(power);
 
     // strip motion + breakout
     const speed = reduce ? 0 : .32 * (1 + out * .6);
     rows.forEach(row => { row.off += dt * speed * row.dir; row.items.forEach(it => { it.m.position.x = ((it.x0 + row.off) % L + L) % L - L / 2; }); });
     strip.position.z = .006 + out * .24; strip.scale.setScalar(1 + out * .1);
-    cardMats.forEach(m => { m.opacity = show; m.visible = show > .001; });
+    cardMats.forEach(m => { m.opacity = show; m.visible = show > .001 && !galOn; });
     const hw = lerp(1.5, 5.1, out);
     local[0].constant = hw; local[1].constant = hw; local[2].constant = lerp(-BOT, 3, out); local[3].constant = lerp(TOP, 3, out);
     scene.updateMatrixWorld();
     world.forEach((w, i) => w.copy(local[i]).applyMatrix4(scr.matrixWorld));
+
+    // gallery: strip card -> grid slot -> back into the screen
+    if (galOn) {
+      _sp.set(0, DCY, .02).applyMatrix4(scr.matrixWorld); scr.getWorldQuaternion(_sq);
+      cam.getWorldDirection(_fwd);
+      const n = gal.length;
+      gal.forEach((g, i) => {
+        srcItems[i].m.matrixWorld.decompose(_p, _q, _s);
+        const srcW = CW * _s.x, d = (i / (n - 1)) * .4;
+        const a = ss(0, 1, (galIn - d) / .6), b = easeIn(Math.min(1, Math.max(0, (suck - d) / .6)));
+        const tw = gridSlot(i);
+        g.position.copy(_p).lerp(_tp, a).addScaledVector(_fwd, -Math.sin(a * Math.PI) * .6);
+        g.quaternion.copy(_q).slerp(cam.quaternion, a);
+        let w = lerp(srcW, tw, a);
+        if (!reduce) g.position.y += Math.sin(t * 1.3 + i) * .012 * a * (1 - b);
+        // into the screen: shrink, spin, disappear
+        g.position.lerp(_sp, b);
+        g.quaternion.slerp(_sq, b);
+        _spin.setFromAxisAngle(_fwd, b * Math.PI * 1.4); g.quaternion.premultiply(_spin);
+        w = lerp(w, tw * .04, b);
+        g.scale.setScalar(Math.max(w, 1e-4));
+        g.material.opacity = 1 - ss(.85, 1, b);
+        g.visible = b < .999;
+      });
+    } else gal.forEach(g => { g.visible = false; });
+    const galUI = (ss(.44, .52, s) * (1 - ss(.64, .7, s))).toFixed(3);
+    // "Selected work" text hides for the whole gallery and comes back only after the cards are inside the laptop
+    const seqHide = (ss(.36, .42, s) * (1 - ss(.86, .92, s))).toFixed(3);
+    if (galUI !== lastGalUI) { lastGalUI = galUI; document.documentElement.style.setProperty('--gal', galUI); }
+    if (seqHide !== lastSeqHide) { lastSeqHide = seqHide; document.documentElement.style.setProperty('--seqhide', seqHide); }
 
     // lid-angle meter
     const deg = Math.round(open * 1.92 * 180 / Math.PI);
