@@ -191,3 +191,26 @@
     });
   });
 })();
+
+/* ---------- hero review highlight: rotate three short excerpts ---------- */
+(() => {
+  const card = document.querySelector('.hero-review');
+  if (!card || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const q = card.querySelector('.hr-quote'), by = card.querySelector('.hr-by');
+  const items = [
+    ['“…a remarkable superpower in conducting UX Design audits.”', 'Marsha Camelia, Vita’s manager'],
+    ['“Her designs were… seamlessly implementable by the development team.”', 'Falah Hikamudin Arby, developer'],
+    ['“Really intuitive design and super fast responses.”', 'Nathan, client at Squadron Nostalgia'],
+  ];
+  let i = 0, paused = false;
+  card.addEventListener('mouseenter', () => { paused = true; });
+  card.addEventListener('mouseleave', () => { paused = false; });
+  card.addEventListener('focusin', () => { paused = true; });
+  card.addEventListener('focusout', () => { paused = false; });
+  setInterval(() => {
+    if (paused || document.hidden) return;
+    i = (i + 1) % items.length;
+    card.classList.add('swap');
+    setTimeout(() => { q.textContent = items[i][0]; by.textContent = items[i][1]; card.classList.remove('swap'); }, 360);
+  }, 5200);
+})();

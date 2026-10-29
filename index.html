@@ -11,6 +11,7 @@
 <link rel="apple-touch-icon" href="Images/apple-touch-icon.png" />
 <link rel="preload" href="/fonts/VCHenrietta-Bold.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="/fonts/SpaceMono-Regular.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/Inter-400.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="stylesheet" href="style.css" />
 
 <script>
@@ -99,6 +100,14 @@ if(!rm&&pt){r.classList.add('pt-in');}else if(true&&!rm){r.classList.add('loadin
       </ul>
     </div>
     <div class="hero-cta" data-rise style="--d:120ms">
+      <a class="hero-review" href="#testimonials" aria-label="Read reviews. Recommended by 6 colleagues and 3 clients.">
+        <span class="hr-avs" aria-hidden="true"><i>MC</i><i>FH</i><i>N</i><i>GP</i></span>
+        <span class="hr-body">
+          <span class="hr-quote">“…a remarkable superpower in conducting UX Design audits.”</span>
+          <span class="hr-by">Marsha Camelia, Vita’s manager</span>
+          <span class="hr-count">Recommended by 6 colleagues and 3 clients</span>
+        </span>
+      </a>
       <p class="hero-links">Case studies: <a href="/case-study-catalog-heist">catalog search</a>, <a href="/case-study-bonza">AI meal planning</a>, <a href="/case-study-notes-payslip">doctors' payslips</a> and <a href="/case-study-qa-automation">automated QA</a>.</p>
       <div class="row">
         <a class="rbtn" href="#work"><span class="lbl">See the work</span></a>
@@ -123,27 +132,6 @@ if(!rm&&pt){r.classList.add('pt-in');}else if(true&&!rm){r.classList.add('loadin
   </div>
 </section>
 
-<section id="sequence" class="is3d" aria-labelledby="seq-title">
-  <div class="seq-pin">
-    <div class="seq-head">
-      <h2 class="d1" id="seq-title" data-split>Selected work</h2>
-      <p data-rise>Scroll to open it up. Every card that spills out is a project, from a 500,000-product search to doctors' payslips.</p>
-    </div>
-    <div class="meter seq-meter-wrap" aria-hidden="true">
-      <div class="row"><span>Lid angle</span><span id="angle">000&deg;</span></div>
-      <div class="bar"><i id="seqbar"></i></div>
-    </div>
-    <div class="seq-side seq-meter-wrap">
-      <p>E-commerce, healthcare, design systems and AI. Four of them have full case studies.</p>
-      <a class="rbtn" href="#work"><span class="lbl">View projects</span></a>
-    </div>
-    <div class="seq-fallback"><a class="fb-card" href="/case-study-catalog-heist" data-title="The Catalog Heist" data-tag="ALTERNATE WORLDS · 2026" data-img="Images/Alternate worlds Hero.gif" data-bg="" data-fg=""><img src="Images/Alternate worlds Hero.gif" alt="" loading="lazy" /><span>The Catalog Heist</span></a><a class="fb-card" href="/case-study-bonza" data-title="Bonza: the AI dog nutritionist" data-tag="BONZA · 2025" data-img="Images/Bonza-HERO.gif" data-bg="" data-fg=""><img src="Images/Bonza-HERO.gif" alt="" loading="lazy" /><span>Bonza: the AI dog nutritionist</span></a><a class="fb-card" href="/case-study-notes-payslip" data-title="Doctors can&#x27;t read their payslip" data-tag="NOTES HEALTHCARE ERP" data-img="Images/card-doctor-finance.jpg" data-bg="" data-fg=""><img src="Images/card-doctor-finance.jpg" alt="" loading="lazy" /><span>Doctors can&#x27;t read their payslip</span></a><a class="fb-card" href="/case-study-qa-automation" data-title="I build designs. I make sure they work." data-tag="UI/UX + AI + QA AUTOMATION" data-img="Images/card-qa-automation.jpg" data-bg="" data-fg=""><img src="Images/card-qa-automation.jpg" alt="" loading="lazy" /><span>I build designs. I make sure they work.</span></a></div>
-  </div>
-</section>
-
-<section id="break"><p class="d1" data-split>Keep scrolling..</p></section>
-</div>
-
 <div class="scallop"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
 
 <section id="work" class="dark-band" data-tone="dark" aria-labelledby="work-title">
@@ -166,6 +154,31 @@ if(!rm&&pt){r.classList.add('pt-in');}else if(true&&!rm){r.classList.add('loadin
         <a class="rbtn light ghost" href="/case-study-qa-automation"><span class="lbl">Read case study</span></a></div>
     </article></div>
 </section>
+<div class="scallop to-cream"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+<section id="sequence" class="is3d" aria-labelledby="seq-title">
+  <div class="seq-pin">
+    <div class="seq-head">
+      <h2 class="d1" id="seq-title" data-split>More explorations</h2>
+      <p data-rise>Scroll to open it up. Every card that spills out is a piece of work: e-commerce stores, UX audits, dashboards and more.</p>
+    </div>
+    <div class="meter seq-meter-wrap" aria-hidden="true">
+      <div class="row"><span>Lid angle</span><span id="angle">000&deg;</span></div>
+      <div class="bar"><i id="seqbar"></i></div>
+    </div>
+    <div class="seq-side seq-meter-wrap">
+      <p>E-commerce, healthcare, design systems and AI. Four of them have full case studies.</p>
+      <a class="rbtn" href="#work"><span class="lbl">Case studies</span></a>
+    </div>
+    <div class="seq-fallback"><a class="fb-card" href="/case-study-catalog-heist" data-title="The Catalog Heist" data-tag="ALTERNATE WORLDS · 2026" data-img="Images/Alternate worlds Hero.gif" data-bg="" data-fg=""><img src="Images/Alternate worlds Hero.gif" alt="" loading="lazy" /><span>The Catalog Heist</span></a><a class="fb-card" href="/case-study-bonza" data-title="Bonza: the AI dog nutritionist" data-tag="BONZA · 2025" data-img="Images/Bonza-HERO.gif" data-bg="" data-fg=""><img src="Images/Bonza-HERO.gif" alt="" loading="lazy" /><span>Bonza: the AI dog nutritionist</span></a><a class="fb-card" href="/case-study-notes-payslip" data-title="Doctors can&#x27;t read their payslip" data-tag="NOTES HEALTHCARE ERP" data-img="Images/card-doctor-finance.jpg" data-bg="" data-fg=""><img src="Images/card-doctor-finance.jpg" alt="" loading="lazy" /><span>Doctors can&#x27;t read their payslip</span></a><a class="fb-card" href="/case-study-qa-automation" data-title="I build designs. I make sure they work." data-tag="UI/UX + AI + QA AUTOMATION" data-img="Images/card-qa-automation.jpg" data-bg="" data-fg=""><img src="Images/card-qa-automation.jpg" alt="" loading="lazy" /><span>I build designs. I make sure they work.</span></a></div>
+  </div>
+</section>
+
+<section id="break"><p class="d1" data-split>Keep scrolling..</p></section>
+</div>
+
+<div class="scallop"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
 
 <section id="intro" class="dark-band" data-tone="dark" aria-labelledby="intro-title">
   <span class="idoo a" aria-hidden="true"><svg class="doodle" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg></span>
@@ -182,6 +195,44 @@ if(!rm&&pt){r.classList.add('pt-in');}else if(true&&!rm){r.classList.add('loadin
       <button class="cbtn prev" type="button" aria-label="Previous"><span class="f"></span><svg class="" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></button>
       <button class="cbtn next" type="button" aria-label="Next"><span class="f"></span><svg class="" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></button></div></div>
   <div class="exp-wrap"><div class="exp-track"><article class="xcard"><span class="yr">2024 &ndash; Now</span><h3>BlazeCommerce</h3><span class="role">Product Designer (E-commerce)</span><p>19+ e-commerce sites across Shopify, WooCommerce, WordPress and Framer. +40% organic traffic, +25% conversion.</p></article><article class="xcard"><span class="yr">2025 &ndash; 2026</span><h3>DSCommerce</h3><span class="role">Product Designer (Growth &amp; Commerce)</span><p>29+ landing pages for the DACH market. +116% conversion and 2.3&times; ROAS through UX and A/B testing.</p></article><article class="xcard"><span class="yr">2022 &ndash; 2024</span><h3>NOTES Healthcare ERP</h3><span class="role">Senior Product Designer</span><p>Multi-role workflows for hospitals and clinics. Contributed to +1,125% active user growth.</p></article><article class="xcard"><span class="yr">2022</span><h3>Kampus Indonesia</h3><span class="role">UX Designer</span><p>Responsive learning experiences for an online education platform, shaped by usability tests and interviews.</p></article><article class="xcard"><span class="yr">2021</span><h3>Diceritain</h3><span class="role">Lead UX Designer</span><p>A mental-health peer-support app: its first design system, plus research that supported 27,000+ session hours.</p></article></div></div>
+</section>
+
+<section id="testimonials" class="paddx" aria-labelledby="tm-title">
+  <div class="tm-head">
+    <h2 class="d2" id="tm-title" data-split>Kind words</h2>
+    <p data-rise>From clients, my manager, and the analysts, designers and developers I have built products with.</p>
+  </div>
+  <div class="tm-grid">
+    <figure class="tm-card tm-sun">
+      <blockquote><p>“Really intuitive design and super fast responses. Working with Vita was a genuinely great experience.”</p></blockquote>
+      <figcaption><span class="tm-av" aria-hidden="true">N</span><span class="tm-who"><strong>Nathan</strong><span class="tm-role">Client · Squadron Nostalgia</span></span></figcaption>
+    </figure>
+    <figure class="tm-card tm-blush">
+      <blockquote><p>“Vita was always responsive, our discussions were really productive, and her designs were incredibly detailed.”</p></blockquote>
+      <figcaption><span class="tm-av" aria-hidden="true">G</span><span class="tm-who"><strong>Glendon</strong><span class="tm-role">Client · Bonza</span></span></figcaption>
+    </figure>
+    <figure class="tm-card tm-cream">
+      <blockquote><p>“Vita brings fresh ideas to the table, and she responds fast.”</p></blockquote>
+      <figcaption><span class="tm-av" aria-hidden="true">C</span><span class="tm-who"><strong>Campbell</strong><span class="tm-role">BlazeCommerce</span></span></figcaption>
+    </figure>
+    <figure class="tm-card tm-plum">
+      <blockquote><p>“Vita possesses a remarkable superpower in conducting UX Design audits, showcasing her extensive knowledge of user experience principles. Her keen eye for detail and unwavering commitment to excellence make her a standout UX Designer who consistently delivers outstanding results.”</p></blockquote>
+      <figcaption><span class="tm-av" aria-hidden="true">MC</span><span class="tm-who"><strong>Marsha Camelia</strong><span class="tm-role">Senior Product Designer · Vita’s manager</span></span></figcaption>
+    </figure>
+    <figure class="tm-card tm-cream">
+      <blockquote><p>“Her designs were not only easily comprehensible but also seamlessly implementable by the development team. Additionally, she meticulously provided instructions for each component she designed, thereby enhancing the overall clarity of the workflow for the development team.”</p></blockquote>
+      <figcaption><span class="tm-av" aria-hidden="true">FH</span><span class="tm-who"><strong>Falah Hikamudin Arby</strong><span class="tm-role">Mobile &amp; Front-End Developer</span></span></figcaption>
+    </figure>
+    <figure class="tm-card tm-sun">
+      <blockquote><p>“Our collaboration on multiple user stories for NOTES project, a healthcare management information system, has been incredible… She has a keen eye for design elements and user experience nuances that elevate our project to the next level.”</p></blockquote>
+      <figcaption><span class="tm-av" aria-hidden="true">BL</span><span class="tm-who"><strong>Benedicta L.</strong><span class="tm-role">Business Analyst · NOTES</span></span></figcaption>
+    </figure>
+    <figure class="tm-card tm-blush">
+      <blockquote><p>“With her creative approach and attention to detail, Vita consistently delivers high-quality work that exceeds expectations. She is also a great collaborator, always open to feedback and eager to iterate until the best solution is achieved.”</p></blockquote>
+      <figcaption><span class="tm-av" aria-hidden="true">GP</span><span class="tm-who"><strong>Gandhi Putra</strong><span class="tm-role">UI/UX Designer</span></span></figcaption>
+    </figure>
+  </div>
+  <div class="tm-foot"><a class="rbtn ghost" href="https://www.linkedin.com/in/vitaaddelia/details/recommendations/" target="_blank" rel="noopener"><span class="lbl">All recommendations on LinkedIn</span></a></div>
 </section>
 
 <section id="writing-home" class="paddx" aria-labelledby="wh-title">

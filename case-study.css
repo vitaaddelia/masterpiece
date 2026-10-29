@@ -134,3 +134,5 @@ figure.cs-figure figcaption { font-family: var(--ui); font-size: .88rem; }
 .cs-stat .n { font-size: clamp(34px, 3.4vw, 58px); }
 .cs-bigword { font-size: clamp(100px, 16vw, 260px); }
 .cs-main p { font-size: clamp(15px, .98vw, 17px); }
+.cs-main p, .cs-main li { font-family: var(--body); font-size: clamp(16px, 1.05vw, 18px); line-height: 1.7; }
+.cs-main p.cs-eyebrow, .cs-main p.art-byline, .cs-main figcaption, .cs-main .tag-before, .cs-main .tag-after { font-family: var(--ui); }

@@ -223,6 +223,14 @@ const FAQS = [
     related: ['research', 'a11y', 'process']
   },
 
+  {
+    id: 'testimonials',
+    question: 'What do people say about Vita?',
+    keywords: ['testimonial', 'testimonials', 'recommendation', 'recommendations', 'reference', 'references', 'review', 'reviews', 'feedback about', 'what do people say', 'clients say', 'colleagues', 'worked with her', 'kind words'],
+    answer: "Her manager, Marsha Camelia, called her UX audits \"a remarkable superpower\". A developer she worked with, Falah Hikamudin Arby, said her designs were \"seamlessly implementable by the development team\". Clients mention intuitive design, detailed work and fast responses.\n\n[[Read all the kind words|/#testimonials]]",
+    related: ['collab', 'contact']
+  },
+
   /* ---------- practical ---------- */
   {
     id: 'resume',
@@ -252,12 +260,12 @@ const FAQS = [
     answer: "Depends on the project. The fastest way to find out is to ask: email [[" + EMAIL + "|mailto:" + EMAIL + "]] with a bit about what you have in mind.",
     related: ['contact', 'rates', 'opportunities']
   },
-  { id: 'rates', question: 'What are your rates?', keywords: ['rate', 'rates', 'pricing', 'price', 'cost', 'budget', 'how much', 'salary expectation', 'fee', 'fees', 'harga'], answer: ASK_VITA, related: ['freelance', 'contact'] },
-  { id: 'location', question: 'Where are you based?', keywords: ['based', 'located', 'location', 'where are you', 'where do you live', 'timezone', 'time zone', 'remote', 'relocat', 'country', 'city'], answer: ASK_VITA, related: ['opportunities', 'contact'] },
-  { id: 'languages', question: 'Which languages do you speak?', keywords: ['language', 'languages', 'speak', 'english', 'german', 'deutsch', 'bahasa', 'indonesian'], answer: ASK_VITA, related: ['dscommerce', 'contact'] },
-  { id: 'education', question: 'What did you study?', keywords: ['education', 'degree', 'university', 'study', 'studied', 'school', 'bootcamp', 'certificate', 'certification', 'kuliah', 'studium'], answer: ASK_VITA, related: ['experience', 'resume'] },
-  { id: 'fun', question: 'What do you do for fun?', keywords: ['fun', 'hobby', 'hobbies', 'free time', 'outside of work', 'weekend', 'personal'], answer: ASK_VITA, related: ['inspire', 'contact'] },
-  { id: 'inspire', question: 'What inspires you?', keywords: ['inspire', 'inspiration', 'motivat', 'passion', 'why design', 'favorite', 'favourite'], answer: ASK_VITA, related: ['process', 'contact'] },
+  { id: 'rates', question: 'What are your rates?', keywords: ['rate', 'rates', 'pricing', 'price', 'cost', 'budget', 'how much', 'salary expectation', 'fee', 'fees', 'harga'], answer: `Vita is open to any realistic number. What matters most to her is work that makes a real impact for many people. Share your budget and scope and she'll happily talk it through.\n\n[[Email Vita|mailto:${EMAIL}]]`, related: ['freelance', 'contact'] },
+  { id: 'location', question: 'Where are you based?', keywords: ['based', 'located', 'location', 'where are you', 'where do you live', 'timezone', 'time zone', 'remote', 'relocat', 'country', 'city'], answer: `Anywhere in the world. Vita is an active traveler and works fully remote, and she has already worked remotely with teams in Australia and Germany.`, related: ['opportunities', 'contact'] },
+  { id: 'languages', question: 'Which languages do you speak?', keywords: ['language', 'languages', 'speak', 'english', 'german', 'deutsch', 'bahasa', 'indonesian', 'spanish', 'español', 'espanol'], answer: `Indonesian, English and Spanish.`, related: ['dscommerce', 'contact'] },
+  { id: 'education', question: 'What did you study?', keywords: ['education', 'degree', 'university', 'study', 'studied', 'school', 'bootcamp', 'certificate', 'certification', 'kuliah', 'studium', 'chemist', 'chemistry', 'background'], answer: `Vita trained as a chemist, but she loved design too much to stay away, so here she is.`, related: ['experience', 'resume'] },
+  { id: 'fun', question: 'What do you do for fun?', keywords: ['fun', 'hobby', 'hobbies', 'free time', 'outside of work', 'weekend', 'personal', 'hiking', 'diving', 'travel', 'reading'], answer: `Nature, mostly. Vita loves the sea and the mountains, so you'll find her hiking or diving, and reading when she's back on dry land.`, related: ['inspire', 'contact'] },
+  { id: 'inspire', question: 'What inspires you?', keywords: ['inspire', 'inspiration', 'motivat', 'passion', 'why design', 'favorite', 'favourite'], answer: `Wednesday. Yes, really. If you're curious why, that's a great question to ask Vita herself.\n\n[[Email Vita|mailto:${EMAIL}]]`, related: ['process', 'contact'] },
 
   /* ---------- about this site and VitaLLM ---------- */
   {
@@ -328,7 +336,11 @@ function findFaq(text) {
     let score = 0;
     keys.forEach(({ n, weak, whole }) => {
       if (!n) return;
-      if (whole ? t.includes(' ' + n + ' ') : t.includes(n)) score += weak ? 2 : n.length;
+      const phrase = n.includes(' ');
+      // short words and multi-word phrases must match whole words ("what are you" must not fire inside "what are your rates");
+      // a trailing plural "s" still counts. Single longer words may be stems ("relocat").
+      const hit = (whole || phrase) ? (t.includes(' ' + n + ' ') || t.includes(' ' + n + 's ')) : t.includes(n);
+      if (hit) score += weak ? 2 : n.length;
     });
     if (score > bestScore) { bestScore = score; best = faq; }
   });
