@@ -1,4 +1,12 @@
 /* ==========================================================================
+   Fonts (self-hosted): VC Henrietta Bold for headings, Space Mono for everything else
+   ========================================================================== */
+@font-face { font-family: "VC Henrietta"; src: url("fonts/VCHenrietta-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Space Mono"; src: url("fonts/SpaceMono-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Space Mono"; src: url("fonts/SpaceMono-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Space Mono"; src: url("fonts/SpaceMono-Italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+
+/* ==========================================================================
    Vita Addelia — portfolio
    Palette: plum ink / cream / blush / sun yellow / berry.
    Shared by the homepage and the case study pages.
@@ -785,4 +793,88 @@ main { margin-bottom: var(--fhv, var(--fh)); }
   .pin3d .gal-title { top: 84px; }
   .gal-title h2 { font-size: 34px; }
   .gal-title p:last-child { font-size: 14px; }
+}
+
+/* ==========================================================================
+   Two typefaces only: Khand (display) + Inter (everything else).
+   The former handwritten accents become clean, tracked labels and buttons.
+   ========================================================================== */
+:root { --hand: var(--ui); }
+.eyebrow, .proj-meta .tag, .seq-now .tag, .xcard .yr, .art-card .tag, .art-next > .tag, .gal-title .eyebrow, .menu .hello .hand {
+  font-family: var(--ui); font-weight: 600; font-size: clamp(11.5px, .82vw, 13.5px); letter-spacing: .1em; text-transform: uppercase; line-height: 1.3; }
+.rbtn { font-weight: 600; font-size: clamp(14px, 1vw, 16px); letter-spacing: .01em; padding: .75em 1.3em .8em; }
+.pill { font-weight: 600; font-size: clamp(13px, .95vw, 15px); }
+.mbtn { font-weight: 600; font-size: clamp(14px, 1vw, 16px); }
+.exp-ctrl .hint, .fb-card span, .tcard .small, .foot-play, .art-card .more, .tip { font-weight: 600; font-size: 14px; }
+.foot-social a { font-weight: 500; font-size: clamp(15px, 1.1vw, 18px); }
+.foot-bottom { font-weight: 500; font-size: 13px; letter-spacing: .04em; }
+.site-footer.game-on .foot-score { font-weight: 500; font-size: 14px; }
+.cs-toc summary { font-weight: 600; font-size: 15px; }
+.art-byline { font-weight: 500; font-size: .95rem; }
+
+
+/* ==========================================================================
+   Type system: VC Henrietta (display, sentence case) + Space Mono (text)
+   Henrietta is about 40% wider than Khand, so display sizes are scaled down.
+   ========================================================================== */
+:root { --display: "VC Henrietta", Georgia, "Times New Roman", serif; --ui: "Space Mono", ui-monospace, Menlo, Consolas, monospace; --hand: var(--ui); }
+body { font-family: var(--ui); }
+.d1:not(svg), .d2:not(svg), .d3:not(svg), .xcard h3, .foot-links a, .foot-word, .vlm-greeting, .r-head h1, .r-sec h2,
+.art-card h2, .art-card .art-h, .menu nav a, .meter .row { font-weight: 700; text-transform: none; letter-spacing: -.012em; }
+.d1:not(svg) { font-size: clamp(38px, 6.2vw, 124px); line-height: .98; }
+.d2:not(svg) { font-size: clamp(32px, 4.9vw, 98px); line-height: 1; }
+.d3:not(svg) { font-size: clamp(21px, 1.95vw, 36px); line-height: 1.06; }
+#hero h1 { font-size: clamp(34px, 5vw, 104px); }
+@media (min-width: 768px) { #hero h1 { font-size: clamp(36px, 4.4vw, 88px); max-width: 56vw; } }
+.xcard h3 { font-size: clamp(20px, 1.7vw, 28px); }
+.menu nav a { font-size: min(8.4vw, 11vh); line-height: 1.04; }
+.foot-links a { font-size: clamp(22px, 2.5vw, 44px); line-height: 1.12; }
+.foot-word { font-size: 13vw; letter-spacing: -.03em; line-height: .9; }
+@media (max-height: 760px) { .foot-word { font-size: min(13vw, 18vh); } .foot-links a { font-size: min(2.5vw, 5vh); } }
+.circ .n { font-size: clamp(30px, 2.9vw, 56px); letter-spacing: -.02em; }
+#impact.is-pinned .circ .n { font-size: clamp(30px, 2.9vw, 56px); }
+@media (max-width: 767px) { #impact.is-pinned .circ .n { font-size: clamp(20px, 6.2vw, 30px); } }
+.vlm-greeting { font-size: 1.45rem; line-height: 1.05; }
+.meter .row { font-size: clamp(15px, 1.2vw, 20px); }
+.r-head h1 { font-size: clamp(40px, 5.4vw, 68px); line-height: 1; }
+.r-sec h2 { font-size: 22px; }
+.art-card h2, .art-card .art-h { font-size: clamp(19px, 1.5vw, 24px); line-height: 1.1; }
+.art-feature .art-h { font-size: clamp(24px, 2.4vw, 40px); line-height: 1.04; }
+/* Space Mono is wide: slightly smaller reading text, a little more leading */
+.cs-main p, .r-sec > p, .r-job li { line-height: 1.75; }
+.proj-meta p, .hero-cta p, .wh-intro, .cs-intro { letter-spacing: -.01em; }
+@media print { .r-head h1 { font-size: 28pt; } .r-sec h2 { font-size: 12pt; } .r-sec > p, .r-job li, .r-cases li, .r-skills div { font-size: 8.8pt; line-height: 1.45; } }
+
+/* ==========================================================================
+   Gallery: purple backdrop + "keep scrolling" hint
+   ========================================================================== */
+.pin3d .gal-bg { position: absolute; inset: 0; z-index: 0; background: var(--ink); opacity: var(--galbg, 0); pointer-events: none; }
+.pin3d #three { z-index: 1; }
+.pin3d .gal-hint { position: absolute; left: 50%; bottom: calc(26px + env(safe-area-inset-bottom, 0px)); z-index: 2; pointer-events: none;
+  display: inline-flex; align-items: center; gap: 10px; padding: 11px 20px; border-radius: 999px; border: 2px solid var(--ink);
+  background: var(--sun); color: var(--ink); font-family: var(--ui); font-weight: 700; font-size: 13px; letter-spacing: .1em; text-transform: uppercase;
+  box-shadow: 0 14px 34px rgba(20, 8, 16, .45); white-space: nowrap;
+  opacity: var(--galhint, 0); transform: translate(-50%, calc((1 - var(--galhint, 0)) * 18px)); }
+.gal-hint svg { animation: galbob 1.3s ease-in-out infinite; }
+@keyframes galbob { 0%, 100% { transform: translateY(-3px); } 50% { transform: translateY(3px); } }
+@media (prefers-reduced-motion: reduce) { .gal-hint svg { animation: none; } }
+
+/* ==========================================================================
+   Resume content in Inter (page and PDF)
+   ========================================================================== */
+@font-face { font-family: "Inter"; src: url("fonts/Inter-400.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Inter"; src: url("fonts/Inter-500.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Inter"; src: url("fonts/Inter-600.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Inter"; src: url("fonts/Inter-700.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Inter"; src: url("fonts/Inter-400-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+.r-head, .r-head *, .r-sec, .r-sec * { font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif !important; }
+.r-head h1 { font-weight: 700; letter-spacing: -.025em; font-size: clamp(36px, 4.8vw, 58px); line-height: 1.05; }
+.r-head .r-title { font-weight: 500; letter-spacing: 0; text-transform: none; }
+.r-sec h2 { font-weight: 700; font-size: 14px; letter-spacing: .1em; text-transform: uppercase; }
+.r-job h3 { font-weight: 600; }
+.r-sec > p, .r-job li, .r-cases li, .r-skills div { line-height: 1.6; }
+@media print {
+  .r-head h1 { font-size: 24pt; }
+  .r-sec h2 { font-size: 9.5pt; letter-spacing: .1em; }
+  .r-sec > p, .r-job li, .r-cases li, .r-skills div { font-size: 9pt; line-height: 1.45; }
 }

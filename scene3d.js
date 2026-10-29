@@ -71,7 +71,7 @@ function start() {
         else key(x, y, kw, kh);
         if (l === 'id') { xK.strokeStyle = '#2a2a2d'; xK.lineWidth = 2; rr(xK, x + 4, y + 4, kw - 8, kh - 8, 6); xK.stroke(); }
         else if (l && l !== 'ud') {
-          xK.fillStyle = '#cfd0d4'; const big = l.length === 1; xK.font = `500 ${big ? 18 : 12}px Inter, system-ui, sans-serif`;
+          xK.fillStyle = '#cfd0d4'; const big = l.length === 1; xK.font = `500 ${big ? 18 : 12}px "Space Mono", ui-monospace, monospace`;
           if (l === '◀' || l === '▶') { xK.textAlign = 'center'; xK.font = '500 11px Inter, sans-serif'; xK.fillText(l, x + kw / 2, y + kh * .8); }
           else if (big) { xK.textAlign = 'center'; xK.fillText(l, x + kw / 2, y + kh / 2 + 7); }
           else { xK.textAlign = row === rows[0] ? 'center' : 'left'; xK.fillText(l, row === rows[0] ? x + kw / 2 : x + 8, y + kh - 10); }
@@ -96,13 +96,13 @@ function start() {
     if (logo) { const w = 560, h = w * logo.height / logo.width; xD.drawImage(logo, (DW - w) / 2, 82 + (DH - 82 - h) / 2, w, h); }
     xD.fillStyle = 'rgba(20,8,16,.55)'; xD.fillRect(0, 0, DW, 26);
     xD.fillStyle = '#f4eef1'; xD.textAlign = 'left';
-    let mx = 16; for (const m of ['Browser', 'File', 'Edit', 'View', 'History']) { xD.font = (m === 'Browser' ? '600' : '400') + ' 12px Inter, system-ui, sans-serif'; xD.fillText(m, mx, 18); mx += xD.measureText(m).width + 18; }
-    xD.textAlign = 'right'; xD.font = '400 12px Inter, system-ui, sans-serif'; xD.fillText('Mon 08:47', DW - 16, 18);
+    let mx = 16; for (const m of ['Browser', 'File', 'Edit', 'View', 'History']) { xD.font = (m === 'Browser' ? '600' : '400') + ' 12px "Space Mono", ui-monospace, monospace'; xD.fillText(m, mx, 18); mx += xD.measureText(m).width + 18; }
+    xD.textAlign = 'right'; xD.font = '400 12px "Space Mono", ui-monospace, monospace'; xD.fillText('Mon 08:47', DW - 16, 18);
     xD.strokeStyle = '#f4eef1'; xD.lineWidth = 1.2; rr(xD, DW - 120, 8, 22, 11, 3); xD.stroke(); xD.fillStyle = '#f4eef1'; xD.fillRect(DW - 118, 10, 14, 7);
     xD.fillStyle = 'rgba(248,246,244,.97)'; xD.fillRect(0, 26, DW, 56);
     ['#ec6a5e', '#f4bf4f', '#61c554'].forEach((c, i) => { xD.fillStyle = c; xD.beginPath(); xD.arc(26 + i * 20, 54, 6.5, 0, 7); xD.fill(); });
     xD.fillStyle = '#EFDDE6'; rr(xD, DW / 2 - 210, 39, 420, 30, 9); xD.fill();
-    xD.fillStyle = '#3B1E33'; xD.font = '500 14px Inter, system-ui, sans-serif'; xD.textAlign = 'center'; xD.fillText('Vita Addelia · Portfolio', DW / 2, 59);
+    xD.fillStyle = '#3B1E33'; xD.font = '500 14px "Space Mono", ui-monospace, monospace'; xD.textAlign = 'center'; xD.fillText('Vita Addelia · Portfolio', DW / 2, 59);
     xD.fillStyle = 'rgba(59,30,51,.12)'; xD.fillRect(0, 81, DW, 1);
   };
   paintWall(null);
@@ -136,8 +136,8 @@ function start() {
   ];
   const label = (x, W, H, i, light) => {
     x.fillStyle = light ? '#FBF7F2' : PAL[i % PAL.length][1];
-    x.font = '600 38px Inter, system-ui, sans-serif'; x.textAlign = 'left'; x.fillText(CARDS[i][0], 40, H - 44);
-    x.font = '500 26px Inter, system-ui, sans-serif'; x.textAlign = 'right'; x.globalAlpha = light ? .85 : .7; x.fillText(CARDS[i][1], W - 40, H - 46); x.globalAlpha = 1;
+    x.font = '700 30px "Space Mono", ui-monospace, monospace'; x.textAlign = 'left'; x.fillText(CARDS[i][0], 40, H - 44);
+    x.font = '400 20px "Space Mono", ui-monospace, monospace'; x.textAlign = 'right'; x.globalAlpha = light ? .85 : .7; x.fillText(CARDS[i][1], W - 40, H - 46); x.globalAlpha = 1;
   };
   const PAL2 = PAL.concat(PAL);   // one placeholder colour per card, 20 cards
   const cardTex = PAL2.map(([bg, fg], i) => {
@@ -297,7 +297,7 @@ function start() {
   addEventListener('resize', resize); resize();
 
   const st = { h: heroOut(), b: prog(SEC.ben), s: prog(SEC.seq), k: pass(SEC.brk) };
-  let running = true, last = 0, shownAngle = -1, lastGalUI = '', lastSeqHide = ''; const t0 = performance.now();
+  let running = true, last = 0, shownAngle = -1, lastGalUI = '', lastSeqHide = '', lastGalBg = '', lastGalHint = ''; const t0 = performance.now();
   new IntersectionObserver(es => { const was = running; running = es[0].isIntersecting; if (running && !was) { last = 0; requestAnimationFrame(loop); } })
     .observe(document.getElementById('seqwrap'));
 
@@ -370,6 +370,11 @@ function start() {
     const seqHide = (ss(.36, .42, s) * (1 - ss(.86, .92, s))).toFixed(3);
     if (galUI !== lastGalUI) { lastGalUI = galUI; document.documentElement.style.setProperty('--gal', galUI); }
     if (seqHide !== lastSeqHide) { lastSeqHide = seqHide; document.documentElement.style.setProperty('--seqhide', seqHide); }
+    // purple backdrop behind the gallery, and a "keep scrolling" hint while it holds
+    const galBg = ss(.36, .46, s) * (1 - ss(.84, .92, s)), galHint = ss(.5, .54, s) * (1 - ss(.62, .66, s));
+    const gb = galBg.toFixed(3), gh = galHint.toFixed(3);
+    if (gb !== lastGalBg) { lastGalBg = gb; document.documentElement.style.setProperty('--galbg', gb); document.documentElement.classList.toggle('gal-dark', galBg > .5); }
+    if (gh !== lastGalHint) { lastGalHint = gh; document.documentElement.style.setProperty('--galhint', gh); }
 
     // lid-angle meter
     const deg = Math.round(open * 1.92 * 180 / Math.PI);

@@ -115,3 +115,22 @@ figure.cs-figure figcaption { font-family: var(--hand); font-size: 1.1rem; color
 @media (max-width: 400px) {
   .cs-meta-row, .cs-summary { grid-template-columns: 1fr; }
 }
+
+/* two typefaces: labels and captions in Inter */
+.cs-back { font-family: var(--ui); font-weight: 600; font-size: .95rem; }
+.cs-eyebrow, .cs-meta-label, .cs-diagram-caption, .cs-code .cap {
+  font-family: var(--ui); font-weight: 600; font-size: clamp(11.5px, .82vw, 13.5px); letter-spacing: .1em; text-transform: uppercase; }
+.cs-meta-label { margin-bottom: .35rem; }
+.tag-before, .tag-after { font-family: var(--ui); font-weight: 600; font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; padding: .2rem .7rem; }
+figure.cs-figure figcaption { font-family: var(--ui); font-size: .88rem; }
+
+/* VC Henrietta headings: sentence case, scaled for its width */
+.cs-title, .cs-main h2 { font-weight: 700; text-transform: none; letter-spacing: -.012em; }
+.cs-title { font-size: clamp(34px, 4.6vw, 78px); line-height: 1.02; max-width: 18ch; }
+.cs-main h2 { font-size: clamp(25px, 2.7vw, 42px); line-height: 1.08; }
+.art-title { font-size: clamp(32px, 3.8vw, 58px); max-width: 20ch; }
+.cs-main.art h2 { font-size: clamp(24px, 2.4vw, 36px); }
+.cs-main .cs-quote { font-size: clamp(21px, 1.9vw, 30px); line-height: 1.2; }
+.cs-stat .n { font-size: clamp(34px, 3.4vw, 58px); }
+.cs-bigword { font-size: clamp(100px, 16vw, 260px); }
+.cs-main p { font-size: clamp(15px, .98vw, 17px); }

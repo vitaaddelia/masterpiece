@@ -80,7 +80,7 @@
       return [r.top + scrollY, r.bottom + scrollY];
     });
   };
-  const toneTick = () => { if (nav) nav.classList.toggle('dark', V.isDarkAt(scrollY + 38)); };
+  const toneTick = () => { if (nav) nav.classList.toggle('dark', V.isDarkAt(scrollY + 38) || root.classList.contains('gal-dark')); };
   addEventListener('resize', measure);
   addEventListener('load', measure);
   if (window.ResizeObserver) { const m = $('main'); if (m) new ResizeObserver(measure).observe(m); }
