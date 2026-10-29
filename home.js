@@ -192,7 +192,7 @@
   });
 })();
 
-/* ---------- hero review highlight: rotate three short excerpts ---------- */
+/* ---------- hero review card: rotate three short excerpts ---------- */
 (() => {
   const card = document.querySelector('.hero-review');
   if (!card || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -200,13 +200,11 @@
   const items = [
     ['“…a remarkable superpower in conducting UX Design audits.”', 'Marsha Camelia, Vita’s manager'],
     ['“Her designs were… seamlessly implementable by the development team.”', 'Falah Hikamudin Arby, developer'],
-    ['“Really intuitive design and super fast responses.”', 'Nathan, client at Squadron Nostalgia'],
+    ['“Vita’s designs are really intuitive, and she always responds fast.”', 'Nathan, client at Squadron Nostalgia'],
   ];
   let i = 0, paused = false;
-  card.addEventListener('mouseenter', () => { paused = true; });
-  card.addEventListener('mouseleave', () => { paused = false; });
-  card.addEventListener('focusin', () => { paused = true; });
-  card.addEventListener('focusout', () => { paused = false; });
+  ['mouseenter', 'focusin'].forEach((e) => card.addEventListener(e, () => { paused = true; }));
+  ['mouseleave', 'focusout'].forEach((e) => card.addEventListener(e, () => { paused = false; }));
   setInterval(() => {
     if (paused || document.hidden) return;
     i = (i + 1) % items.length;

@@ -90,6 +90,14 @@ if(!rm&&pt){r.classList.add('pt-in');}else if(true&&!rm){r.classList.add('loadin
 <section id="hero" aria-labelledby="hero-title">
   <span class="hero-deco" aria-hidden="true"><svg class="doodle" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg></span>
   <h1 class="d1" id="hero-title" data-split>I'm Vita, a product<br />designer for e-commerce<br />&amp; healthcare <span class="hl">systems</span>.</h1>
+  <a class="hero-review" href="#testimonials" aria-label="Read reviews. Recommended by 6 colleagues and 3 clients.">
+    <span class="hr-avs" aria-hidden="true"><i><img src="Images/avatar-marsha.jpg" width="320" height="320" alt="" /></i><i><img src="Images/avatar-falah.jpg" width="320" height="320" alt="" /></i><i><img src="Images/avatar-nathan.jpg" width="320" height="320" alt="" /></i><i><img src="Images/avatar-gandhi.jpg" width="320" height="320" alt="" /></i></span>
+    <span class="hr-body">
+      <span class="hr-quote">“…a remarkable superpower in conducting UX Design audits.”</span>
+      <span class="hr-by">Marsha Camelia, Vita’s manager</span>
+      <span class="hr-count">Recommended by 6 colleagues and 3 clients</span>
+    </span>
+  </a>
   <div class="hero-bottom">
     <div class="hero-list" data-rise>
       <span class="sp" aria-hidden="true"><svg class="doodle" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg></span>
@@ -100,14 +108,6 @@ if(!rm&&pt){r.classList.add('pt-in');}else if(true&&!rm){r.classList.add('loadin
       </ul>
     </div>
     <div class="hero-cta" data-rise style="--d:120ms">
-      <a class="hero-review" href="#testimonials" aria-label="Read reviews. Recommended by 6 colleagues and 3 clients.">
-        <span class="hr-avs" aria-hidden="true"><i>MC</i><i>FH</i><i>N</i><i>GP</i></span>
-        <span class="hr-body">
-          <span class="hr-quote">“…a remarkable superpower in conducting UX Design audits.”</span>
-          <span class="hr-by">Marsha Camelia, Vita’s manager</span>
-          <span class="hr-count">Recommended by 6 colleagues and 3 clients</span>
-        </span>
-      </a>
       <p class="hero-links">Case studies: <a href="/case-study-catalog-heist">catalog search</a>, <a href="/case-study-bonza">AI meal planning</a>, <a href="/case-study-notes-payslip">doctors' payslips</a> and <a href="/case-study-qa-automation">automated QA</a>.</p>
       <div class="row">
         <a class="rbtn" href="#work"><span class="lbl">See the work</span></a>
@@ -199,37 +199,72 @@ if(!rm&&pt){r.classList.add('pt-in');}else if(true&&!rm){r.classList.add('loadin
 
 <section id="testimonials" class="paddx" aria-labelledby="tm-title">
   <div class="tm-head">
-    <h2 class="d2" id="tm-title" data-split>Kind words</h2>
+    <h2 id="tm-title" class="kw-title"><span class="rc-tape">The reviews</span><span class="rc-title">“kind words”<span class="rc-card">cards</span></span></h2>
     <p data-rise>From clients, my manager, and the analysts, designers and developers I have built products with.</p>
   </div>
   <div class="tm-grid">
-    <figure class="tm-card tm-sun">
-      <blockquote><p>“Really intuitive design and super fast responses. Working with Vita was a genuinely great experience.”</p></blockquote>
-      <figcaption><span class="tm-av" aria-hidden="true">N</span><span class="tm-who"><strong>Nathan</strong><span class="tm-role">Client · Squadron Nostalgia</span></span></figcaption>
+    <figure class="kc">
+      <span class="kc-tape">Client</span>
+      <span class="kc-pol" aria-hidden="true"><img src="Images/avatar-nathan.jpg" width="320" height="320" alt="" loading="lazy" decoding="async" /></span>
+      <span class="kc-rows">
+        <span class="kc-row"><span class="kc-k">From:</span><span class="kc-v">Nathan</span></span>
+        <span class="kc-row"><span class="kc-k">Role:</span><span class="kc-v">Client · Squadron Nostalgia</span></span>
+        <span class="kc-row kc-says"><span class="kc-k">Says:</span><blockquote class="kc-q"><p>“Vita’s designs are really intuitive, and she always responds fast. Every question got a quick, thoughtful answer, and working with her was a genuinely nice experience.”</p></blockquote></span>
+      </span>
     </figure>
-    <figure class="tm-card tm-blush">
-      <blockquote><p>“Vita was always responsive, our discussions were really productive, and her designs were incredibly detailed.”</p></blockquote>
-      <figcaption><span class="tm-av" aria-hidden="true">G</span><span class="tm-who"><strong>Glendon</strong><span class="tm-role">Client · Bonza</span></span></figcaption>
+    <figure class="kc">
+      <span class="kc-tape">Client</span>
+      <span class="kc-pol" aria-hidden="true"><img src="Images/avatar-glendon.jpg" width="320" height="320" alt="" loading="lazy" decoding="async" /></span>
+      <span class="kc-rows">
+        <span class="kc-row"><span class="kc-k">From:</span><span class="kc-v">Glendon</span></span>
+        <span class="kc-row"><span class="kc-k">Role:</span><span class="kc-v">Client · Bonza</span></span>
+        <span class="kc-row kc-says"><span class="kc-k">Says:</span><blockquote class="kc-q"><p>“Vita was responsive the whole way through. Our discussions were really good: she listened, asked the right questions and worked through ideas with us. And her designs are incredibly detailed.”</p></blockquote></span>
+      </span>
     </figure>
-    <figure class="tm-card tm-cream">
-      <blockquote><p>“Vita brings fresh ideas to the table, and she responds fast.”</p></blockquote>
-      <figcaption><span class="tm-av" aria-hidden="true">C</span><span class="tm-who"><strong>Campbell</strong><span class="tm-role">BlazeCommerce</span></span></figcaption>
+    <figure class="kc">
+      <span class="kc-tape">BlazeCommerce</span>
+      <span class="kc-pol" aria-hidden="true"><img src="Images/avatar-campbell.jpg" width="320" height="320" alt="" loading="lazy" decoding="async" /></span>
+      <span class="kc-rows">
+        <span class="kc-row"><span class="kc-k">From:</span><span class="kc-v">Campbell</span></span>
+        <span class="kc-row"><span class="kc-k">Role:</span><span class="kc-v">BlazeCommerce</span></span>
+        <span class="kc-row kc-says"><span class="kc-k">Says:</span><blockquote class="kc-q"><p>“Vita brings new, fresh ideas to the table, and she responds fast. You get creative thinking and quick turnaround at the same time.”</p></blockquote></span>
+      </span>
     </figure>
-    <figure class="tm-card tm-plum">
-      <blockquote><p>“Vita possesses a remarkable superpower in conducting UX Design audits, showcasing her extensive knowledge of user experience principles. Her keen eye for detail and unwavering commitment to excellence make her a standout UX Designer who consistently delivers outstanding results.”</p></blockquote>
-      <figcaption><span class="tm-av" aria-hidden="true">MC</span><span class="tm-who"><strong>Marsha Camelia</strong><span class="tm-role">Senior Product Designer · Vita’s manager</span></span></figcaption>
+    <figure class="kc">
+      <span class="kc-tape">Manager</span>
+      <span class="kc-pol" aria-hidden="true"><img src="Images/avatar-marsha.jpg" width="320" height="320" alt="" loading="lazy" decoding="async" /><svg class="kc-cursor" viewBox="0 0 40 40"><g fill="none" stroke="#3B1E33" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"><path d="M14 12l15 7-6.5 2.5L27 29l-3 2-4.5-7.6L15 28z" fill="#F4B6D2"/><path d="M8 7l3 3M5 14h4M13 3v4"/></g></svg></span>
+      <span class="kc-rows">
+        <span class="kc-row"><span class="kc-k">From:</span><span class="kc-v">Marsha Camelia</span></span>
+        <span class="kc-row"><span class="kc-k">Role:</span><span class="kc-v">Senior Product Designer · Vita’s manager</span></span>
+        <span class="kc-row kc-says"><span class="kc-k">Says:</span><blockquote class="kc-q"><p>“Vita possesses a remarkable superpower in conducting UX Design audits, showcasing her extensive knowledge of user experience principles. Her keen eye for detail and unwavering commitment to excellence make her a standout UX Designer who consistently delivers outstanding results.”</p></blockquote></span>
+      </span>
     </figure>
-    <figure class="tm-card tm-cream">
-      <blockquote><p>“Her designs were not only easily comprehensible but also seamlessly implementable by the development team. Additionally, she meticulously provided instructions for each component she designed, thereby enhancing the overall clarity of the workflow for the development team.”</p></blockquote>
-      <figcaption><span class="tm-av" aria-hidden="true">FH</span><span class="tm-who"><strong>Falah Hikamudin Arby</strong><span class="tm-role">Mobile &amp; Front-End Developer</span></span></figcaption>
+    <figure class="kc">
+      <span class="kc-tape">Developer</span>
+      <span class="kc-pol" aria-hidden="true"><img src="Images/avatar-falah.jpg" width="320" height="320" alt="" loading="lazy" decoding="async" /></span>
+      <span class="kc-rows">
+        <span class="kc-row"><span class="kc-k">From:</span><span class="kc-v">Falah Hikamudin Arby</span></span>
+        <span class="kc-row"><span class="kc-k">Role:</span><span class="kc-v">Mobile &amp; Front-End Developer</span></span>
+        <span class="kc-row kc-says"><span class="kc-k">Says:</span><blockquote class="kc-q"><p>“Her designs were not only easily comprehensible but also seamlessly implementable by the development team. Additionally, she meticulously provided instructions for each component she designed, thereby enhancing the overall clarity of the workflow for the development team.”</p></blockquote></span>
+      </span>
     </figure>
-    <figure class="tm-card tm-sun">
-      <blockquote><p>“Our collaboration on multiple user stories for NOTES project, a healthcare management information system, has been incredible… She has a keen eye for design elements and user experience nuances that elevate our project to the next level.”</p></blockquote>
-      <figcaption><span class="tm-av" aria-hidden="true">BL</span><span class="tm-who"><strong>Benedicta L.</strong><span class="tm-role">Business Analyst · NOTES</span></span></figcaption>
+    <figure class="kc">
+      <span class="kc-tape">Analyst</span>
+      <span class="kc-pol" aria-hidden="true"><img src="Images/avatar-benedicta.jpg" width="320" height="320" alt="" loading="lazy" decoding="async" /></span>
+      <span class="kc-rows">
+        <span class="kc-row"><span class="kc-k">From:</span><span class="kc-v">Benedicta L.</span></span>
+        <span class="kc-row"><span class="kc-k">Role:</span><span class="kc-v">Business Analyst · NOTES</span></span>
+        <span class="kc-row kc-says"><span class="kc-k">Says:</span><blockquote class="kc-q"><p>“Our collaboration on multiple user stories for NOTES project, a healthcare management information system, has been incredible… She has a keen eye for design elements and user experience nuances that elevate our project to the next level.”</p></blockquote></span>
+      </span>
     </figure>
-    <figure class="tm-card tm-blush">
-      <blockquote><p>“With her creative approach and attention to detail, Vita consistently delivers high-quality work that exceeds expectations. She is also a great collaborator, always open to feedback and eager to iterate until the best solution is achieved.”</p></blockquote>
-      <figcaption><span class="tm-av" aria-hidden="true">GP</span><span class="tm-who"><strong>Gandhi Putra</strong><span class="tm-role">UI/UX Designer</span></span></figcaption>
+    <figure class="kc">
+      <span class="kc-tape">Designer</span>
+      <span class="kc-pol" aria-hidden="true"><img src="Images/avatar-gandhi.jpg" width="320" height="320" alt="" loading="lazy" decoding="async" /></span>
+      <span class="kc-rows">
+        <span class="kc-row"><span class="kc-k">From:</span><span class="kc-v">Gandhi Putra</span></span>
+        <span class="kc-row"><span class="kc-k">Role:</span><span class="kc-v">UI/UX Designer</span></span>
+        <span class="kc-row kc-says"><span class="kc-k">Says:</span><blockquote class="kc-q"><p>“With her creative approach and attention to detail, Vita consistently delivers high-quality work that exceeds expectations. She is also a great collaborator, always open to feedback and eager to iterate until the best solution is achieved.”</p></blockquote></span>
+      </span>
     </figure>
   </div>
   <div class="tm-foot"><a class="rbtn ghost" href="https://www.linkedin.com/in/vitaaddelia/details/recommendations/" target="_blank" rel="noopener"><span class="lbl">All recommendations on LinkedIn</span></a></div>
