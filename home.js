@@ -213,38 +213,52 @@
   }, 5200);
 })();
 
-/* ---------- full-screen film: load near view, autoplay muted in view, pause out of view ---------- */
+/* ---------- film: autoplay with sound when the browser allows it; otherwise muted until the first click or tap ---------- */
 (() => {
   const v = document.getElementById('filmVideo'); if (!v) return;
-  const pauseBtn = document.getElementById('filmPause'), soundBtn = document.getElementById('filmSound'), bigPlay = document.getElementById('filmBigPlay');
+  const pauseBtn = document.getElementById('filmPause'), soundBtn = document.getElementById('filmSound');
+  const center = document.getElementById('filmBigPlay'), tap = document.getElementById('filmTap');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let loaded = false, userPaused = reduce, inView = false;
-  const load = () => {
-    if (loaded) return; loaded = true;
-    v.src = innerWidth < 768 ? v.dataset.srcSm : v.dataset.src;   // phones get the smaller 720p file
-    v.preload = 'auto';
-  };
+  let loaded = false, userPaused = reduce, inView = false, wantSound = true;
+  const load = () => { if (loaded) return; loaded = true; v.src = innerWidth < 768 ? v.dataset.srcSm : v.dataset.src; v.preload = 'auto'; };
   const sync = () => {
     pauseBtn.textContent = v.paused ? 'Play' : 'Pause';
     pauseBtn.setAttribute('aria-pressed', String(v.paused));
-    bigPlay.hidden = !(reduce && v.paused && !v.currentTime);
-  };
-  const tryPlay = () => { load(); const p = v.play(); if (p && p.catch) p.catch(() => { sync(); }); };
-  new IntersectionObserver((es) => {
-    es.forEach((e) => {
-      if (e.isIntersecting && e.intersectionRatio > 0) load();                    // start downloading as it approaches
-      inView = e.intersectionRatio >= 0.35;
-      if (inView && !userPaused) tryPlay(); else if (!inView && !v.paused) v.pause();
-    });
-  }, { rootMargin: '200px 0px', threshold: [0, 0.35, 0.6] }).observe(v);
-  pauseBtn.addEventListener('click', () => { if (v.paused) { userPaused = false; tryPlay(); } else { userPaused = true; v.pause(); } });
-  soundBtn.addEventListener('click', () => {
-    v.muted = !v.muted;
+    center.hidden = !v.paused;
     soundBtn.setAttribute('aria-pressed', String(!v.muted));
     soundBtn.querySelector('span').textContent = v.muted ? 'Sound on' : 'Sound off';
-    if (!v.muted && v.paused) { userPaused = false; tryPlay(); }
-  });
-  bigPlay.addEventListener('click', () => { userPaused = false; tryPlay(); });
-  v.addEventListener('play', sync); v.addEventListener('pause', sync);
+    tap.hidden = !(wantSound && v.muted && !v.paused);          // sound was blocked by the browser
+  };
+  const start = async () => {
+    load();
+    if (wantSound) { v.muted = false; try { await v.play(); sync(); return; } catch (e) { /* blocked until the visitor interacts */ } }
+    v.muted = true;
+    try { await v.play(); } catch (e) {}
+    sync();
+  };
+  // the first click, tap or key press anywhere on the page unlocks sound
+  let justUnlocked = false;
+  const unlock = () => {
+    ['pointerdown', 'keydown', 'touchend'].forEach((ev) => removeEventListener(ev, unlock, true));
+    if (wantSound && v.muted && !v.paused) {
+      justUnlocked = true; setTimeout(() => { justUnlocked = false; }, 600);
+      v.muted = false; v.play().catch(() => { v.muted = true; }).finally(sync);
+    }
+  };
+  ['pointerdown', 'keydown', 'touchend'].forEach((ev) => addEventListener(ev, unlock, true));
+  new IntersectionObserver((es) => {
+    es.forEach((e) => {
+      if (e.isIntersecting) load();
+      inView = e.intersectionRatio >= 0.35;
+      if (inView && !userPaused && v.paused) start(); else if (!inView && !v.paused) v.pause();
+    });
+  }, { rootMargin: '200px 0px', threshold: [0, 0.35, 0.6] }).observe(v);
+  const toggle = () => { if (v.paused) { userPaused = false; start(); } else { userPaused = true; v.pause(); } };
+  pauseBtn.addEventListener('click', toggle);
+  center.addEventListener('click', toggle);
+  v.addEventListener('click', () => { if (justUnlocked) { justUnlocked = false; return; } toggle(); });   // the click that unlocks sound doesn't also pause
+  soundBtn.addEventListener('click', () => { wantSound = v.muted; v.muted = !v.muted; if (!v.muted && v.paused) { userPaused = false; start(); } sync(); });
+  tap.addEventListener('click', () => { wantSound = true; v.muted = false; sync(); });
+  v.addEventListener('play', sync); v.addEventListener('pause', sync); v.addEventListener('volumechange', sync);
   sync();
 })();

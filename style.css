@@ -1031,30 +1031,50 @@ p.eyebrow, p.cs-eyebrow, p.art-byline, .cs-meta-label, figcaption, .tag, .tag-be
 #testimonials { overflow-x: clip; }
 @media (max-width: 767px) { .kc-pol { right: -4px; width: 74px; } .kc-cursor { right: -8px; } .kc-row:first-child { padding-right: 66px; } }
 
+
+
+
 /* ==========================================================================
-   Full-screen film after the hero. It sits above the 3D laptop layer,
-   so the laptop passes behind it while scrolling.
+   Film after the hero: a white rounded frame with a soft shadow.
+   The section sits above the 3D laptop layer, so the laptop passes behind it.
    ========================================================================== */
 #seqwrap > #film { position: relative; z-index: 6; }
-#film { height: 100vh; height: 100svh; background: #F6F2E9; overflow: hidden; }
-.film-video { display: block; width: 100%; height: 100%; object-fit: cover; background: #F6F2E9; }
-@media (max-aspect-ratio: 4/3) { .film-video { object-fit: contain; } }   /* phones and tall screens: show the whole frame */
-.film-ui { position: absolute; right: var(--gutter); bottom: calc(22px + env(safe-area-inset-bottom, 0px)); display: flex; gap: 10px; }
-.film-btn { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 8px 16px; border-radius: 999px; border: 2px solid var(--ink);
+#film { --fp: clamp(8px, 1.1vw, 16px); --fr: clamp(22px, 2.6vw, 38px);
+  min-height: 100vh; min-height: 100svh; display: grid; place-items: center;
+  padding: clamp(20px, 4vw, 64px) var(--gutter); background: var(--cream); }
+.film-frame { position: relative; width: min(1280px, 100%, calc((100svh - 2 * clamp(20px, 4vw, 64px) - 2 * var(--fp)) * 16 / 9 + 2 * var(--fp)));
+  padding: var(--fp); background: #fff; border-radius: var(--fr);
+  box-shadow: 0 0 0 1px rgba(59, 30, 51, .07), 0 30px 70px rgba(59, 30, 51, .14), 0 6px 18px rgba(59, 30, 51, .06); }
+.film-video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; background: #F6F2E9;
+  border-radius: calc(var(--fr) - var(--fp)); }
+.film-center { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: grid; justify-items: center; gap: 6px;
+  padding: 0; border: 0; background: none; color: #fff; cursor: pointer; filter: drop-shadow(0 4px 14px rgba(0, 0, 0, .35)); transition: transform .3s var(--soft); }
+.film-center:hover, .film-center:focus-visible { transform: translate(-50%, -50%) scale(1.06); }
+.film-center svg { width: clamp(44px, 5vw, 72px); height: auto; }
+.film-dur { font: 600 clamp(14px, 1.3vw, 20px)/1 var(--body); letter-spacing: .02em; }
+.film-center[hidden], .film-tap[hidden] { display: none; }
+.film-ui { position: absolute; left: calc(var(--fp) + 14px); bottom: calc(var(--fp) + 14px); display: flex; gap: 8px; }
+.film-btn { display: inline-flex; align-items: center; gap: 8px; min-height: 38px; padding: 7px 14px; border-radius: 999px; border: 2px solid var(--ink);
   background: var(--cream); color: var(--ink); font: 700 12px/1 var(--ui); letter-spacing: .08em; text-transform: uppercase; cursor: pointer;
-  box-shadow: 0 4px 0 var(--ink); transition: transform .3s var(--soft), box-shadow .3s var(--soft), background .3s; }
-.film-btn:hover, .film-btn:focus-visible { transform: translateY(-2px); box-shadow: 0 6px 0 var(--ink); }
+  box-shadow: 0 3px 0 var(--ink); transition: transform .3s var(--soft), box-shadow .3s var(--soft), background .3s; }
+.film-btn:hover, .film-btn:focus-visible { transform: translateY(-2px); box-shadow: 0 5px 0 var(--ink); }
 .film-sound[aria-pressed="true"] { background: var(--sun); }
 .film-sound[aria-pressed="false"] .w { opacity: .25; }
-.film-big-play { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: inline-flex; align-items: center; gap: 12px;
-  padding: 16px 26px; border-radius: 999px; border: 2px solid var(--ink); background: var(--sun); color: var(--ink);
-  font: 700 14px/1 var(--ui); letter-spacing: .08em; text-transform: uppercase; cursor: pointer; box-shadow: 0 6px 0 var(--ink); }
-.film-big-play[hidden] { display: none; }
-/* controls bottom-left, clear of the VitaLLM bubble */
-.film-ui { right: auto; left: var(--gutter); }
-/* phones and tall screens: the section takes the film's own 16:9 shape, controls sit below it */
-@media (max-aspect-ratio: 4/3) {
-  #film { height: auto; overflow: visible; }
-  .film-video { height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
-  .film-ui { position: static; padding: 12px var(--gutter) 18px; }
+.film-tap { position: absolute; top: calc(var(--fp) + 14px); right: calc(var(--fp) + 14px); display: inline-flex; align-items: center; gap: 8px;
+  padding: 9px 16px; border-radius: 999px; border: 2px solid var(--ink); background: var(--sun); color: var(--ink); cursor: pointer;
+  font: 700 12px/1 var(--ui); letter-spacing: .08em; text-transform: uppercase; box-shadow: 0 3px 0 var(--ink); animation: tapPulse 1.6s ease-in-out infinite; }
+@keyframes tapPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+@media (prefers-reduced-motion: reduce) { .film-tap { animation: none; } }
+@media (max-width: 767px) {
+  #film { min-height: 0; padding: 28px var(--gutter); }
+  .film-frame { width: 100%; }
+  .film-ui { left: calc(var(--fp) + 8px); bottom: calc(var(--fp) + 8px); }
+  .film-btn { min-height: 32px; padding: 5px 10px; font-size: 10.5px; }
+  .film-tap { top: calc(var(--fp) + 8px); right: calc(var(--fp) + 8px); padding: 7px 12px; font-size: 10.5px; }
 }
+/* the film is light, so the centred play button sits in a dark circle with the duration below */
+.film-center { filter: none; gap: 10px; }
+.film-center svg { box-sizing: content-box; width: clamp(30px, 3vw, 44px); padding: clamp(18px, 1.8vw, 26px); border-radius: 50%;
+  background: rgba(59, 30, 51, .82); color: #fff; box-shadow: 0 10px 30px rgba(59, 30, 51, .3); }
+.film-center svg path { transform: translateX(1.5px); }
+.film-dur { padding: 5px 12px; border-radius: 999px; background: rgba(59, 30, 51, .82); color: #fff; font-size: clamp(13px, 1.1vw, 17px); }
