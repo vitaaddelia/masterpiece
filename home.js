@@ -212,3 +212,39 @@
     setTimeout(() => { q.textContent = items[i][0]; by.textContent = items[i][1]; card.classList.remove('swap'); }, 360);
   }, 5200);
 })();
+
+/* ---------- full-screen film: load near view, autoplay muted in view, pause out of view ---------- */
+(() => {
+  const v = document.getElementById('filmVideo'); if (!v) return;
+  const pauseBtn = document.getElementById('filmPause'), soundBtn = document.getElementById('filmSound'), bigPlay = document.getElementById('filmBigPlay');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let loaded = false, userPaused = reduce, inView = false;
+  const load = () => {
+    if (loaded) return; loaded = true;
+    v.src = innerWidth < 768 ? v.dataset.srcSm : v.dataset.src;   // phones get the smaller 720p file
+    v.preload = 'auto';
+  };
+  const sync = () => {
+    pauseBtn.textContent = v.paused ? 'Play' : 'Pause';
+    pauseBtn.setAttribute('aria-pressed', String(v.paused));
+    bigPlay.hidden = !(reduce && v.paused && !v.currentTime);
+  };
+  const tryPlay = () => { load(); const p = v.play(); if (p && p.catch) p.catch(() => { sync(); }); };
+  new IntersectionObserver((es) => {
+    es.forEach((e) => {
+      if (e.isIntersecting && e.intersectionRatio > 0) load();                    // start downloading as it approaches
+      inView = e.intersectionRatio >= 0.35;
+      if (inView && !userPaused) tryPlay(); else if (!inView && !v.paused) v.pause();
+    });
+  }, { rootMargin: '200px 0px', threshold: [0, 0.35, 0.6] }).observe(v);
+  pauseBtn.addEventListener('click', () => { if (v.paused) { userPaused = false; tryPlay(); } else { userPaused = true; v.pause(); } });
+  soundBtn.addEventListener('click', () => {
+    v.muted = !v.muted;
+    soundBtn.setAttribute('aria-pressed', String(!v.muted));
+    soundBtn.querySelector('span').textContent = v.muted ? 'Sound on' : 'Sound off';
+    if (!v.muted && v.paused) { userPaused = false; tryPlay(); }
+  });
+  bigPlay.addEventListener('click', () => { userPaused = false; tryPlay(); });
+  v.addEventListener('play', sync); v.addEventListener('pause', sync);
+  sync();
+})();

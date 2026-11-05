@@ -1030,3 +1030,31 @@ p.eyebrow, p.cs-eyebrow, p.art-byline, .cs-meta-label, figcaption, .tag, .tag-be
 /* phones: keep the polaroids inside the screen */
 #testimonials { overflow-x: clip; }
 @media (max-width: 767px) { .kc-pol { right: -4px; width: 74px; } .kc-cursor { right: -8px; } .kc-row:first-child { padding-right: 66px; } }
+
+/* ==========================================================================
+   Full-screen film after the hero. It sits above the 3D laptop layer,
+   so the laptop passes behind it while scrolling.
+   ========================================================================== */
+#seqwrap > #film { position: relative; z-index: 6; }
+#film { height: 100vh; height: 100svh; background: #F6F2E9; overflow: hidden; }
+.film-video { display: block; width: 100%; height: 100%; object-fit: cover; background: #F6F2E9; }
+@media (max-aspect-ratio: 4/3) { .film-video { object-fit: contain; } }   /* phones and tall screens: show the whole frame */
+.film-ui { position: absolute; right: var(--gutter); bottom: calc(22px + env(safe-area-inset-bottom, 0px)); display: flex; gap: 10px; }
+.film-btn { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 8px 16px; border-radius: 999px; border: 2px solid var(--ink);
+  background: var(--cream); color: var(--ink); font: 700 12px/1 var(--ui); letter-spacing: .08em; text-transform: uppercase; cursor: pointer;
+  box-shadow: 0 4px 0 var(--ink); transition: transform .3s var(--soft), box-shadow .3s var(--soft), background .3s; }
+.film-btn:hover, .film-btn:focus-visible { transform: translateY(-2px); box-shadow: 0 6px 0 var(--ink); }
+.film-sound[aria-pressed="true"] { background: var(--sun); }
+.film-sound[aria-pressed="false"] .w { opacity: .25; }
+.film-big-play { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: inline-flex; align-items: center; gap: 12px;
+  padding: 16px 26px; border-radius: 999px; border: 2px solid var(--ink); background: var(--sun); color: var(--ink);
+  font: 700 14px/1 var(--ui); letter-spacing: .08em; text-transform: uppercase; cursor: pointer; box-shadow: 0 6px 0 var(--ink); }
+.film-big-play[hidden] { display: none; }
+/* controls bottom-left, clear of the VitaLLM bubble */
+.film-ui { right: auto; left: var(--gutter); }
+/* phones and tall screens: the section takes the film's own 16:9 shape, controls sit below it */
+@media (max-aspect-ratio: 4/3) {
+  #film { height: auto; overflow: visible; }
+  .film-video { height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+  .film-ui { position: static; padding: 12px var(--gutter) 18px; }
+}

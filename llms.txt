@@ -17,6 +17,29 @@ Key facts, all from her resume:
 - [Doctors can't read their payslip](https://vitadesign.vercel.app/case-study-notes-payslip): salary experience in a healthcare ERP; feature usage up 70%, multi-step drop-off down from 47% to 11%.
 - [QA automation](https://vitadesign.vercel.app/case-study-qa-automation): 413 automated UI tests across 200+ pages built with Ghost Inspector and Claude AI.
 
+## UI explorations
+
+- Alternate Worlds: search rebuild for a 500,000+ product comics store
+- Bonza: AI onboarding quiz for a dog meal-plan subscription
+- NOTES Healthcare ERP: doctor salary and finance dashboard
+- QA automation: visual regression tests with Ghost Inspector and Claude
+- Alternate Worlds: category pages
+- Feel1 Tallow: skincare landing page
+- Multi-brand design system: healthcare ERP components
+- Byron Bay Candles: mobile checkout
+- Social proof: e-commerce product page with reviews
+- NOTES Healthcare ERP: patient list
+- Zapatos: shoe store website
+- UX audit: Australian hampers store with 129k+ orders
+- Travel: website design
+- UX audit: jewelry e-commerce store
+- Healthcare ERP: landing page
+- The Holy Art: art gallery website
+- SaaS: analytics dashboard
+- Fashion: sign-up page
+- Performance: site speed audit
+- Education: literacy learning website
+
 ## Writing
 
 - [F-pattern vs. Z-pattern, revisited: design for how people actually scan](https://vitadesign.vercel.app/article-f-pattern-vs-z-pattern): Why the F-pattern is a warning sign, when the Z-pattern helps, and how scan paths shaped a healthcare ERP dashboard that cut comprehension time by 40%.
