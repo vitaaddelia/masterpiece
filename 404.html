@@ -25,6 +25,7 @@ var rm=matchMedia('(prefers-reduced-motion: reduce)').matches,pt=false;
 try{pt=sessionStorage.getItem('vita-pt')==='1';sessionStorage.removeItem('vita-pt');}catch(e){}
 if(!rm&&pt){r.classList.add('pt-in');}else if(false&&!rm){r.classList.add('loading');}})();
 </script>
+<script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
 </head>
 <body>
 <a class="skip" href="#main-content">Skip to content</a>
