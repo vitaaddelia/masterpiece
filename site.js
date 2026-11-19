@@ -273,7 +273,12 @@
 /* ---------- footer height: margin under <main> always matches the real footer ---------- */
 (function () {
   var foot = document.querySelector('.site-footer'); if (!foot) return;
-  function sync() { document.documentElement.style.setProperty('--fhv', foot.offsetHeight + 'px'); }
+  function sync() {
+    /* a revealed (fixed) footer only works if it fits the screen; otherwise it scrolls normally */
+    var tall = foot.offsetHeight > innerHeight - 20;
+    foot.classList.toggle('is-static', tall);
+    document.documentElement.style.setProperty('--fhv', tall ? '0px' : foot.offsetHeight + 'px');
+  }
   sync(); addEventListener('resize', sync); addEventListener('load', sync);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(sync);
 })();
@@ -306,4 +311,61 @@
   });
   // coming back with the browser's back button should never leave the curtains closed
   addEventListener('pageshow', function (e) { if (e.persisted) root.classList.remove('pt-out', 'pt-in', 'pt-open'); });
+})();
+
+/* ---------- footer crowd ----------
+   Illustrations: Open Peeps by Pablo Stanley (CC0), recoloured to the site palette and
+   prebuilt into footer-crowd.svg. Loaded when the visitor nears the footer. Rows rise as the
+   footer is revealed; hover, focus or tap Vita (centre) and she says hi. */
+(function () {
+  var host = document.querySelector('.site-footer .ft-crowd'); if (!host) return;
+  var foot = host.closest('.site-footer'), word = foot.querySelector('.ft-word');
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var rows = [], me = null, hiUntil = 0, hovering = false, autoHi = false, raf = 0, last = -1, loading = false;
+
+  function progress() {
+    var d = document.documentElement.scrollHeight - (scrollY + innerHeight);
+    return Math.max(0, Math.min(1, 1 - d / (foot.offsetHeight || 1)));
+  }
+  function frame(now) {
+    raf = 0;
+    var p = reduce ? 1 : progress(), q = Math.min(1, p / .8), e = 1 - (1 - q) * (1 - q);
+    if (p !== last) {
+      rows.forEach(function (r) { r[0].setAttribute('transform', 'translate(0 ' + (r[1] * (1 - e)).toFixed(1) + ')'); });
+      if (word) word.style.transform = 'translateY(' + (40 * (1 - e)).toFixed(1) + '%)';
+      last = p;
+    }
+    if (!me) return;
+    if (p > .97 && !autoHi) { autoHi = true; hiUntil = now + 2800; }
+    var on = hovering || now < hiUntil;
+    me.classList.toggle('hi', on);
+    if (now < hiUntil) tick();
+  }
+  function tick() { if (!raf) raf = requestAnimationFrame(frame); }
+
+  function load() {
+    if (loading) return; loading = true;
+    fetch('/footer-crowd.svg').then(function (r) { return r.ok ? r.text() : ''; }).then(function (svg) {
+      if (!svg) return;
+      host.innerHTML = svg;
+      rows = [['.fc-doo', 60], ['.fc-back', 110], ['.fc-mid', 190], ['.fc-me', 330], ['.fc-front', 270]]
+        .map(function (r) { return [host.querySelector(r[0]), r[1]]; }).filter(function (r) { return r[0]; });
+      me = host.querySelector('.fc-vita');
+      if (me) {
+        me.addEventListener('mouseenter', function () { hovering = true; tick(); });
+        me.addEventListener('mouseleave', function () { hovering = false; tick(); });
+        me.addEventListener('focus', function () { hovering = true; tick(); });
+        me.addEventListener('blur', function () { hovering = false; tick(); });
+        me.addEventListener('click', function () { hiUntil = performance.now() + 2800; tick(); });
+      }
+      last = -1; tick();
+    }).catch(function () {});
+  }
+  function near() {
+    if (innerHeight + scrollY >= document.documentElement.scrollHeight - foot.offsetHeight - innerHeight * 1.5) { load(); }
+    tick();
+  }
+  addEventListener('scroll', near, { passive: true });
+  addEventListener('resize', function () { last = -1; tick(); });
+  near();
 })();

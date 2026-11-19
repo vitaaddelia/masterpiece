@@ -1078,3 +1078,57 @@ p.eyebrow, p.cs-eyebrow, p.art-byline, .cs-meta-label, figcaption, .tag, .tag-be
   background: rgba(59, 30, 51, .82); color: #fff; box-shadow: 0 10px 30px rgba(59, 30, 51, .3); }
 .film-center svg path { transform: translateX(1.5px); }
 .film-dur { padding: 5px 12px; border-radius: 999px; background: rgba(59, 30, 51, .82); color: #fff; font-size: clamp(13px, 1.1vw, 17px); }
+
+/* ==========================================================================
+   Footer v4: "the footer is the main character".
+   A plum info band, then a cream stage with a giant faded name and a
+   line-art crowd that rises as the footer is revealed. Vita stands centre.
+   ========================================================================== */
+.site-footer { display: block; padding: 0; height: auto; min-height: 0; background: var(--ink); }
+.site-footer.is-static { position: relative; }
+.ft-band { padding: clamp(32px, 3.4vw, 56px) var(--gutter) clamp(22px, 2.2vw, 34px); }
+.ft-cols { display: grid; grid-template-columns: 1.15fr 1.2fr 1fr; gap: clamp(24px, 4vw, 72px); align-items: start; }
+.ft-name { font-family: var(--display); font-weight: 700; font-size: clamp(26px, 2.3vw, 40px); line-height: 1; letter-spacing: -.012em; color: var(--cream); }
+.ft-name span { color: var(--sun); }
+.ft-brand p { margin-top: 14px; font-size: 13px; line-height: 1.6; color: var(--cream-soft); }
+.ft-lbl { display: block; margin-bottom: 14px; font-size: 11.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(251, 247, 242, .5); }
+.ft-links { display: flex; flex-wrap: wrap; gap: 10px 26px; max-width: 30em; }
+.ft-links a, .ft-out { font-size: 14px; color: var(--cream); transition: color .2s; }
+.ft-links a:hover, .ft-links a:focus-visible, .ft-out:hover, .ft-out:focus-visible, .ft-up:hover, .ft-up:focus-visible { color: var(--sun); }
+.ft-touch { display: grid; gap: 8px; justify-items: start; }
+.ft-out { display: inline-flex; align-items: center; gap: 6px; word-break: break-all; }
+.ft-out svg { width: 14px; height: 14px; flex: none; }
+.ft-touch small { margin-top: 8px; font-size: 12px; color: rgba(251, 247, 242, .55); }
+.ft-bye { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; margin-top: clamp(26px, 2.8vw, 44px); }
+.ft-see { font-family: var(--display); font-weight: 700; font-size: clamp(30px, 3.4vw, 60px); line-height: 1; letter-spacing: -.015em; color: var(--cream); }
+.ft-up { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--cream); white-space: nowrap; }
+.ft-up svg { width: 15px; height: 15px; }
+
+.ft-stage { position: relative; overflow: hidden; background-color: var(--cream); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .23 0 0 0 0 .12 0 0 0 0 .2 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"); height: clamp(250px, 34vw, 48vh); }
+.ft-word { position: absolute; left: 0; right: 0; top: 4%; text-align: center; white-space: nowrap; font-family: var(--display); font-weight: 700; font-size: 14.6vw; line-height: .9; letter-spacing: -.03em; color: var(--beige); will-change: transform; user-select: none; }
+.ft-crowd { position: absolute; inset: 0; }
+.ft-crowd svg { position: absolute; left: 0; top: 0; width: 100%; height: 100%; overflow: hidden; }
+.fc-row { will-change: transform; }
+.fc-vita { cursor: pointer; outline: none; }
+.fc-bounce { transform-box: fill-box; transform-origin: 50% 100%; transition: transform .45s var(--out); }
+.fc-vita.hi .fc-bounce { animation: fcHop .55s var(--out) 2; }
+@keyframes fcHop { 0%, 100% { transform: none; } 45% { transform: translateY(-14px) scale(1.01, .99); } }
+.fc-bubble, .fc-pop { opacity: 0; transition: opacity .25s; }
+.fc-vita.hi .fc-bubble, .fc-vita.hi .fc-pop { opacity: 1; }
+.fc-vita:focus-visible .fc-bubble { opacity: 1; }
+.fc-bubble text { font-family: var(--display); font-weight: 700; font-size: 19px; fill: var(--ink); }
+.fc-bubble text.sm { font-family: var(--ui); font-weight: 400; font-size: 12px; fill: var(--berry); }
+.fc-twk { transform-box: fill-box; transform-origin: 50% 50%; animation: fcTwk 2.6s ease-in-out var(--t, 0s) infinite alternate; }
+@keyframes fcTwk { from { transform: scale(.8) rotate(-10deg); } to { transform: scale(1.1) rotate(10deg); } }
+
+@media (max-width: 899px) {
+  .ft-cols { grid-template-columns: 1fr 1fr; }
+  .ft-brand { grid-column: 1 / -1; }
+  .ft-stage { height: clamp(260px, 62vw, 380px); }
+  .ft-word { font-size: 17vw; top: 6%; }
+}
+@media (max-width: 560px) {
+  .ft-cols { grid-template-columns: 1fr; gap: 26px; }
+  .ft-bye { flex-direction: column; align-items: flex-start; }
+}
+@media (prefers-reduced-motion: reduce) { .fc-twk, .fc-vita.hi .fc-bounce { animation: none; } }

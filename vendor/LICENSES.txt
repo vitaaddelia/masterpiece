@@ -7,3 +7,8 @@ MIT License: permission is granted, free of charge, to any person obtaining a co
 software and associated files, to deal in the software without restriction, subject to the
 copyright notice above being included in all copies. THE SOFTWARE IS PROVIDED "AS IS",
 WITHOUT WARRANTY OF ANY KIND.
+
+
+footer-crowd.svg
+  Illustrations from Open Peeps by Pablo Stanley (https://www.openpeeps.com), CC0 1.0 public domain.
+  Recoloured and composed for this site.
