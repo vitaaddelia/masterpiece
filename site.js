@@ -313,43 +313,124 @@
   addEventListener('pageshow', function (e) { if (e.persisted) root.classList.remove('pt-out', 'pt-in', 'pt-open'); });
 })();
 
-/* ---------- footer crowd ----------
-   Illustrations: Open Peeps by Pablo Stanley (CC0), recoloured to the site palette and
-   prebuilt into footer-crowd.svg. Loaded when the visitor nears the footer. Rows rise as the
-   footer is revealed; hover, focus or tap Vita (centre) and she says hi. */
+/* ---------- footer street ----------
+   Illustrations: Open Peeps by Pablo Stanley (CC0), recoloured and prebuilt into footer-crowd.html.
+   People pass by like on a real street, using findings from pedestrian studies:
+   - the scene is sparse; people arrive at random intervals (not a marching row)
+   - about half arrive in small groups, mostly pairs walking side by side, sometimes a trio in a V;
+     groups walk slower than people alone and keep step together
+   - people walk both ways: arrivals come from the left and the right in roughly equal numbers
+   - everyone has their own pace and step rhythm; older people walk slower
+   - only upper bodies show (cut off by the stage edge), like the crowd in the reference
+   Vita stays in the middle (hover, focus or tap: she says hi). Everything moves with GPU transforms
+   and pauses while the footer is off screen. */
 (function () {
   var host = document.querySelector('.site-footer .ft-crowd'); if (!host) return;
   var foot = host.closest('.site-footer'), word = foot.querySelector('.ft-word');
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var rows = [], me = null, hiUntil = 0, hovering = false, autoHi = false, raf = 0, last = -1, loading = false;
+  var VW = 1600, VH = 500, FIG_X = -20, FIG_Y = -60, FIG_W = 900, FIG_H = 1240, FIG_CUT = 1165, PERSON_H = 2950;
+  var LANES = {
+    /* bottom = where the figure's cut edge sits (below the stage, so only the upper body shows) */
+    /* all lanes pass in front of Vita, who stands further back; nearer lanes are bigger and lower */
+    far:  { bottom: 522, s: .2,  gap: 3, max: 4 },
+    mid:  { bottom: 548, s: .23, gap: 3.6, max: 3 },
+    near: { bottom: 610, s: .28, gap: 12, max: 1 }    /* the odd person close to the camera */
+  };
+  var lanes = [], streets = {}, me = null, hiUntil = 0, hovering = false, autoHi = false, raf = 0, last = -1, loading = false;
+  var u = 1, running = false, walkers = [], timers = {}, nTemplates = 0, oldFlags = '';
 
   function progress() {
     var d = document.documentElement.scrollHeight - (scrollY + innerHeight);
     return Math.max(0, Math.min(1, 1 - d / (foot.offsetHeight || 1)));
   }
+  function measure() { u = Math.max(host.clientWidth / VW, host.clientHeight / VH) || 1; host.style.setProperty('--u', u); last = -1; }
+  function rnd(a, b) { return a + Math.random() * (b - a); }
+
+  /* one person: outer = horizontal travel, inner = step bob/sway, svg = the drawing (mirrored if walking left) */
+  function spawn(lane, opt) {
+    var L = LANES[lane], box = streets[lane]; if (!box) return null;
+    var t = opt.t != null ? opt.t : Math.floor(Math.random() * nTemplates);
+    var s = L.s * (opt.scale || rnd(.95, 1.05)), base = L.bottom + (opt.depth || 0);
+    var w = FIG_W * s * u, h = FIG_H * s * u, bodyH = PERSON_H * s * u, sw = host.clientWidth;
+    var el = document.createElement('div');
+    el.className = 'fc-ped';
+    el.style.cssText = 'width:' + w.toFixed(1) + 'px;height:' + h.toFixed(1) + 'px;bottom:' + ((VH - base) * u - (FIG_Y + FIG_H - FIG_CUT) * s * u).toFixed(1) + 'px;z-index:' + Math.round(base);
+    el.innerHTML = '<div class="fc-gait" style="--step:' + opt.step.toFixed(3) + 's;animation-delay:-' + (opt.phase || 0).toFixed(2) + 's">' +
+      '<svg viewBox="' + FIG_X + ' ' + FIG_Y + ' ' + FIG_W + ' ' + FIG_H + '"' + (opt.right ? '' : ' class="fc-flip"') + '><use href="#w' + t + '"/></svg></div>';
+    box.appendChild(el);
+    var from = opt.right ? -w - opt.lead : sw + opt.lead, to = opt.right ? sw + w + 40 : -w * 2 - 40;
+    var px = opt.v * bodyH, dur = Math.abs(to - from) / px * 1000;
+    var anim = el.animate([{ transform: 'translate3d(' + from + 'px,0,0)' }, { transform: 'translate3d(' + to + 'px,0,0)' }], { duration: dur, easing: 'linear', fill: 'both' });
+    if (opt.at) anim.currentTime = opt.at * dur;
+    if (!running || reduce) anim.pause();
+    var rec = { el: el, anim: anim, lane: lane, right: opt.right };
+    walkers.push(rec);
+    anim.onfinish = function () { el.remove(); walkers.splice(walkers.indexOf(rec), 1); };
+    return rec;
+  }
+
+  /* an arrival: a single person or a small group (pair abreast / trio in a V) */
+  var lastRight = Math.random() < .5;
+  function arrive(lane, at, dir) {
+    var L = LANES[lane];
+    if (walkers.filter(function (w) { return w.lane === lane; }).length >= L.max) return;
+    /* people come from both sides: arrivals mostly alternate left / right, with a little randomness */
+    var right = dir != null ? dir : (Math.random() < .75 ? !lastRight : lastRight); lastRight = right;
+    var r = Math.random(), size = lane === 'near' ? 1 : r < .55 ? 1 : r < .9 ? 2 : 3;
+    var t0 = Math.floor(Math.random() * nTemplates), old = oldFlags.charAt(t0) === '1';
+    var v = rnd(.42, .58) * (size > 1 ? .82 : 1) * (old && size === 1 ? .8 : 1);   /* body-heights per second */
+    var step = .42 / v;                                                         /* stride ~0.42 body heights */
+    var phase = Math.random() * step * 2;
+    for (var k = 0; k < size; k++) {
+      var t = k === 0 ? t0 : (t0 + 3 + Math.floor(Math.random() * (nTemplates - 4))) % nTemplates;
+      /* abreast: partner a little nearer/further and half a body ahead or behind; trio's middle sits back (V) */
+      var depth = k === 0 ? 0 : k === 1 ? 14 : -10, lead = k === 0 ? 0 : k === 1 ? -18 : 48;
+      spawn(lane, { t: t, right: right, v: v * rnd(.99, 1.01), step: step, phase: phase + k * .06, depth: depth + rnd(-4, 4), lead: lead * u * 1.4, at: at });
+    }
+  }
+  function schedule(lane) {
+    clearTimeout(timers[lane]);
+    if (!running || reduce) return;
+    var L = LANES[lane], wait = Math.max(1.4, -Math.log(1 - Math.random()) * L.gap);   /* random (Poisson) arrivals */
+    timers[lane] = setTimeout(function () { arrive(lane); schedule(lane); }, wait * 1000);
+  }
+  function setRunning(on) {
+    if (on === running) return; running = on;
+    walkers.forEach(function (w) { on && !reduce ? w.anim.play() : w.anim.pause(); });
+    host.classList.toggle('fc-run', on && !reduce);
+    Object.keys(LANES).forEach(function (l) { on ? schedule(l) : clearTimeout(timers[l]); });
+  }
+  function populate() {
+    /* start mid-scene so the street is never empty: a few people already part-way across */
+    walkers.slice().forEach(function (w) { w.el.remove(); }); walkers = [];
+    arrive('far', rnd(.15, .4), true); arrive('far', rnd(.15, .4), false);
+    arrive('mid', rnd(.55, .8), false); arrive('mid', rnd(.55, .8), true);
+  }
+
   function frame(now) {
     raf = 0;
     var p = reduce ? 1 : progress(), q = Math.min(1, p / .8), e = 1 - (1 - q) * (1 - q);
     if (p !== last) {
-      rows.forEach(function (r) { r[0].setAttribute('transform', 'translate(0 ' + (r[1] * (1 - e)).toFixed(1) + ')'); });
+      lanes.forEach(function (l) { l[0].style.transform = 'translate3d(0,' + (l[1] * u * (1 - e)).toFixed(1) + 'px,0)'; });
       if (word) word.style.transform = 'translateY(' + (40 * (1 - e)).toFixed(1) + '%)';
+      setRunning(p > .02);
       last = p;
     }
     if (!me) return;
     if (p > .97 && !autoHi) { autoHi = true; hiUntil = now + 2800; }
-    var on = hovering || now < hiUntil;
-    me.classList.toggle('hi', on);
+    me.classList.toggle('hi', hovering || now < hiUntil);
     if (now < hiUntil) tick();
   }
   function tick() { if (!raf) raf = requestAnimationFrame(frame); }
 
   function load() {
     if (loading) return; loading = true;
-    fetch('/footer-crowd.svg').then(function (r) { return r.ok ? r.text() : ''; }).then(function (svg) {
-      if (!svg) return;
-      host.innerHTML = svg;
-      rows = [['.fc-doo', 60], ['.fc-back', 110], ['.fc-mid', 190], ['.fc-me', 330], ['.fc-front', 270]]
-        .map(function (r) { return [host.querySelector(r[0]), r[1]]; }).filter(function (r) { return r[0]; });
+    fetch('/footer-crowd.html').then(function (r) { return r.ok ? r.text() : ''; }).then(function (html) {
+      if (!html) return;
+      host.innerHTML = html;
+      var defs = host.querySelector('.fc-defs'); oldFlags = defs.getAttribute('data-old') || ''; nTemplates = oldFlags.length || 1;
+      lanes = [].map.call(host.querySelectorAll('.fc-lane'), function (el) { return [el, +el.getAttribute('data-lift') || 0]; });
+      [].forEach.call(host.querySelectorAll('.fc-street'), function (el) { streets[el.getAttribute('data-lane')] = el; });
       me = host.querySelector('.fc-vita');
       if (me) {
         me.addEventListener('mouseenter', function () { hovering = true; tick(); });
@@ -358,14 +439,15 @@
         me.addEventListener('blur', function () { hovering = false; tick(); });
         me.addEventListener('click', function () { hiUntil = performance.now() + 2800; tick(); });
       }
-      last = -1; tick();
+      measure(); populate(); tick();
     }).catch(function () {});
   }
   function near() {
-    if (innerHeight + scrollY >= document.documentElement.scrollHeight - foot.offsetHeight - innerHeight * 1.5) { load(); }
+    if (innerHeight + scrollY >= document.documentElement.scrollHeight - foot.offsetHeight - innerHeight * 1.5) load();
     tick();
   }
+  var rz; addEventListener('resize', function () { measure(); tick(); clearTimeout(rz); rz = setTimeout(function () { if (nTemplates) populate(); }, 250); });
   addEventListener('scroll', near, { passive: true });
-  addEventListener('resize', function () { last = -1; tick(); });
+  document.addEventListener('visibilitychange', function () { if (document.hidden) setRunning(false); else { last = -1; tick(); } });
   near();
 })();

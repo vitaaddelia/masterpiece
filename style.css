@@ -1104,12 +1104,31 @@ p.eyebrow, p.cs-eyebrow, p.art-byline, .cs-meta-label, figcaption, .tag, .tag-be
 .ft-up { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--cream); white-space: nowrap; }
 .ft-up svg { width: 15px; height: 15px; }
 
-.ft-stage { position: relative; overflow: hidden; background-color: var(--cream); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .23 0 0 0 0 .12 0 0 0 0 .2 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"); height: clamp(250px, 34vw, 48vh); }
+.ft-stage { position: relative; overflow: hidden; background-color: var(--cream); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .23 0 0 0 0 .12 0 0 0 0 .2 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"); height: max(260px, 31.25vw); }
 .ft-word { position: absolute; left: 0; right: 0; top: 4%; text-align: center; white-space: nowrap; font-family: var(--display); font-weight: 700; font-size: 14.6vw; line-height: .9; letter-spacing: -.03em; color: var(--beige); will-change: transform; user-select: none; }
 .ft-crowd { position: absolute; inset: 0; }
-.ft-crowd svg { position: absolute; left: 0; top: 0; width: 100%; height: 100%; overflow: hidden; }
-.fc-row { will-change: transform; }
-.fc-vita { cursor: pointer; outline: none; }
+
+.fc-lane { position: absolute; inset: 0; will-change: transform; pointer-events: none; }
+.fc-l { position: absolute; left: 0; top: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.fc-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+/* a passer-by: the outer box travels (Web Animations), the inner box steps */
+.fc-ped { position: absolute; left: 0; will-change: transform; }
+.fc-ped svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.fc-ped svg.fc-flip { transform: scaleX(-1); }
+.fc-gait { position: absolute; inset: 0; transform-origin: 50% 100%; will-change: transform;
+  animation: fcGait calc(var(--step, .8s) * 2) linear infinite paused; }
+/* two steps per cycle: body rises mid-stride and sways a touch from side to side */
+@keyframes fcGait {
+  0%   { transform: translate3d(0, 0, 0) rotate(-.6deg); }
+  25%  { transform: translate3d(0, -1.6%, 0) rotate(0deg); }
+  50%  { transform: translate3d(0, 0, 0) rotate(.6deg); }
+  75%  { transform: translate3d(0, -1.6%, 0) rotate(0deg); }
+  100% { transform: translate3d(0, 0, 0) rotate(-.6deg); }
+}
+.ft-crowd.fc-run .fc-gait { animation-play-state: running; }
+.fc-shadow { position: absolute; z-index: -1; left: 22%; right: 22%; bottom: 0.4%; height: 1.6%; border-radius: 50%; background: var(--ink); opacity: .08; }
+.fc-vita { pointer-events: auto; }
+.fc-vita { cursor: pointer; outline: none; pointer-events: auto; }
 .fc-bounce { transform-box: fill-box; transform-origin: 50% 100%; transition: transform .45s var(--out); }
 .fc-vita.hi .fc-bounce { animation: fcHop .55s var(--out) 2; }
 @keyframes fcHop { 0%, 100% { transform: none; } 45% { transform: translateY(-14px) scale(1.01, .99); } }
@@ -1131,4 +1150,4 @@ p.eyebrow, p.cs-eyebrow, p.art-byline, .cs-meta-label, figcaption, .tag, .tag-be
   .ft-cols { grid-template-columns: 1fr; gap: 26px; }
   .ft-bye { flex-direction: column; align-items: flex-start; }
 }
-@media (prefers-reduced-motion: reduce) { .fc-twk, .fc-vita.hi .fc-bounce { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .fc-twk, .fc-vita.hi .fc-bounce, .fc-gait { animation: none; } }
