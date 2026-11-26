@@ -262,3 +262,36 @@
   v.addEventListener('play', sync); v.addEventListener('pause', sync); v.addEventListener('volumechange', sync);
   sync();
 })();
+
+/* ---------------- work filter: All / Creative & CRO / UI/UX ---------------- */
+(() => {
+  'use strict';
+  const grid = document.querySelector('#work .proj-grid');
+  const btns = Array.from(document.querySelectorAll('.wf-btn'));
+  if (!grid || !btns.length) return;
+  const cards = Array.from(grid.querySelectorAll('.proj'));
+  const status = document.getElementById('wf-status');
+  const names = { all: 'all projects', cro: 'creative strategy and CRO projects', ui: 'UI/UX and product projects' };
+  const apply = (f) => {
+    let n = 0;
+    cards.forEach((c) => {
+      const show = f === 'all' || (c.dataset.cat || '').split(' ').includes(f);
+      const was = !c.hidden;
+      c.hidden = !show;
+      if (show) { n++; if (!was) { c.classList.remove('wf-in'); void c.offsetWidth; c.classList.add('wf-in'); } }
+    });
+    grid.classList.toggle('is-filtered', f !== 'all');
+    btns.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.filter === f)));
+    if (status) status.textContent = `Showing ${n} ${names[f]}.`;
+    window.dispatchEvent(new Event('resize'));   // let pinned/3D sections re-measure
+  };
+  btns.forEach((b) => b.addEventListener('click', () => apply(b.dataset.filter)));
+  // links elsewhere on the page ("See this work", hero links) jump to the grid pre-filtered
+  document.querySelectorAll('[data-filter-link]').forEach((a) => a.addEventListener('click', (e) => {
+    e.preventDefault();
+    apply(a.dataset.filterLink);
+    const work = document.getElementById('work');
+    if (window.VITA && window.VITA.lenis) window.VITA.lenis.scrollTo(work, { offset: -20 });
+    else work.scrollIntoView({ behavior: 'smooth' });
+  }));
+})();

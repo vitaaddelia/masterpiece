@@ -34,10 +34,17 @@ const FAQS = [
     related: ['results', 'blaze', 'notesco']
   },
   {
+    id: 'hybrid',
+    question: 'Creative strategist or UI/UX designer?',
+    keywords: ['creative strategist', 'creative strategy', '~strategist', 'dtc', 'd2c', 'ads', 'ad creative', 'meta ads', '~angle', 'cro', 'conversion', 'both', 'hybrid', 'ui/ux', 'ux designer'],
+    answer: "Both, and they're one job to me. On the creative side I find the angle and design the landing pages, product pages, quizzes and checkouts that sell it: +116% conversion and 2.3× ROAS across 29+ DACH landing pages at DSCommerce.\n\nOn the UI/UX side I design product people can actually use, from a 500,000+ product catalog to healthcare ERP workflows.",
+    related: ['results', 'projects']
+  },
+  {
     id: 'projects',
     question: 'What have you worked on?',
     keywords: ['worked on', 'projects', 'project', 'case study', 'case studies', 'portfolio', 'work samples', 'examples', 'proyek', 'projekte', 'showcase'],
-    answer: "Four case studies:\n\n• The Catalog Heist: search and navigation for a 500,000+ product catalog\n• Bonza: an AI dog nutritionist (in staging)\n• Doctors' payslips inside NOTES Healthcare ERP\n• QA automation: 413 automated tests across 200+ pages\n\nAsk me about any of them, or scroll to Selected work.",
+    answer: "Four full case studies, plus growth landing pages for DSCommerce and the Aura film:\n\n• The Catalog Heist: search and navigation for a 500,000+ product catalog\n• Bonza: an AI dog nutritionist (in staging)\n• Doctors' payslips inside NOTES Healthcare ERP\n• QA automation: 413 automated tests across 200+ pages\n\nAsk me about any of them, or scroll to Selected work.",
     related: ['catalog', 'payslip', 'qa']
   },
   {
